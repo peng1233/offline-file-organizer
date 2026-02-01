@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>离线文件整理器（批量改名/打包ZIP）</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <style>
+    :root{--bg:#0b1220;--card:#0f1a30;--border:#243a67;--text:#e8eefc;--muted:#a9b7dc;--accent:#66d9ff;--bad:#ff6b6b;}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#07101d,#0b1220);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Microsoft YaHei",Arial;}
+    .wrap{max-width:980px;margin:0 auto;padding:22px 14px 40px;}
+    .card{background:rgba(15,26,48,.92);border:1px solid rgba(36,58,103,.8);border-radius:14px;padding:16px;box-shadow:0 12px 40px rgba(0,0,0,.35);}
+    h1{margin:0 0 6px;font-size:18px;letter-spacing:.2px;}
+    .muted{color:var(--muted);font-size:13px;line-height:1.6;}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center;}
+    input,select,button,textarea{border-radius:10px;border:1px solid rgba(42,71,127,.9);background:#0d1a33;color:var(--text);padding:10px 12px;font-size:14px;}
+    input[type="text"], textarea{flex:1;min-width:220px;}
+    button{cursor:pointer;}
+    button:hover{border-color:#3f67b3;}
+    button.bad{border-color:rgba(255,107,107,.65);}
+    .grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+    @media (min-width:860px){.grid{grid-template-columns:1.1fr .9fr;}}
+    .box{border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px;background:rgba(255,255,255,.03);}
+    .k{font-size:12px;color:var(--muted);}
+    .v{font-family:ui-monospace,Consolas,monospace;font-size:12px;word-break:break-all;}
+    table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;}
+    th,td{padding:8px 8px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;}
+    th{color:#dbe6ff;font-weight:600;}
+    .pill{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid rgba(102,217,255,.35);color:var(--accent);font-size:12px;}
+    .warn{color:#ffe9ee;background:rgba(255,107,107,.12);border:1px solid rgba(255,107,107,.35);padding:10px;border-radius:12px;font-size:13px;}
+    .ok{color:#d9ffef;background:rgba(80,255,190,.08);border:1px solid rgba(80,255,190,.25);padding:10px;border-radius:12px;font-size:13px;}
+    .footer{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>离线文件整理器 <span class="pill">100% 本地运行</span></h1>
+      <div class="muted">
+        用途：批量选择文件 → 按规则改名 → 打包成 ZIP 下载。<br>
+        隐私：不上传、不联网（本页面只依赖本地 JSZip 库）。
+      </div>
+
+      <div class="grid">
+        <div class="box">
+          <div class="row">
+            <label class="k" style="min-width:86px">选择文件</label>
+            <input id="files" type="file" multiple />
+            <button id="clear" class="bad">清空</button>
+          </div>
+
+          <div class="row">
+            <label class="k" style="min-width:86px">命名规则</label>
+            <select id="mode">
+              <option value="prefix-index">前缀 + 序号</option>
+              <option value="keepname-prefix">保留原名 + 前缀</option>
+              <option value="replace">替换文本（原名）</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label class="k" style="min-width:86px">前缀</label>
+            <input id="prefix" type="text" placeholder="例如：invoice_ / photo_ / doc_" value="file_" />
+          </div>
+
+          <div class="row" id="replaceRow" style="display:none">
+            <label class="k" style="min-width:86px">替换</label>
+            <input id="from" type="text" placeholder="把…" />
+            <input id="to" type="text" placeholder="替换为…" />
+          </div>
+
+          <div class="row">
+            <label class="k" style="min-width:86px">序号起始</label>
+            <input id="start" type="text" value="1" style="width:110px" />
+            <label class="k">位数</label>
+            <input id="pad" type="text" value="3" style="width:110px" />
+            <label class="k">分隔</label>
+            <input id="sep" type="text" value="" style="width:110px" />
+          </div>
+
+          <div class="row">
+            <label class="k" style="min-width:86px">输出 ZIP 名</label>
+            <input id="zipName" type="text" value="renamed.zip" />
+            <button id="build">生成 ZIP</button>
+          </div>
+
+          <div id="msg" style="margin-top:10px"></div>
+
+          <table id="preview" hidden>
+            <thead>
+              <tr>
+                <th>原文件名</th>
+                <th>新文件名</th>
+                <th>大小</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="k">打赏支持（BTC）</div>
+          <div class="muted" style="margin-top:6px">
+            如果这个工具帮到你，你可以用 BTC 支持我继续维护、继续做更多免费工具。
+            <br>
+            注意：打赏金额请不要随意修改，否则无法自动对账归因（这是临时的“金额归因”方案）。
+          </div>
+          <div class="row" style="margin-top:10px">
+            <a id="donateLink" href="#" target="_blank">打开 BTC 收款页</a>
+          </div>
+          <div class="k" style="margin-top:10px">建议打赏金额（BTC，任选其一）</div>
+          <div class="row" style="margin-top:8px">
+            <button class="amt" data-amt="0.00003414">0.00003414</button>
+            <button class="amt" data-amt="0.00005678">0.00005678</button>
+            <button class="amt" data-amt="0.00001234">0.00001234</button>
+          </div>
+          <div class="muted" style="margin-top:10px">
+            你也可以让作者给你生成“专属金额订单”（用于精确归因到某个任务/角色）。
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="muted">提示：本工具只在你的浏览器内处理文件。生成 ZIP 后请自行保存。</div>
+        <div class="muted">版本：tool-file-organizer-1</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/jszip.min.js"></script>
+  <script>
+    const $ = (id)=>document.getElementById(id);
+    const filesEl = $('files');
+    const modeEl = $('mode');
+    const prefixEl = $('prefix');
+    const startEl = $('start');
+    const padEl = $('pad');
+    const sepEl = $('sep');
+    const zipNameEl = $('zipName');
+    const replaceRow = $('replaceRow');
+    const fromEl = $('from');
+    const toEl = $('to');
+    const msgEl = $('msg');
+    const preview = $('preview');
+    const tbody = preview.querySelector('tbody');
+
+    // 你的收款页（可换成 GitHub Pages 链接）
+    const DONATE_PAGE = 'https://peng1233.github.io/btc-receive/';
+    const donateLink = $('donateLink');
+    donateLink.href = DONATE_PAGE;
+
+    function setMsg(type, text){
+      msgEl.innerHTML = '';
+      if(!text) return;
+      const div = document.createElement('div');
+      div.className = type === 'ok' ? 'ok' : (type === 'warn' ? 'warn' : 'muted');
+      div.textContent = text;
+      msgEl.appendChild(div);
+    }
+
+    function humanSize(n){
+      const u=['B','KB','MB','GB'];
+      let i=0; let x=n;
+      while(x>=1024 && i<u.length-1){ x/=1024; i++; }
+      return (i===0?x: x.toFixed(2))+' '+u[i];
+    }
+
+    function splitName(name){
+      const idx = name.lastIndexOf('.');
+      if(idx<=0) return { base:name, ext:'' };
+      return { base:name.slice(0,idx), ext:name.slice(idx) };
+    }
+
+    function padNum(n, w){
+      const s = String(n);
+      return s.length>=w ? s : ('0'.repeat(w-s.length)+s);
+    }
+
+    function calcNewName(file, i){
+      const mode = modeEl.value;
+      const prefix = (prefixEl.value||'').trim();
+      const start = parseInt(startEl.value||'1',10);
+      const pad = Math.max(0, Math.min(8, parseInt(padEl.value||'0',10)));
+      const sep = sepEl.value ?? '';
+
+      const { base, ext } = splitName(file.name);
+      const idx = start + i;
+
+      if(mode === 'prefix-index'){
+        return `${prefix}${sep}${padNum(idx,pad)}${ext}`;
+      }
+      if(mode === 'keepname-prefix'){
+        return `${prefix}${sep}${base}${ext}`;
+      }
+      if(mode === 'replace'){
+        const from = fromEl.value || '';
+        const to = toEl.value || '';
+        return `${base.replaceAll(from,to)}${ext}`;
+      }
+      return file.name;
+    }
+
+    function refreshPreview(){
+      const files = Array.from(filesEl.files||[]);
+      tbody.innerHTML='';
+      if(files.length===0){ preview.hidden=true; return; }
+      preview.hidden=false;
+
+      const names = new Set();
+      let collision = false;
+
+      files.forEach((f,i)=>{
+        const tr=document.createElement('tr');
+        const nn=calcNewName(f,i);
+        if(names.has(nn)) collision = true;
+        names.add(nn);
+        tr.innerHTML = `<td class="v">${f.name}</td><td class="v">${nn}</td><td>${humanSize(f.size)}</td>`;
+        tbody.appendChild(tr);
+      });
+
+      if(collision) setMsg('warn','警告：生成的新文件名存在重复，会导致 ZIP 内覆盖。请调整规则。');
+      else setMsg('ok',`已加载 ${files.length} 个文件，预览已更新。`);
+    }
+
+    modeEl.addEventListener('change', ()=>{
+      replaceRow.style.display = (modeEl.value==='replace') ? '' : 'none';
+      refreshPreview();
+    });
+    [filesEl,prefixEl,startEl,padEl,sepEl,fromEl,toEl].forEach(el=>{
+      el.addEventListener('input', refreshPreview);
+      el.addEventListener('change', refreshPreview);
+    });
+
+    $('clear').addEventListener('click', ()=>{
+      filesEl.value='';
+      tbody.innerHTML='';
+      preview.hidden=true;
+      setMsg('','');
+    });
+
+    document.querySelectorAll('button.amt').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const amt = btn.getAttribute('data-amt');
+        // 直接跳收款页，让用户在收款页里填金额；这里也可直接拼 BIP21，但需要地址。
+        window.open(DONATE_PAGE, '_blank');
+        setMsg('ok', `已打开收款页。建议在收款页金额栏输入：${amt} BTC（不要修改尾差，便于对账）。`);
+      });
+    });
+
+    $('build').addEventListener('click', async ()=>{
+      const files = Array.from(filesEl.files||[]);
+      if(files.length===0){ setMsg('warn','请先选择文件。'); return; }
+
+      const names = new Set();
+      for(let i=0;i<files.length;i++){
+        const nn=calcNewName(files[i],i);
+        if(names.has(nn)) { setMsg('warn','新文件名重复，无法安全打包。请先修正规则。'); return; }
+        names.add(nn);
+      }
+
+      setMsg('ok','正在生成 ZIP…（大文件会稍慢）');
+
+      const zip = new JSZip();
+      for(let i=0;i<files.length;i++){
+        const f = files[i];
+        const nn = calcNewName(f,i);
+        zip.file(nn, f);
+      }
+
+      const blob = await zip.generateAsync({ type:'blob', compression:'DEFLATE', compressionOptions:{ level:6 } });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = (zipNameEl.value||'renamed.zip').trim() || 'renamed.zip';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+
+      setMsg('ok', `已生成 ZIP：${a.download}`);
+    });
+
+    replaceRow.style.display = (modeEl.value==='replace') ? '' : 'none';
+    refreshPreview();
+  </script>
+</body>
+</html>

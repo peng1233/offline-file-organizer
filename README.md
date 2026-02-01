@@ -1,2 +1,12 @@
-# offline-file-organizer
-Offline batch rename + ZIP download tool (runs locally, no uploads).
+# 离线文件整理器（批量改名/打包ZIP）
+
+- 100% 本地运行（不上传、不联网）
+- 批量选择文件 → 按规则改名 → 打包 ZIP 下载
+
+## 使用
+打开 `index.html` 即可。
+
+## 打赏支持（BTC）
+收款页：https://peng1233.github.io/btc-receive/
+
+> 说明：当前采用“金额归因（2B临时方案）”。如果需要精确对账到任务/角色，请让作者生成“专属金额订单”。
