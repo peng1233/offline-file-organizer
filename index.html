@@ -193,6 +193,16 @@
       return replaced || 'file';
     }
 
+    // 兼容旧浏览器：String.prototype.replaceAll 可能不存在
+    function safeReplaceAll(str, search, replacement){
+      const s = String(str);
+      const from = String(search);
+      const to = String(replacement);
+      if(from === '') return s; // 避免空字符串导致异常膨胀
+      if(typeof s.replaceAll === 'function') return s.replaceAll(from, to);
+      return s.split(from).join(to);
+    }
+
     function calcNewName(file, i){
       const mode = modeEl.value;
       const prefix = (prefixEl.value||'').trim();
@@ -215,7 +225,7 @@
         if(!from){
           out = `${base}${ext}`;
         } else {
-          out = `${base.replaceAll(from,to)}${ext}`;
+          out = `${safeReplaceAll(base,from,to)}${ext}`;
         }
       } else {
         out = file.name;

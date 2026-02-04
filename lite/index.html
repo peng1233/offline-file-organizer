@@ -136,6 +136,16 @@
       return replaced || 'file';
     }
 
+    // 兼容旧浏览器：String.prototype.replaceAll 可能不存在
+    function safeReplaceAll(str, search, replacement){
+      const s = String(str);
+      const from = String(search);
+      const to = String(replacement);
+      if(from === '') return s; // 避免空字符串导致异常膨胀
+      if(typeof s.replaceAll === 'function') return s.replaceAll(from, to);
+      return s.split(from).join(to);
+    }
+
     function validateSettings(){
       if(modeEl.value === 'replace'){
         const from = (fromEl.value || '');
@@ -165,7 +175,7 @@
       } else if(mode === 'replace'){
         const from = (fromEl.value || '');
         const to = (toEl.value || '');
-        out = `${base.replaceAll(from,to)}${ext}`;
+        out = `${safeReplaceAll(base,from,to)}${ext}`;
       } else {
         out = file.name;
       }
@@ -197,7 +207,7 @@
       }
 
       // 为 Excel 友好：加 UTF-8 BOM；字段用双引号包裹并转义
-      const esc = (s)=>('"' + String(s).replaceAll('"','""') + '"');
+      const esc = (s)=>('"' + safeReplaceAll(String(s),'"','""') + '"');
       const csv = '\uFEFF' + rows.map(r=>r.map(esc).join(',')).join('\n') + '\n';
 
       const blob = new Blob([csv], { type:'text/csv;charset=utf-8' });
