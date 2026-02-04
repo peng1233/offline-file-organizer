@@ -11,6 +11,10 @@
 - 入口：`lite/index.html`
 - 特点：不依赖外网与第三方库；支持批量改名、逐个下载、导出 CSV 清单；ZIP 打包为可选增强。
 
+Lite 演示截图（支持“加载示例（无文件）”，便于快速理解/宣传）：
+
+![Lite demo](docs/assets/lite-demo.png)
+
 ## 打赏支持（BTC）
 收款页：https://peng1233.github.io/btc-receive/
 
