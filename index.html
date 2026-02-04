@@ -43,6 +43,14 @@
         隐私：不上传、不联网（本页面只依赖本地 JSZip 库）。
       </div>
 
+      <div class="row" style="margin-top:10px">
+        <a href="https://github.com/peng1233/offline-file-organizer" target="_blank">GitHub 仓库</a>
+        <span class="muted">·</span>
+        <a href="https://github.com/peng1233/offline-file-organizer/archive/refs/heads/main.zip" target="_blank">下载离线版（ZIP）</a>
+        <span class="muted">·</span>
+        <a href="#faq">FAQ</a>
+      </div>
+
       <div class="grid">
         <div class="box">
           <div class="row">
@@ -81,7 +89,7 @@
           </div>
 
           <div class="row">
-            <label class="k" style="min-width:86px">输出 ZIP 名</label>
+            <label class="k" style="min-width:86px">输出 ZIP 名称</label>
             <input id="zipName" type="text" value="renamed.zip" />
             <button id="build">生成 ZIP</button>
           </div>
@@ -119,6 +127,15 @@
           <div class="muted" style="margin-top:10px">
             你也可以让作者给你生成“专属金额订单”（用于精确归因到某个任务/角色）。
           </div>
+        </div>
+      </div>
+
+      <div id="faq" class="box" style="margin-top:12px">
+        <div class="k">FAQ</div>
+        <div class="muted" style="margin-top:6px">
+          <div><b>Q：</b>文件会上传到服务器吗？<br><b>A：</b>不会。本工具仅在浏览器本地读取文件并生成 ZIP，页面无需登录。</div>
+          <div style="margin-top:8px"><b>Q：</b>支持哪些浏览器？<br><b>A：</b>建议使用最新版 Chrome / Edge。Safari/Firefox 如遇到下载或大文件性能问题，请换 Chrome/Edge。</div>
+          <div style="margin-top:8px"><b>Q：</b>为什么大文件会慢/占内存？<br><b>A：</b>ZIP 在本地生成，浏览器需要占用内存与 CPU；超大文件建议分批处理。</div>
         </div>
       </div>
 
