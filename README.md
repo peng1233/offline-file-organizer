@@ -1,5 +1,7 @@
 # 离线文件整理器（批量改名/打包ZIP）
 
+English README: [README_EN.md](README_EN.md)
+
 - 100% 本地运行（不上传、不联网）
 - 批量选择文件 → 按规则改名 → 打包 ZIP 下载
 
