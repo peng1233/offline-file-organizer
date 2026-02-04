@@ -31,6 +31,9 @@
 
 仓库： https://github.com/peng1233/offline-file-organizer
 
+（沟通模板）项目范围/验收标准/风险/回滚：
+- docs/marketplace/project-scope-template.md
+
 ---
 
 ## English (for Upwork/Fiverr description)
@@ -61,3 +64,6 @@ Live demo (GitHub Pages):
 - Lite fallback: https://peng1233.github.io/offline-file-organizer/lite/
 
 Repo: https://github.com/peng1233/offline-file-organizer
+
+(Template) Project scope / acceptance / risks / rollback:
+- docs/marketplace/project-scope-template.md
