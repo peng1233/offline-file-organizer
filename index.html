@@ -43,16 +43,6 @@
         隐私：不上传、不联网（本页面只依赖本地 JSZip 库）。
       </div>
 
-      <div class="row" style="margin-top:10px">
-        <a href="https://github.com/peng1233/offline-file-organizer" target="_blank">GitHub 仓库</a>
-        <span class="muted">·</span>
-        <a href="https://github.com/peng1233/offline-file-organizer/releases/latest/download/offline-file-organizer.zip" target="_blank">下载离线版（稳定 Release）</a>
-        <span class="muted">·</span>
-        <a href="https://github.com/peng1233/offline-file-organizer/archive/refs/heads/main.zip" target="_blank">下载 main.zip（源码快照）</a>
-        <span class="muted">·</span>
-        <a href="#faq">FAQ</a>
-      </div>
-
       <div class="grid">
         <div class="box">
           <div class="row">
@@ -91,7 +81,7 @@
           </div>
 
           <div class="row">
-            <label class="k" style="min-width:86px">输出 ZIP 名称</label>
+            <label class="k" style="min-width:86px">输出 ZIP 名</label>
             <input id="zipName" type="text" value="renamed.zip" />
             <button id="build">生成 ZIP</button>
           </div>
@@ -132,18 +122,9 @@
         </div>
       </div>
 
-      <div id="faq" class="box" style="margin-top:12px">
-        <div class="k">FAQ</div>
-        <div class="muted" style="margin-top:6px">
-          <div><b>Q：</b>文件会上传到服务器吗？<br><b>A：</b>不会。本工具仅在浏览器本地读取文件并生成 ZIP，页面无需登录。</div>
-          <div style="margin-top:8px"><b>Q：</b>支持哪些浏览器？<br><b>A：</b>建议使用最新版 Chrome / Edge。Safari/Firefox 如遇到下载或大文件性能问题，请换 Chrome/Edge。</div>
-          <div style="margin-top:8px"><b>Q：</b>为什么大文件会慢/占内存？<br><b>A：</b>ZIP 在本地生成，浏览器需要占用内存与 CPU；超大文件建议分批处理。</div>
-        </div>
-      </div>
-
       <div class="footer">
         <div class="muted">提示：本工具只在你的浏览器内处理文件。生成 ZIP 后请自行保存。</div>
-        <div class="muted">版本：tool-file-organizer-2</div>
+        <div class="muted">版本：tool-file-organizer-1</div>
       </div>
     </div>
   </div>
@@ -197,34 +178,9 @@
       return s.length>=w ? s : ('0'.repeat(w-s.length)+s);
     }
 
-    // 兼容 Windows/常见文件系统的非法字符与尾部点/空格
-    function sanitizeFileName(name){
-      if(!name) return 'file';
-      // 1) 替换非法字符与控制字符
-      let s = String(name)
-        .replace(/[\\\/\:*\?"<>\|]/g, '_')
-        .replace(/[\u0000-\u001F\u007F]/g, '_');
-      // 2) Windows 不允许尾部 '.' 或空格
-      s = s.replace(/[. ]+$/g, '');
-      // 3) 兜底
-      if(!s) s = 'file';
-      return s;
-    }
-
-    function validateSettings(){
-      const mode = modeEl.value;
-      if(mode === 'replace'){
-        const from = (fromEl.value || '');
-        if(from.length === 0){
-          return { ok:false, msg:'替换模式下，“把…”不能为空（否则会导致文件名异常变长）。' };
-        }
-      }
-      return { ok:true, msg:'' };
-    }
-
     function calcNewName(file, i){
       const mode = modeEl.value;
-      const prefix = sanitizeFileName((prefixEl.value||'').trim());
+      const prefix = (prefixEl.value||'').trim();
       const start = parseInt(startEl.value||'1',10);
       const pad = Math.max(0, Math.min(8, parseInt(padEl.value||'0',10)));
       const sep = sepEl.value ?? '';
@@ -236,15 +192,14 @@
         return `${prefix}${sep}${padNum(idx,pad)}${ext}`;
       }
       if(mode === 'keepname-prefix'){
-        return `${prefix}${sep}${sanitizeFileName(base)}${ext}`;
+        return `${prefix}${sep}${base}${ext}`;
       }
       if(mode === 'replace'){
         const from = fromEl.value || '';
         const to = toEl.value || '';
-        const replaced = base.replaceAll(from,to);
-        return `${sanitizeFileName(replaced)}${ext}`;
+        return `${base.replaceAll(from,to)}${ext}`;
       }
-      return sanitizeFileName(file.name);
+      return file.name;
     }
 
     function refreshPreview(){
@@ -264,12 +219,6 @@
         tr.innerHTML = `<td class="v">${f.name}</td><td class="v">${nn}</td><td>${humanSize(f.size)}</td>`;
         tbody.appendChild(tr);
       });
-
-      const v = validateSettings();
-      if(!v.ok){
-        setMsg('warn', v.msg);
-        return;
-      }
 
       if(collision) setMsg('warn','警告：生成的新文件名存在重复，会导致 ZIP 内覆盖。请调整规则。');
       else setMsg('ok',`已加载 ${files.length} 个文件，预览已更新。`);
@@ -303,9 +252,6 @@
     $('build').addEventListener('click', async ()=>{
       const files = Array.from(filesEl.files||[]);
       if(files.length===0){ setMsg('warn','请先选择文件。'); return; }
-
-      const v = validateSettings();
-      if(!v.ok){ setMsg('warn', v.msg); return; }
 
       const names = new Set();
       for(let i=0;i<files.length;i++){
