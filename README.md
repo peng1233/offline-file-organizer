@@ -7,7 +7,9 @@
 - https://peng1233.github.io/offline-file-organizer/
 
 ## 离线使用（推荐）
-1. 在本仓库页面点击 **Code → Download ZIP**（或 `git clone`）。
+1. 下载离线包：
+   - 稳定版（Release）：https://github.com/peng1233/offline-file-organizer/releases/latest/download/offline-file-organizer.zip
+   - 或者源码快照：在本仓库页面点击 **Code → Download ZIP**（或 `git clone`）。
 2. 解压后直接双击打开 `index.html`。
 3. 全程离线：不上传、不联网。
 

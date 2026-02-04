@@ -1,0 +1,33 @@
+name: Release ZIP
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build offline zip
+        run: |
+          zip -r offline-file-organizer.zip . \
+            -x ".git/*" \
+            -x ".github/*" \
+            -x "**/.DS_Store" \
+            -x "**/node_modules/*"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: offline-file-organizer.zip
+          generate_release_notes: true
