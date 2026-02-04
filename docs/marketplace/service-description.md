@@ -4,7 +4,7 @@
 
 ## 中文（可用于 Upwork/Fiverr 说明）
 
-我可以为你交付一个**完全离线运行**的文件整理小工具：在浏览器里批量改文件名、导出清单（CSV），并支持可选 ZIP 打包（若环境不支持 ZIP，会自动提供逐个下载的离线兜底方案）。
+我可以为你交付一款 **完全离线运行** 的文件整理小工具：在浏览器里批量改文件名、导出清单（CSV），并支持可选的 ZIP 打包下载（若环境不支持 ZIP，会自动提供逐个下载的离线兜底方案）。
 
 **适合场景**
 - 摄影/视频素材批量改名（按日期/序号/模板）
@@ -14,8 +14,8 @@
 **核心特点**
 - **100% 本地离线**：文件不上传服务器
 - **可选 ZIP**：支持 ZIP 一键下载；若 ZIP 不可用，也能逐个下载（Lite 版兜底）
-- **导出 CSV 清单**：便于对账/交付/归档
-- **简单可复用**：直接打开网页即可使用（无需安装）
+- **导出 CSV 清单**：便于对账、交付、归档
+- **零安装**：直接打开网页即可使用
 
 **交付物**
 - 一个可离线打开的网页工具（含说明文档）
@@ -31,6 +31,7 @@
 
 仓库： https://github.com/peng1233/offline-file-organizer
 
+---
 
 ## English (for Upwork/Fiverr description)
 
@@ -38,7 +39,7 @@ I can deliver a **fully offline** file-organizing tool that runs in your browser
 
 **Great for**
 - Batch renaming photo/video assets (date/sequence/template)
-- Archiving documents, invoices, receipts, downloads cleanup
+- Archiving documents, invoices/receipts, downloads cleanup
 - Privacy-sensitive workflows (offline / intranet / no file uploads)
 
 **Key features**
