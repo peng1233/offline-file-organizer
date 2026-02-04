@@ -143,7 +143,7 @@
 
       <div class="footer">
         <div class="muted">提示：本工具只在你的浏览器内处理文件。生成 ZIP 后请自行保存。</div>
-        <div class="muted">版本：tool-file-organizer-1</div>
+        <div class="muted">版本：tool-file-organizer-2</div>
       </div>
     </div>
   </div>
@@ -197,9 +197,34 @@
       return s.length>=w ? s : ('0'.repeat(w-s.length)+s);
     }
 
+    // 兼容 Windows/常见文件系统的非法字符与尾部点/空格
+    function sanitizeFileName(name){
+      if(!name) return 'file';
+      // 1) 替换非法字符与控制字符
+      let s = String(name)
+        .replace(/[\\\/\:*\?"<>\|]/g, '_')
+        .replace(/[\u0000-\u001F\u007F]/g, '_');
+      // 2) Windows 不允许尾部 '.' 或空格
+      s = s.replace(/[. ]+$/g, '');
+      // 3) 兜底
+      if(!s) s = 'file';
+      return s;
+    }
+
+    function validateSettings(){
+      const mode = modeEl.value;
+      if(mode === 'replace'){
+        const from = (fromEl.value || '');
+        if(from.length === 0){
+          return { ok:false, msg:'替换模式下，“把…”不能为空（否则会导致文件名异常变长）。' };
+        }
+      }
+      return { ok:true, msg:'' };
+    }
+
     function calcNewName(file, i){
       const mode = modeEl.value;
-      const prefix = (prefixEl.value||'').trim();
+      const prefix = sanitizeFileName((prefixEl.value||'').trim());
       const start = parseInt(startEl.value||'1',10);
       const pad = Math.max(0, Math.min(8, parseInt(padEl.value||'0',10)));
       const sep = sepEl.value ?? '';
@@ -211,14 +236,15 @@
         return `${prefix}${sep}${padNum(idx,pad)}${ext}`;
       }
       if(mode === 'keepname-prefix'){
-        return `${prefix}${sep}${base}${ext}`;
+        return `${prefix}${sep}${sanitizeFileName(base)}${ext}`;
       }
       if(mode === 'replace'){
         const from = fromEl.value || '';
         const to = toEl.value || '';
-        return `${base.replaceAll(from,to)}${ext}`;
+        const replaced = base.replaceAll(from,to);
+        return `${sanitizeFileName(replaced)}${ext}`;
       }
-      return file.name;
+      return sanitizeFileName(file.name);
     }
 
     function refreshPreview(){
@@ -238,6 +264,12 @@
         tr.innerHTML = `<td class="v">${f.name}</td><td class="v">${nn}</td><td>${humanSize(f.size)}</td>`;
         tbody.appendChild(tr);
       });
+
+      const v = validateSettings();
+      if(!v.ok){
+        setMsg('warn', v.msg);
+        return;
+      }
 
       if(collision) setMsg('warn','警告：生成的新文件名存在重复，会导致 ZIP 内覆盖。请调整规则。');
       else setMsg('ok',`已加载 ${files.length} 个文件，预览已更新。`);
@@ -271,6 +303,9 @@
     $('build').addEventListener('click', async ()=>{
       const files = Array.from(filesEl.files||[]);
       if(files.length===0){ setMsg('warn','请先选择文件。'); return; }
+
+      const v = validateSettings();
+      if(!v.ok){ setMsg('warn', v.msg); return; }
 
       const names = new Set();
       for(let i=0;i<files.length;i++){
