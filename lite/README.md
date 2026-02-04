@@ -19,6 +19,12 @@
 - **默认：逐个下载**（无需第三方库，真正离线即可用）
 - **可选：ZIP 打包**：把 `vendor/jszip.min.js` 放到同目录并在页面中启用即可
 
+## 演示截图
+
+![Lite 演示模式：批量改名预览 + 导出 CSV](../docs/assets/lite-demo.png)
+
+- 在线演示（Lite）：https://peng1233.github.io/offline-file-organizer/lite/
+
 ## 说明文档
 - 中文：README.md（本文件）
 - English: README_EN.md
