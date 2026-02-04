@@ -6,6 +6,16 @@
 ## 使用
 打开 `index.html` 即可。
 
+如果你需要使用浏览器的“选择文件夹/目录”能力（File System Access API），建议用本仓库自带的本地服务器在 `http://localhost` 下打开（`file://` 方式在部分浏览器会被限制）：
+
+```bash
+node tools/serve.js
+```
+
+然后访问：
+- 主版：`http://127.0.0.1:5173/`
+- Lite：`http://127.0.0.1:5173/lite/`
+
 ## 完全离线版（Lite，推荐作为兜底）
 如果你的环境无法加载第三方库/无法生成 ZIP，使用 Lite 版：
 - 入口：`lite/index.html`
