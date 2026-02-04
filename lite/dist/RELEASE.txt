@@ -1,6 +1,6 @@
 ﻿Name: offline-file-organizer-lite.zip
-SHA256: 973393e4000843b85d8468cf2fd6f2ace92b49331e6460e48e575c098d5d20e1
-BuiltAt: 2026-02-04 22:01:18 +08:00
+SHA256: b948e2d443678dfdaf9e5c97703f2059748fc358eb4fa4b4ea12a5a5c00fae9f
+BuiltAt: 2026-02-05 01:33:00 +08:00
 Files:
   - index.html
   - README.md

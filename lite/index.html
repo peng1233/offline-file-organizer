@@ -47,6 +47,7 @@
 
   <div class="actions">
     <button id="btnPreview">刷新预览</button>
+    <button id="btnDemo">加载示例（无文件）</button>
     <button id="btnExport">导出清单（CSV）</button>
     <button id="btnDownload">开始下载（逐个）</button>
     <button id="btnZip" disabled>生成 ZIP（需要本地 JSZip）</button>
@@ -65,7 +66,7 @@
   <div class="footer">
     <div>提示：默认逐个下载。浏览器可能会弹出“允许多文件下载”的权限提示，请选择允许。</div>
     <div>发布入口：<a href="https://github.com/peng1233/offline-file-organizer" target="_blank" rel="noopener">GitHub</a> ｜ <a href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打赏页（BTC）</a></div>
-    <div>版本：tool-file-organizer-lite-3</div>
+    <div>版本：tool-file-organizer-lite-4</div>
   </div>
 
   <!-- 可选：把 vendor/jszip.min.js 放到同目录，然后取消下一行注释以启用 ZIP -->
@@ -84,6 +85,7 @@
     const tbody = document.getElementById('tbody');
     const msgEl = document.getElementById('msg');
     const btnPreview = document.getElementById('btnPreview');
+    const btnDemo = document.getElementById('btnDemo');
     const btnExport = document.getElementById('btnExport');
     const btnDownload = document.getElementById('btnDownload');
     const btnZip = document.getElementById('btnZip');
@@ -93,6 +95,24 @@
       msgEl.className = 'msg ' + (type || 'ok');
       msgEl.textContent = text || '';
       msgEl.style.display = text ? 'block' : 'none';
+    }
+
+    // Demo（无文件）模式：用于截图/演示/快速理解流程。
+    // 注意：demo 仅提供“预览/导出 CSV”，不支持实际下载。
+    let demoFiles = null;
+    function getFiles(){
+      return demoFiles ? demoFiles : Array.from(fileEl.files || []);
+    }
+    function loadDemo(){
+      demoFiles = [
+        { name:'IMG_0001.jpg' },
+        { name:'IMG_0002.jpg' },
+        { name:'IMG_0003.jpg' },
+        { name:'Video_2026-02-01.mp4' },
+        { name:'Screenshot 2026-02-02 10.30.15.png' },
+      ];
+      setMsg('ok','已加载示例文件名：可用于预览/导出 CSV（示例不支持下载）。');
+      refreshPreview();
     }
 
     function splitName(name){
@@ -163,8 +183,8 @@
     }
 
     function exportCsv(){
-      const files = Array.from(fileEl.files || []);
-      if(!files.length){ setMsg('warn','请先选择文件。'); return; }
+      const files = getFiles();
+      if(!files.length){ setMsg('warn','请先选择文件（或点击“加载示例”）。'); return; }
 
       const v = validateSettings();
       if(!v.ok){ setMsg('err', v.msg); return; }
@@ -192,10 +212,10 @@
     }
 
     function refreshPreview(){
-      const files = Array.from(fileEl.files || []);
+      const files = getFiles();
       tbody.innerHTML = '';
       if(!files.length){
-        setMsg('warn','请先选择文件。');
+        setMsg('warn','请先选择文件（或点击“加载示例”）。');
         return;
       }
 
@@ -227,7 +247,11 @@
     }
 
     async function downloadIndividually(){
-      const files = Array.from(fileEl.files || []);
+      if(demoFiles){
+        setMsg('warn','当前为“示例模式”（无真实文件），不支持下载。请先选择真实文件。');
+        return;
+      }
+      const files = getFiles();
       if(!files.length){ setMsg('warn','没有文件可下载。'); return; }
 
       const v = validateSettings();
@@ -262,7 +286,11 @@
     }
 
     async function downloadZip(){
-      const files = Array.from(fileEl.files || []);
+      if(demoFiles){
+        setMsg('warn','当前为“示例模式”（无真实文件），不支持生成 ZIP。请先选择真实文件。');
+        return;
+      }
+      const files = getFiles();
       if(!window.JSZip){
         setMsg('err','未检测到 JSZip。请把 vendor/jszip.min.js 放入并启用脚本标签。');
         return;
@@ -296,12 +324,17 @@
       replaceRow.style.display = (modeEl.value==='replace') ? 'flex' : 'none';
       refreshPreview();
     });
-    fileEl.addEventListener('change', refreshPreview);
+    fileEl.addEventListener('change', ()=>{
+      // 一旦用户选择了真实文件，就退出示例模式
+      demoFiles = null;
+      refreshPreview();
+    });
     [prefixEl, sepEl, startEl, padEl, fromEl, toEl].forEach(el=>{
       el.addEventListener('input', ()=>{ /* 轻量：不强制实时刷新，避免卡顿 */ });
     });
 
     btnPreview.addEventListener('click', refreshPreview);
+    btnDemo.addEventListener('click', loadDemo);
     btnExport.addEventListener('click', exportCsv);
     btnDownload.addEventListener('click', downloadIndividually);
     btnZip.addEventListener('click', downloadZip);
