@@ -1,0 +1,313 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offline File Organizer（离线文件整理器）</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;max-width:980px;margin:24px auto;padding:0 16px;}
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+    label{display:flex;gap:6px;align-items:center;}
+    input,select{padding:6px 8px;}
+    table{width:100%;border-collapse:collapse;margin-top:12px;}
+    th,td{border:1px solid #ddd;padding:6px 8px;font-size:13px;word-break:break-all;}
+    .muted{color:#666;font-size:12px;}
+    .msg{margin-top:10px;padding:8px 10px;border-radius:6px;font-size:13px;}
+    .ok{background:#eef7ee;border:1px solid #bfe0bf;}
+    .warn{background:#fff6e8;border:1px solid #f2d2a2;}
+    .err{background:#ffecec;border:1px solid #f0b4b4;}
+    .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;}
+    button{padding:8px 12px;cursor:pointer;}
+    .footer{margin-top:18px;color:#666;font-size:12px;}
+  </style>
+</head>
+<body>
+  <h2>Offline File Organizer（离线文件整理器）</h2>
+  <div class="muted">隐私：不上传、不联网。本页面不依赖外网资源（默认逐个下载；可选 ZIP 需本地放入 jszip 文件）。</div>
+
+  <div class="row" style="margin-top:12px">
+    <label>选择文件：<input id="file" type="file" multiple /></label>
+    <label>模式：
+      <select id="mode">
+        <option value="prefix-index">前缀+序号</option>
+        <option value="keepname-prefix">原名+前缀</option>
+        <option value="replace">替换</option>
+      </select>
+    </label>
+    <label>前缀：<input id="prefix" placeholder="例如：IMG" /></label>
+    <label>分隔符：<input id="sep" value="_" style="width:64px" /></label>
+    <label>起始：<input id="start" value="1" style="width:70px" /></label>
+    <label>补零：<input id="pad" value="3" style="width:70px" /></label>
+  </div>
+
+  <div class="row" id="replaceRow" style="margin-top:10px;display:none">
+    <label>把：<input id="from" placeholder="要替换的内容" /></label>
+    <label>换成：<input id="to" placeholder="替换为" /></label>
+  </div>
+
+  <div class="actions">
+    <button id="btnPreview">刷新预览</button>
+    <button id="btnExport">导出清单（CSV）</button>
+    <button id="btnDownload">开始下载（逐个）</button>
+    <button id="btnZip" disabled>生成 ZIP（需要本地 JSZip）</button>
+    <label class="muted"><input type="checkbox" id="chkConfirm" checked />下载前二次确认</label>
+  </div>
+
+  <div id="msg" class="msg ok" style="display:none"></div>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>原文件名</th><th>新文件名</th></tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <div class="footer">
+    <div>提示：默认逐个下载。浏览器可能会弹出“允许多文件下载”的权限提示，请选择允许。</div>
+    <div>发布入口：<a href="https://github.com/peng1233/offline-file-organizer" target="_blank" rel="noopener">GitHub</a> ｜ <a href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打赏页（BTC）</a></div>
+    <div>版本：tool-file-organizer-lite-3</div>
+  </div>
+
+  <!-- 可选：把 vendor/jszip.min.js 放到同目录，然后取消下一行注释以启用 ZIP -->
+  <!-- <script src="vendor/jszip.min.js"></script> -->
+
+  <script>
+    const fileEl = document.getElementById('file');
+    const modeEl = document.getElementById('mode');
+    const prefixEl = document.getElementById('prefix');
+    const sepEl = document.getElementById('sep');
+    const startEl = document.getElementById('start');
+    const padEl = document.getElementById('pad');
+    const fromEl = document.getElementById('from');
+    const toEl = document.getElementById('to');
+    const replaceRow = document.getElementById('replaceRow');
+    const tbody = document.getElementById('tbody');
+    const msgEl = document.getElementById('msg');
+    const btnPreview = document.getElementById('btnPreview');
+    const btnExport = document.getElementById('btnExport');
+    const btnDownload = document.getElementById('btnDownload');
+    const btnZip = document.getElementById('btnZip');
+    const chkConfirm = document.getElementById('chkConfirm');
+
+    function setMsg(type, text){
+      msgEl.className = 'msg ' + (type || 'ok');
+      msgEl.textContent = text || '';
+      msgEl.style.display = text ? 'block' : 'none';
+    }
+
+    function splitName(name){
+      const i = name.lastIndexOf('.');
+      if(i <= 0) return { base:name, ext:'' };
+      return { base:name.slice(0,i), ext:name.slice(i) };
+    }
+
+    function padNum(n, w){
+      const s = String(n);
+      return s.length>=w ? s : ('0'.repeat(w-s.length)+s);
+    }
+
+    function sanitizeFilename(name){
+      // 兼容 Windows/常见文件系统：\\ / : * ? " < > | 以及控制字符
+      // 另外移除尾部 . 或空格，避免保存/解压失败
+      const replaced = String(name)
+        .replace(/[\u0000-\u001F\u007F]/g, '_')
+        .replace(/[\\\/\:\*\?\"\<\>\|]/g, '_')
+        .replace(/[\.\s]+$/g, '');
+      return replaced || 'file';
+    }
+
+    function validateSettings(){
+      if(modeEl.value === 'replace'){
+        const from = (fromEl.value || '');
+        if(!from){
+          // 和“安全默认”一致：不允许空 from（避免用户误把 from 设空导致文件名膨胀/不可控）
+          return { ok:false, msg:'替换模式下，“把…”不能为空（避免文件名异常变长/不可控）。' };
+        }
+      }
+      return { ok:true, msg:'' };
+    }
+
+    function calcNewName(file, i){
+      const mode = modeEl.value;
+      const prefix = sanitizeFilename((prefixEl.value||'').trim());
+      const start = parseInt(startEl.value||'1',10);
+      const pad = Math.max(0, Math.min(8, parseInt(padEl.value||'0',10)));
+      const sep = (sepEl.value ?? '');
+
+      const { base, ext } = splitName(file.name);
+      const idx = start + i;
+
+      let out;
+      if(mode === 'prefix-index'){
+        out = `${prefix}${sep}${padNum(idx,pad)}${ext}`;
+      } else if(mode === 'keepname-prefix'){
+        out = `${prefix}${sep}${base}${ext}`;
+      } else if(mode === 'replace'){
+        const from = (fromEl.value || '');
+        const to = (toEl.value || '');
+        out = `${base.replaceAll(from,to)}${ext}`;
+      } else {
+        out = file.name;
+      }
+      return sanitizeFilename(out);
+    }
+
+    function hasCollision(files){
+      const seen = new Set();
+      for(let i=0;i<files.length;i++){
+        const n = calcNewName(files[i], i);
+        if(seen.has(n)) return true;
+        seen.add(n);
+      }
+      return false;
+    }
+
+    function exportCsv(){
+      const files = Array.from(fileEl.files || []);
+      if(!files.length){ setMsg('warn','请先选择文件。'); return; }
+
+      const v = validateSettings();
+      if(!v.ok){ setMsg('err', v.msg); return; }
+
+      const rows = [];
+      rows.push(['序号','原文件名','新文件名']);
+      for(let i=0;i<files.length;i++){
+        const f = files[i];
+        rows.push([String(i+1), f.name, calcNewName(f,i)]);
+      }
+
+      // 为 Excel 友好：加 UTF-8 BOM；字段用双引号包裹并转义
+      const esc = (s)=>('"' + String(s).replaceAll('"','""') + '"');
+      const csv = '\uFEFF' + rows.map(r=>r.map(esc).join(',')).join('\n') + '\n';
+
+      const blob = new Blob([csv], { type:'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'rename-manifest.csv';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+
+      setMsg('ok',`已导出清单 CSV：${files.length} 行。`);
+    }
+
+    function refreshPreview(){
+      const files = Array.from(fileEl.files || []);
+      tbody.innerHTML = '';
+      if(!files.length){
+        setMsg('warn','请先选择文件。');
+        return;
+      }
+
+      const v = validateSettings();
+      if(!v.ok){
+        setMsg('err', v.msg);
+        return;
+      }
+
+      const seen = new Map();
+      let collision = false;
+      files.forEach((f,i)=>{
+        const n = calcNewName(f,i);
+        if(seen.has(n)) collision = true;
+        seen.set(n,true);
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${i+1}</td><td>${f.name}</td><td>${n}</td>`;
+        tbody.appendChild(tr);
+      });
+
+      if(collision){
+        setMsg('warn','警告：生成的新文件名存在重复，可能导致覆盖。请调整规则。');
+      } else {
+        setMsg('ok',`已加载 ${files.length} 个文件，预览已更新。`);
+      }
+
+      btnZip.disabled = !(window.JSZip && files.length);
+    }
+
+    async function downloadIndividually(){
+      const files = Array.from(fileEl.files || []);
+      if(!files.length){ setMsg('warn','没有文件可下载。'); return; }
+
+      const v = validateSettings();
+      if(!v.ok){ setMsg('err', v.msg); return; }
+
+      const collision = hasCollision(files);
+      if(collision && chkConfirm.checked){
+        const ok = confirm('警告：生成的新文件名存在重复，可能导致覆盖。\n\n仍要继续逐个下载吗？');
+        if(!ok) return;
+      }
+
+      if(chkConfirm.checked){
+        const ok = confirm(`将开始逐个下载 ${files.length} 个文件。\n\n注意：浏览器可能会弹出“允许多文件下载”。`);
+        if(!ok) return;
+      }
+
+      for(let i=0;i<files.length;i++){
+        const f = files[i];
+        const newName = calcNewName(f,i);
+        const url = URL.createObjectURL(f);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = newName;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        // 给浏览器一点节奏，避免被拦截
+        await new Promise(r=>setTimeout(r, 120));
+      }
+      setMsg('ok',`已触发下载：${files.length} 个文件。`);
+    }
+
+    async function downloadZip(){
+      const files = Array.from(fileEl.files || []);
+      if(!window.JSZip){
+        setMsg('err','未检测到 JSZip。请把 vendor/jszip.min.js 放入并启用脚本标签。');
+        return;
+      }
+      const v = validateSettings();
+      if(!v.ok){ setMsg('err', v.msg); return; }
+
+      const collision = hasCollision(files);
+      if(collision && chkConfirm.checked){
+        const ok = confirm('警告：生成的新文件名存在重复，可能导致覆盖。\n\n仍要继续生成 ZIP 吗？');
+        if(!ok) return;
+      }
+
+      const zip = new JSZip();
+      for(let i=0;i<files.length;i++){
+        const f = files[i];
+        const newName = calcNewName(f,i);
+        zip.file(newName, f);
+      }
+      const blob = await zip.generateAsync({ type:'blob', compression:'DEFLATE', compressionOptions:{ level:6 } });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'renamed.zip';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+      setMsg('ok',`已生成 ZIP（${files.length} 个文件）。`);
+    }
+
+    modeEl.addEventListener('change', ()=>{
+      replaceRow.style.display = (modeEl.value==='replace') ? 'flex' : 'none';
+      refreshPreview();
+    });
+    fileEl.addEventListener('change', refreshPreview);
+    [prefixEl, sepEl, startEl, padEl, fromEl, toEl].forEach(el=>{
+      el.addEventListener('input', ()=>{ /* 轻量：不强制实时刷新，避免卡顿 */ });
+    });
+
+    btnPreview.addEventListener('click', refreshPreview);
+    btnExport.addEventListener('click', exportCsv);
+    btnDownload.addEventListener('click', downloadIndividually);
+    btnZip.addEventListener('click', downloadZip);
+
+    // 初始
+    replaceRow.style.display = 'none';
+  </script>
+</body>
+</html>

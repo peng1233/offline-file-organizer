@@ -6,6 +6,11 @@
 ## 使用
 打开 `index.html` 即可。
 
+## 完全离线版（Lite，推荐作为兜底）
+如果你的环境无法加载第三方库/无法生成 ZIP，使用 Lite 版：
+- 入口：`lite/index.html`
+- 特点：不依赖外网与第三方库；支持批量改名、逐个下载、导出 CSV 清单；ZIP 打包为可选增强。
+
 ## 打赏支持（BTC）
 收款页：https://peng1233.github.io/btc-receive/
 

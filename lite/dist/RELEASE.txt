@@ -1,0 +1,12 @@
+﻿Name: offline-file-organizer-lite.zip
+SHA256: 973393e4000843b85d8468cf2fd6f2ace92b49331e6460e48e575c098d5d20e1
+BuiltAt: 2026-02-04 22:01:18 +08:00
+Files:
+  - index.html
+  - README.md
+  - selfcheck.js
+  - .editorconfig
+  - build-release.ps1
+
+SelfCheckOutput:
+  SELF_CHECK_OK

@@ -10,6 +10,11 @@ Privacy: no uploads. Works offline.
 ## How to use
 Open `index.html`.
 
+## Fully-offline fallback (Lite)
+If your environment can't load third-party libraries or can't generate ZIPs, use the Lite version:
+- Entry: `lite/index.html`
+- Features: no external deps; batch rename; download one-by-one; export a CSV manifest; ZIP is optional.
+
 ## Support (BTC)
 Donation page: https://peng1233.github.io/btc-receive/
 
