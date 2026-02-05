@@ -14,6 +14,8 @@ English README: [README_EN.md](README_EN.md)
 node tools/serve.js
 ```
 
+Windows 一键启动（PowerShell 脚本）：`docs/windows-quickstart.md`
+
 然后访问：
 - 主版：`http://127.0.0.1:5173/`
 - Lite：`http://127.0.0.1:5173/lite/`

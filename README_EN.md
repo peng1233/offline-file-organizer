@@ -12,6 +12,8 @@ If you need **folder/directory picking** (File System Access API), some browsers
 node tools/serve.js
 ```
 
+Windows one-command start (PowerShell script): `docs/windows-quickstart.md`
+
 Then open:
 - Main: `http://127.0.0.1:5173/`
 - Lite: `http://127.0.0.1:5173/lite/`
