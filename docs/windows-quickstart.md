@@ -37,6 +37,13 @@ powershell -ExecutionPolicy Bypass -File tools\serve.ps1 -Port 5173 -NoOpen
 
 ## 常见问题 / Troubleshooting
 
+- 控制台中文乱码/日志看不清：
+  - 用仓库自带脚本以 UTF-8 方式打印文件内容：
+
+    ```powershell
+    powershell -ExecutionPolicy Bypass -File scripts\print-utf8.ps1 -Path docs\windows-quickstart.md -Tail 80
+    ```
+
 - PowerShell 提示脚本被阻止/执行策略限制：
   - 推荐：用本文给出的命令（已带 `-ExecutionPolicy Bypass`），仅对当前次运行生效。
   - 或者只对当前 PowerShell 进程生效：
