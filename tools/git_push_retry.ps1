@@ -19,6 +19,9 @@ function Invoke-GitPushOnce {
   param([string]$Remote, [string]$Branch)
   Write-Host ("[git_push_retry] pushing {0} {1} ..." -f $Remote, $Branch)
   & git push $Remote $Branch
+  if ($LASTEXITCODE -ne 0) {
+    throw ("git push failed with exit code {0}" -f $LASTEXITCODE)
+  }
 }
 
 Set-GitHttpTuning
