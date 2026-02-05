@@ -13,12 +13,13 @@ By default it downloads files one-by-one. **Optional ZIP download** is supported
 - Works offline: you can double-click `index.html` to run.
 
 ## Windows quick start (optional)
-If you prefer a one-command open:
+If you prefer an easier launcher on Windows:
 
-- From the `lite/` folder, run:
-  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\open.ps1`
+- Double-click `open.cmd` (recommended)
+  - It will call `open.ps1` and open the local `index.html` in your default browser.
 
-This only opens the local `index.html` in your default browser.
+Or, from the `lite/` folder, run:
+- `powershell -NoProfile -ExecutionPolicy Bypass -File .\open.ps1`
 
 ## Features
 - Rename modes:
