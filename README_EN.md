@@ -29,5 +29,9 @@ Demo screenshot (Lite supports **“Load demo (no files)”** for quick understa
 - Replace mode: the "from" field cannot be empty.
 - For older browsers without `String.prototype.replaceAll`, the tool automatically falls back to a compatible implementation.
 
+## Freelance / delivery template
+If you deliver this tool as a small freelance task (Upwork/Fiverr/Toptal) or want a clear acceptance checklist, use this one-page template:
+- `docs/marketplace/project-scope-template.md`
+
 ## Support (BTC)
 Donation page: https://peng1233.github.io/btc-receive/
