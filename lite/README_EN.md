@@ -12,6 +12,14 @@ By default it downloads files one-by-one. **Optional ZIP download** is supported
 - No upload. Everything runs locally in your browser.
 - Works offline: you can double-click `index.html` to run.
 
+## Windows quick start (optional)
+If you prefer a one-command open:
+
+- From the `lite/` folder, run:
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\open.ps1`
+
+This only opens the local `index.html` in your default browser.
+
 ## Features
 - Rename modes:
   - `prefix-index` (prefix + incremental index)
