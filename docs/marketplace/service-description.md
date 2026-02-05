@@ -19,7 +19,7 @@
 
 **交付物**
 - 一个可离线打开的网页工具（含说明文档）
--（可选）按你的规则定制：命名模板、冲突处理、导出字段、预设按钮等
+- （可选）按你的规则定制：命名模板、冲突处理、导出字段、预设按钮等
 
 **你需要提供**
 - 一份示例文件名/目录结构（可脱敏）
@@ -29,7 +29,7 @@
 - 主版本：https://peng1233.github.io/offline-file-organizer/
 - Lite（完全离线兜底）：https://peng1233.github.io/offline-file-organizer/lite/
 
-仓库： https://github.com/peng1233/offline-file-organizer
+仓库：https://github.com/peng1233/offline-file-organizer
 
 （沟通模板）项目范围/验收标准/风险/回滚：
 - docs/marketplace/project-scope-template.md
