@@ -29,6 +29,12 @@ Lite 演示截图（支持“加载示例（无文件）”，便于快速理解
 
 ![Lite demo](docs/assets/lite-demo.png)
 
+## 变现（Fiverr / Upwork / Toptal / GitHub Sponsors）
+如果你想把这个工具的能力做成可交付服务（例如：帮客户批量改名/整理文件并交付 ZIP + 清单），这里有一个可直接复用的 Fiverr 文案模板：
+- `docs/monetization/fiverr-gig-template.md`
+
+（白名单平台：Upwork/Fiverr/Toptal/GitHub Sponsors）
+
 ## 打赏支持（BTC）
 收款页：https://peng1233.github.io/btc-receive/
 
