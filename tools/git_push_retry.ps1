@@ -7,6 +7,13 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# Avoid mojibake in CI/log capture: do not rely on localized Warning/Error streams.
+# Keep output ASCII and emit via Write-Host.
+try {
+  [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+} catch {}
+$OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+
 function Set-GitHttpTuning {
   # Repo-local tuning to reduce flaky HTTP/2 behavior and tolerate slow links.
   git config http.version HTTP/1.1 | Out-Null
@@ -33,7 +40,7 @@ for ($i = 1; $i -le $Attempts; $i++) {
     exit 0
   } catch {
     $msg = $_.Exception.Message
-    Write-Warning ("[git_push_retry] failed attempt {0}/{1}: {2}" -f $i, $Attempts, $msg)
+    Write-Host ("[git_push_retry] WARN failed attempt {0}/{1}: {2}" -f $i, $Attempts, $msg)
 
     if ($i -eq $Attempts) { break }
 
@@ -43,4 +50,5 @@ for ($i = 1; $i -le $Attempts; $i++) {
   }
 }
 
-Write-Error "[git_push_retry] push failed after all attempts. You can retry later or switch to a different network/VPN."
+Write-Host "[git_push_retry] FAIL: push failed after all attempts. Retry later or switch network/VPN."
+exit 1
