@@ -4,7 +4,7 @@
 **Offline File Organizer** is a privacy‑first, fully offline tool to batch rename files and export a clear CSV mapping for review/approval.
 
 - Works **offline** in your browser (no upload, no tracking)
-- Generate rename plan → **Export CSV** or **Copy CSV** (with graceful fallback)
+- Generate a rename plan — **Export CSV** or **Copy CSV** (with graceful fallback)
 - Optional ZIP download; **Lite** mode is a no‑dependency fallback
 - Windows friendly: double‑click `lite\\open.cmd` or follow `docs/windows-quickstart.md`
 
@@ -18,4 +18,4 @@ Repo: https://github.com/peng1233/offline-file-organizer
 Support: https://peng1233.github.io/btc-receive/ (BTC) | https://github.com/sponsors/peng1233 (GitHub Sponsors)
 
 ## 中文（平台字数受限版）
-离线文件整理器：在浏览器本地离线批量改名，生成“旧名→新名”清单并导出/复制 CSV，适合隐私敏感与需要审批对账的场景。Lite 版零依赖，可用 `lite\\open.cmd` 双击打开；Windows 教程见 `docs/windows-quickstart.md`。
+离线文件整理器：在浏览器本地离线批量改名，生成“旧名→新名”清单并导出/复制 CSV，适合隐私敏感与需要审批对账的场景。Lite 版零依赖，可直接双击 `lite\\open.cmd` 打开；Windows 教程见 `docs/windows-quickstart.md`。
