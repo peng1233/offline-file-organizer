@@ -19,7 +19,7 @@ Then open:
 ## Fully-offline fallback (Lite)
 If your environment cannot load third-party libraries or ZIP generation fails, use the Lite version:
 - Entry: `lite/index.html`
-- Features: zero dependencies; batch rename; download one-by-one; export CSV manifest; ZIP is an optional enhancement.
+- Features: zero dependencies; batch rename; download one-by-one; export CSV manifest; **Copy CSV** (clipboard with fallback); ZIP is an optional enhancement.
 
 Demo screenshot (Lite supports **“Load demo (no files)”** for quick understanding):
 
