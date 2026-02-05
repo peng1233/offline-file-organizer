@@ -1,7 +1,7 @@
 # Project Scope & Delivery Template (Copy/Paste)
 
 > Purpose: a clear, client-friendly scope you can paste into Upwork/Fiverr/Toptal proposals or send in chat.
-> 
+>
 > This template is **software-agnostic**. Replace the bracketed parts.
 
 ---
@@ -81,7 +81,7 @@ If a change causes issues:
 # 中文版本（可直接粘贴）
 
 > 目的：把工作范围说清楚，方便在 Upwork/Fiverr/Toptal 的 proposal 或聊天里直接发送。
-> 
+>
 > 该模板与具体软件无关，请把中括号内容替换为你的项目实际信息。
 
 ---
@@ -113,9 +113,9 @@ If a change causes issues:
 
 满足以下条件即视为完成：
 
-- [ ] **可运行/可构建**：按 **[具体步骤/命令]** 在 **[系统/版本]** 上可用
+- [ ] **可运行/可构建**：按 **[具体步骤/命令]** 在 **[系统/版本]** 上可跑通
 - [ ] **功能符合描述**：核心功能按范围说明正常工作
-- [ ] **证据可核对**：提供 **[截图/日志/SHA256/演示链接]**
+- [ ] **证据可核验**：提供 **[截图/日志/SHA256/演示链接]**
 - [ ] **文档齐全**：提供简短说明（README/更新说明）
 - [ ] **不泄露密钥**：不提交/不明文分享任何 Token/密码
 
@@ -153,5 +153,5 @@ If a change causes issues:
 
 如变更引发问题：
 
-- 可回退到 **[上一版本/上一提交/上一构建]**
+- 可回退到：**[上一版本/上一提交/上一构建]**
 - 尽量保证改动小且可隔离
