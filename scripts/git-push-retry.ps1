@@ -9,6 +9,9 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# Force UTF-8 console output to reduce mojibake in PowerShell 5.1 hosts
+try { [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false) } catch {}
+
 function Get-GitRemoteUrl {
   param([string]$Remote)
 
@@ -46,10 +49,10 @@ Write-Host "[git-push-retry] Starting (remote=$Remote, url=$remoteUrl, branch=$B
 
 $ok443 = Test-GitHub443
 if (-not $ok443) {
-  Write-Warning "[git-push-retry] Preflight: github.com:443 is NOT reachable right now (Test-NetConnection failed)."
-  Write-Warning "[git-push-retry] If you're on an unstable network/proxy, push may keep failing with reset/empty reply."
+  Write-Host "WARN: [git-push-retry] Preflight: github.com:443 is NOT reachable right now (Test-NetConnection failed)."
+  Write-Host "WARN: [git-push-retry] If you're on an unstable network/proxy, push may keep failing with reset/empty reply."
   if ($StopIfNoConnectivity) {
-    Write-Error "[git-push-retry] StopIfNoConnectivity is set; aborting before any git push."
+    Write-Host "FAIL: [git-push-retry] StopIfNoConnectivity is set; aborting before any git push."
     exit 2
   }
 } else {
@@ -67,7 +70,7 @@ for ($i = 1; $i -le $MaxAttempts; $i++) {
   try {
     $code = Invoke-GitPushOnce -Remote $Remote -Branch $Branch
   } catch {
-    Write-Warning "[git-push-retry] git push threw: $($_.Exception.Message)"
+    Write-Host "WARN: [git-push-retry] git push threw: $($_.Exception.Message)"
     $code = 1
   }
 
@@ -77,10 +80,10 @@ for ($i = 1; $i -le $MaxAttempts; $i++) {
   }
 
   if ($i -lt $MaxAttempts) {
-    Write-Warning "[git-push-retry] Push failed (exit=$code). Waiting $DelaySeconds seconds before retry..."
+    Write-Host "WARN: [git-push-retry] Push failed (exit=$code). Waiting $DelaySeconds seconds before retry..."
     Start-Sleep -Seconds $DelaySeconds
   }
 }
 
-Write-Error "[git-push-retry] Push still failing after $MaxAttempts attempts. Possible causes: unstable network / GitHub HTTPS reset / proxy issues. Try again later or switch network."
+Write-Host "FAIL: [git-push-retry] Push still failing after $MaxAttempts attempts. Possible causes: unstable network / GitHub HTTPS reset / proxy issues. Try again later or switch network."
 exit 1
