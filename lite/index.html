@@ -49,6 +49,7 @@
     <button id="btnPreview">刷新预览</button>
     <button id="btnDemo">加载示例（无文件）</button>
     <button id="btnExport">导出清单（CSV）</button>
+    <button id="btnCopyCsv">复制清单（CSV）</button>
     <button id="btnDownload">开始下载（逐个）</button>
     <button id="btnZip" disabled>生成 ZIP（需要本地 JSZip）</button>
     <label class="muted"><input type="checkbox" id="chkConfirm" checked />下载前二次确认</label>
@@ -66,7 +67,7 @@
   <div class="footer">
     <div>提示：默认逐个下载。浏览器可能会弹出“允许多文件下载”的权限提示，请选择允许。</div>
     <div>发布入口：<a href="https://github.com/peng1233/offline-file-organizer" target="_blank" rel="noopener">GitHub</a> ｜ <a href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打赏页（BTC）</a></div>
-    <div>版本：tool-file-organizer-lite-4</div>
+    <div>版本：tool-file-organizer-lite-5</div>
   </div>
 
   <!-- 可选：把 vendor/jszip.min.js 放到同目录，然后取消下一行注释以启用 ZIP -->
@@ -87,6 +88,7 @@
     const btnPreview = document.getElementById('btnPreview');
     const btnDemo = document.getElementById('btnDemo');
     const btnExport = document.getElementById('btnExport');
+    const btnCopyCsv = document.getElementById('btnCopyCsv');
     const btnDownload = document.getElementById('btnDownload');
     const btnZip = document.getElementById('btnZip');
     const chkConfirm = document.getElementById('chkConfirm');
@@ -192,12 +194,12 @@
       return false;
     }
 
-    function exportCsv(){
+    function buildCsvText(){
       const files = getFiles();
-      if(!files.length){ setMsg('warn','请先选择文件（或点击“加载示例”）。'); return; }
+      if(!files.length){ setMsg('warn','请先选择文件（或点击“加载示例”）。'); return null; }
 
       const v = validateSettings();
-      if(!v.ok){ setMsg('err', v.msg); return; }
+      if(!v.ok){ setMsg('err', v.msg); return null; }
 
       const rows = [];
       rows.push(['序号','原文件名','新文件名']);
@@ -209,8 +211,14 @@
       // 为 Excel 友好：加 UTF-8 BOM；字段用双引号包裹并转义
       const esc = (s)=>('"' + safeReplaceAll(String(s),'"','""') + '"');
       const csv = '\uFEFF' + rows.map(r=>r.map(esc).join(',')).join('\n') + '\n';
+      return { csv, rowCount: files.length };
+    }
 
-      const blob = new Blob([csv], { type:'text/csv;charset=utf-8' });
+    function exportCsv(){
+      const out = buildCsvText();
+      if(!out) return;
+
+      const blob = new Blob([out.csv], { type:'text/csv;charset=utf-8' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
       a.download = 'rename-manifest.csv';
@@ -218,7 +226,41 @@
       a.click();
       setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 2000);
 
-      setMsg('ok',`已导出清单 CSV：${files.length} 行。`);
+      setMsg('ok',`已导出清单 CSV：${out.rowCount} 行。`);
+    }
+
+    async function copyCsv(){
+      const out = buildCsvText();
+      if(!out) return;
+
+      // clipboard API 在 file:// 下/部分浏览器可能不可用
+      try{
+        if(navigator.clipboard && typeof navigator.clipboard.writeText === 'function'){
+          await navigator.clipboard.writeText(out.csv);
+          setMsg('ok',`已复制清单 CSV 到剪贴板：${out.rowCount} 行。`);
+          return;
+        }
+      }catch(e){ /* ignore and fall back */ }
+
+      // 兼容兜底：用 textarea + execCommand(copy)
+      const ta = document.createElement('textarea');
+      ta.value = out.csv;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      ta.style.top = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try{ ok = document.execCommand && document.execCommand('copy'); }catch(e){ ok = false; }
+      ta.remove();
+
+      if(ok){
+        setMsg('ok',`已复制清单 CSV 到剪贴板：${out.rowCount} 行。`);
+      }else{
+        // 最后兜底：把 CSV 放到提示里，用户手动复制
+        setMsg('warn','复制失败（可能是浏览器限制/权限）。已生成 CSV，请改用“导出清单（CSV）”，或在控制台/开发者工具中复制。');
+      }
     }
 
     function refreshPreview(){
@@ -346,6 +388,7 @@
     btnPreview.addEventListener('click', refreshPreview);
     btnDemo.addEventListener('click', loadDemo);
     btnExport.addEventListener('click', exportCsv);
+    btnCopyCsv.addEventListener('click', copyCsv);
     btnDownload.addEventListener('click', downloadIndividually);
     btnZip.addEventListener('click', downloadZip);
 
