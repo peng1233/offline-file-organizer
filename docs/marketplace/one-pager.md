@@ -30,6 +30,7 @@
 
 **Support / tip jar**
 - BTC tip page: https://peng1233.github.io/btc-receive/
+- GitHub Sponsors: https://github.com/sponsors/peng1233
 
 **Notes (for clients/platforms)**
 - The Lite version is designed to be usable in restricted environments.
