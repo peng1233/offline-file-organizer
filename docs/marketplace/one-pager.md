@@ -1,5 +1,7 @@
 # Offline File Organizer (Lite) — One-pager
 
+Short version (EN, 100–200 words): `docs/marketplace/one-pager-short_EN.md`
+
 **What it is**
 - A tiny, fully-offline web tool to help people quickly organize local files into a clean structure.
 - No backend. No account. Works even when internet is blocked.
