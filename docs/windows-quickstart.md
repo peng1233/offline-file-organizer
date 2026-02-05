@@ -31,6 +31,25 @@ powershell -ExecutionPolicy Bypass -File tools\serve.ps1
 powershell -ExecutionPolicy Bypass -File tools\serve.ps1 -Port 5173 -NoOpen
 ```
 
+## 常见问题 / Troubleshooting
+
+- PowerShell 提示脚本被阻止/执行策略限制：
+  - 推荐：用本文给出的命令（已带 `-ExecutionPolicy Bypass`），仅对当前次运行生效。
+  - 或者只对当前 PowerShell 进程生效：
+
+    ```powershell
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    ```
+
+- 端口被占用（例如 5173 已在使用）：
+
+  ```powershell
+  powershell -ExecutionPolicy Bypass -File tools\serve.ps1 -Port 5174
+  ```
+
+- 只想离线预览 Lite（不需要“选择文件夹/目录”能力）：
+  - 直接双击 `lite\\open.cmd` 即可。
+
 ## 停止
 
 在运行窗口按 `Ctrl + C`。
