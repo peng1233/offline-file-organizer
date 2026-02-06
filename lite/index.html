@@ -72,6 +72,7 @@
       <a class="tipbtn" href="bitcoin:bc1p26d9hh7fahfxe40pv394mewq7fazzaqwt427t59j2mcszpvhd0wql4682h?amount=0.00001234">打赏 0.00001234 BTC</a>
       <a class="tipbtn tipbtn-mid" href="bitcoin:bc1p26d9hh7fahfxe40pv394mewq7fazzaqwt427t59j2mcszpvhd0wql4682h?amount=0.00005678">推荐 0.00005678 BTC</a>
       <a class="tipbtn" href="bitcoin:bc1p26d9hh7fahfxe40pv394mewq7fazzaqwt427t59j2mcszpvhd0wql4682h?amount=0.00003414">打赏 0.00003414 BTC</a>
+      <button id="btnCopyBtc" type="button" class="tipbtn">复制地址（BTC）</button>
       <a class="muted" href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打开打赏页（可复制地址/二维码）</a>
     </div>
     <div class="muted" style="margin-top:6px">提示：以上是 BIP21 链接（bitcoin:...）。若你的环境不支持直接打开钱包，请点“打开打赏页”。</div>
@@ -88,7 +89,7 @@
     <div>提示：默认逐个下载。浏览器可能会弹出“允许多文件下载”的权限提示，请选择允许。</div>
     <div>Windows 一键打开：双击 <code>lite\\open.cmd</code>（需已安装 Node.js）。详见 <a href="https://github.com/peng1233/offline-file-organizer/blob/main/docs/windows-quickstart.md" target="_blank" rel="noopener">Windows Quick Start</a>。</div>
     <div>发布入口：<a href="https://github.com/peng1233/offline-file-organizer" target="_blank" rel="noopener">GitHub</a> ｜ <a href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打赏页（BTC）</a></div>
-    <div>版本：tool-file-organizer-lite-8</div>
+    <div>版本：tool-file-organizer-lite-9</div>
   </div>
 
   <!-- 可选：把 vendor/jszip.min.js 放到同目录，然后取消下一行注释以启用 ZIP -->
@@ -114,11 +115,39 @@
     const btnDownload = document.getElementById('btnDownload');
     const btnZip = document.getElementById('btnZip');
     const chkConfirm = document.getElementById('chkConfirm');
+    const btnCopyBtc = document.getElementById('btnCopyBtc');
 
     function setMsg(type, text){
       msgEl.className = 'msg ' + (type || 'ok');
       msgEl.textContent = text || '';
       msgEl.style.display = text ? 'block' : 'none';
+    }
+
+    async function copyText(text){
+      const t = String(text || '');
+      if(!t) return false;
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(t);
+          return true;
+        }
+      }catch(e){ /* ignore */ }
+
+      // fallback
+      try{
+        const ta = document.createElement('textarea');
+        ta.value = t;
+        ta.setAttribute('readonly','');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return !!ok;
+      }catch(e){
+        return false;
+      }
     }
 
     // Demo（无文件）模式：用于截图/演示/快速理解流程。
@@ -169,6 +198,16 @@
         dropzone.classList.remove('drag');
         const files = (e.dataTransfer && e.dataTransfer.files) ? e.dataTransfer.files : null;
         if(files && files.length){ onDropFiles(files); }
+      });
+    }
+
+    // 打赏：复制 BTC 地址（提升转化；不依赖打开 bitcoin: 协议）
+    const BTC_ADDRESS = 'bc1p26d9hh7fahfxe40pv394mewq7fazzaqwt427t59j2mcszpvhd0wql4682h';
+    if(btnCopyBtc){
+      btnCopyBtc.addEventListener('click', async ()=>{
+        const ok = await copyText(BTC_ADDRESS);
+        if(ok) setMsg('ok', '已复制 BTC 地址：' + BTC_ADDRESS);
+        else setMsg('warn', '复制失败：你的浏览器可能禁止剪贴板操作。请点击“打开打赏页”手动复制。');
       });
     }
 
