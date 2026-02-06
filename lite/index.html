@@ -18,6 +18,8 @@
     .err{background:#ffecec;border:1px solid #f0b4b4;}
     .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;}
     button{padding:8px 12px;cursor:pointer;}
+    .dropzone{margin-top:12px;border:1px dashed #bbb;border-radius:8px;padding:12px;background:#fafafa;}
+    .dropzone.drag{border-color:#4b8bf5;background:#eef5ff;}
     .footer{margin-top:18px;color:#666;font-size:12px;}
   </style>
 </head>
@@ -25,19 +27,22 @@
   <h2>Offline File Organizer（离线文件整理器）</h2>
   <div class="muted">隐私：不上传、不联网。本页面不依赖外网资源（默认逐个下载；可选 ZIP 需本地放入 jszip 文件）。</div>
 
-  <div class="row" style="margin-top:12px">
-    <label>选择文件：<input id="file" type="file" multiple /></label>
-    <label>模式：
-      <select id="mode">
-        <option value="prefix-index">前缀+序号</option>
-        <option value="keepname-prefix">原名+前缀</option>
-        <option value="replace">替换</option>
-      </select>
-    </label>
-    <label>前缀：<input id="prefix" placeholder="例如：IMG" /></label>
-    <label>分隔符：<input id="sep" value="_" style="width:64px" /></label>
-    <label>起始：<input id="start" value="1" style="width:70px" /></label>
-    <label>补零：<input id="pad" value="3" style="width:70px" /></label>
+  <div id="dropzone" class="dropzone">
+    <div class="muted">也可以把文件直接拖到这里（离线）。</div>
+    <div class="row" style="margin-top:10px">
+      <label>选择文件：<input id="file" type="file" multiple /></label>
+      <label>模式：
+        <select id="mode">
+          <option value="prefix-index">前缀+序号</option>
+          <option value="keepname-prefix">原名+前缀</option>
+          <option value="replace">替换</option>
+        </select>
+      </label>
+      <label>前缀：<input id="prefix" placeholder="例如：IMG" /></label>
+      <label>分隔符：<input id="sep" value="_" style="width:64px" /></label>
+      <label>起始：<input id="start" value="1" style="width:70px" /></label>
+      <label>补零：<input id="pad" value="3" style="width:70px" /></label>
+    </div>
   </div>
 
   <div class="row" id="replaceRow" style="margin-top:10px;display:none">
@@ -68,7 +73,7 @@
     <div>提示：默认逐个下载。浏览器可能会弹出“允许多文件下载”的权限提示，请选择允许。</div>
     <div>Windows 一键打开：双击 <code>lite\\open.cmd</code>（需已安装 Node.js）。详见 <a href="https://github.com/peng1233/offline-file-organizer/blob/main/docs/windows-quickstart.md" target="_blank" rel="noopener">Windows Quick Start</a>。</div>
     <div>发布入口：<a href="https://github.com/peng1233/offline-file-organizer" target="_blank" rel="noopener">GitHub</a> ｜ <a href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打赏页（BTC）</a></div>
-    <div>版本：tool-file-organizer-lite-6</div>
+    <div>版本：tool-file-organizer-lite-7</div>
   </div>
 
   <!-- 可选：把 vendor/jszip.min.js 放到同目录，然后取消下一行注释以启用 ZIP -->
@@ -84,6 +89,7 @@
     const fromEl = document.getElementById('from');
     const toEl = document.getElementById('to');
     const replaceRow = document.getElementById('replaceRow');
+    const dropzone = document.getElementById('dropzone');
     const tbody = document.getElementById('tbody');
     const msgEl = document.getElementById('msg');
     const btnPreview = document.getElementById('btnPreview');
@@ -116,6 +122,39 @@
       ];
       setMsg('ok','已加载示例文件名：可用于预览/导出 CSV（示例不支持下载）。');
       refreshPreview();
+    }
+
+    // 拖拽导入：离线 file:// 场景也可用（部分浏览器可能限制给 input.files 赋值）
+    function trySetInputFiles(fileList){
+      if(!fileList || !fileList.length) return false;
+      try{
+        const dt = new DataTransfer();
+        Array.from(fileList).forEach(f=>dt.items.add(f));
+        fileEl.files = dt.files;
+        return true;
+      }catch(e){
+        return false;
+      }
+    }
+    function onDropFiles(fileList){
+      demoFiles = null;
+      const ok = trySetInputFiles(fileList);
+      if(!ok){
+        setMsg('warn','收到拖拽文件，但浏览器限制无法自动填充到“选择文件”。请手动点“选择文件”选择同一批文件。');
+        return;
+      }
+      setMsg('ok',`已接收拖拽文件：${fileList.length} 个。`);
+      refreshPreview();
+    }
+    if(dropzone){
+      dropzone.addEventListener('dragover', (e)=>{ e.preventDefault(); dropzone.classList.add('drag'); });
+      dropzone.addEventListener('dragleave', ()=>dropzone.classList.remove('drag'));
+      dropzone.addEventListener('drop', (e)=>{
+        e.preventDefault();
+        dropzone.classList.remove('drag');
+        const files = (e.dataTransfer && e.dataTransfer.files) ? e.dataTransfer.files : null;
+        if(files && files.length){ onDropFiles(files); }
+      });
     }
 
     function splitName(name){
