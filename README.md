@@ -40,6 +40,10 @@ Lite 演示截图（支持“加载示例（无文件）”，便于快速理解
 
 （白名单平台：Upwork/Fiverr/Toptal/GitHub Sponsors）
 
+## GitHub Sponsors
+如果这个工具帮你省了时间（或让你更快交付自由职业项目），欢迎在这里支持后续维护：
+- https://github.com/sponsors/peng1233
+
 ## 打赏支持（BTC）
 收款页：https://peng1233.github.io/btc-receive/
 

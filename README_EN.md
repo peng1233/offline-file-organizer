@@ -43,5 +43,9 @@ If you deliver this tool as a small freelance task (Upwork/Fiverr/Toptal) or wan
 - Service description (short, CN/EN): `docs/marketplace/service-description-short.md` / `docs/marketplace/service-description-short_EN.md`
 - One-pager (short, CN/EN): `docs/marketplace/one-pager-short.md` / `docs/marketplace/one-pager-short_EN.md`
 
+## GitHub Sponsors
+If this tool saves you time (or helps you deliver freelance work faster), you can support ongoing maintenance here:
+- https://github.com/sponsors/peng1233
+
 ## Support (BTC)
 Donation page: https://peng1233.github.io/btc-receive/
