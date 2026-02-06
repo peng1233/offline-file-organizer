@@ -1,7 +1,7 @@
-# Fiverr Gig 模板：离线文件整理/批量改名/打包交付
+# Fiverr Gig 模板：离线文件整理 + 批量改名 + 打包交付
 
-> 目的：把本仓库的工具能力，包装成 Fiverr 上可售卖的服务文案。
-> 
+> 目的：把本仓库的工具能力，包装成 Fiverr 上可售卖的服务文案模板。
+>
 > 注意：这只是文案模板，不包含任何客户数据/账号信息。
 
 ---
@@ -14,7 +14,7 @@ I will organize and batch rename your files 100% offline for privacy
 
 ---
 
-## Search Tags（标签/关键词）
+## Search Tags（标签关键词）
 file organization, batch rename, offline tool, zip packaging, dataset cleanup, media organization
 
 ---
@@ -77,17 +77,3 @@ A: No. Only filenames (and optionally folder organization) are changed.
 
 **Q: What about duplicate names after renaming?**
 A: I will detect conflicts and propose safe suffixes (e.g., _01, _02).
-
----
-
-## Upsells（加购点子）
-- Add a preview spreadsheet (CSV + summary)
-- Add a “before/after” report
-- Add extra rename rules / exception list
-
----
-
-## 内部备注（发布前自检）
-- 确保 README 中有 Lite 入口与演示图
-- 交付物里永远包含 CSV 清单（降低纠纷）
-- 遇到不确定规则：先用小样本跑一遍，截图确认后再批量处理
