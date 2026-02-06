@@ -12,6 +12,15 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# Ensure we run inside the repo even if invoked from other working directories.
+# (PowerShell scheduled jobs / absolute-path invocations often start elsewhere.)
+try {
+  $repoRoot = Resolve-Path (Join-Path $PSScriptRoot '..')
+  Set-Location -LiteralPath $repoRoot
+} catch {
+  # If this fails, git commands will error and show useful messages.
+}
+
 # Force UTF-8 console output to reduce mojibake in PowerShell 5.1 hosts
 try { [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false) } catch {}
 
@@ -35,11 +44,36 @@ function Test-GitHub443 {
   }
 }
 
+function Get-CurrentGitBranch {
+  try {
+    $b = (git rev-parse --abbrev-ref HEAD 2>$null)
+    if ($b -eq 'HEAD') { return '' }
+    return $b
+  } catch {
+    return ''
+  }
+}
+
+function Test-BranchHasUpstream {
+  param([string]$Branch)
+
+  if ([string]::IsNullOrWhiteSpace($Branch)) { return $false }
+
+  try {
+    # If upstream is not set, this exits non-zero.
+    $null = (git rev-parse --abbrev-ref --symbolic-full-name '@{u}' 2>$null)
+    return $true
+  } catch {
+    return $false
+  }
+}
+
 function Invoke-GitPushOnce {
   param(
     [string]$Remote,
     [string]$Branch,
-    [switch]$ForceHttp11
+    [switch]$ForceHttp11,
+    [switch]$SetUpstream
   )
 
   $gitArgs = @()
@@ -50,6 +84,8 @@ function Invoke-GitPushOnce {
 
   if ([string]::IsNullOrWhiteSpace($Branch)) {
     & git @gitArgs push $Remote
+  } elseif ($SetUpstream) {
+    & git @gitArgs push --set-upstream $Remote $Branch
   } else {
     & git @gitArgs push $Remote $Branch
   }
@@ -58,7 +94,18 @@ function Invoke-GitPushOnce {
 }
 
 $remoteUrl = Get-GitRemoteUrl -Remote $Remote
-Write-Host "[git-push-retry] Starting (remote=$Remote, url=$remoteUrl, branch=$Branch, maxAttempts=$MaxAttempts, delaySeconds=$DelaySeconds, checkOnly=$($CheckOnly.IsPresent), forceHttp11=$($ForceHttp11.IsPresent), exponentialBackoff=$($ExponentialBackoff.IsPresent), maxDelaySeconds=$MaxDelaySeconds)"
+
+# Resolve branch lazily: if user didn't provide -Branch, use current branch.
+if ([string]::IsNullOrWhiteSpace($Branch)) {
+  $Branch = Get-CurrentGitBranch
+}
+
+$needsUpstream = $false
+if (-not [string]::IsNullOrWhiteSpace($Branch)) {
+  $needsUpstream = -not (Test-BranchHasUpstream -Branch $Branch)
+}
+
+Write-Host "[git-push-retry] Starting (remote=$Remote, url=$remoteUrl, branch=$Branch, needsUpstream=$needsUpstream, maxAttempts=$MaxAttempts, delaySeconds=$DelaySeconds, checkOnly=$($CheckOnly.IsPresent), forceHttp11=$($ForceHttp11.IsPresent), exponentialBackoff=$($ExponentialBackoff.IsPresent), maxDelaySeconds=$MaxDelaySeconds)"
 
 $ok443 = Test-GitHub443
 if (-not $ok443) {
@@ -81,7 +128,7 @@ for ($i = 1; $i -le $MaxAttempts; $i++) {
   Write-Host "[git-push-retry] Attempt $i / $MaxAttempts ..."
 
   try {
-    $code = Invoke-GitPushOnce -Remote $Remote -Branch $Branch -ForceHttp11:$ForceHttp11
+    $code = Invoke-GitPushOnce -Remote $Remote -Branch $Branch -ForceHttp11:$ForceHttp11 -SetUpstream:$needsUpstream
   } catch {
     Write-Host "WARN: [git-push-retry] git push threw: $($_.Exception.Message)"
     $code = 1
