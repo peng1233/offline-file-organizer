@@ -6,6 +6,8 @@
 ## Quick start
 Open `index.html` in your browser.
 
+Windows: you can also double-click `open.cmd` to open the main version (note: some browsers restrict folder picking under `file://`; if you hit that, use the localhost method below).
+
 If you need **folder/directory picking** (File System Access API), some browsers restrict this under `file://`. Use the built-in local server and open via `http://localhost`:
 
 ```bash

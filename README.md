@@ -8,6 +8,8 @@ English README: [README_EN.md](README_EN.md)
 ## 使用
 打开 `index.html` 即可。
 
+Windows：也可以直接双击 `open.cmd` 打开主版（注意：部分浏览器在 `file://` 下会限制“选择文件夹/目录”能力，遇到限制请改用下面的 localhost 方式）。
+
 如果你需要使用浏览器的“选择文件夹/目录”能力（File System Access API），建议用本仓库自带的本地服务器在 `http://localhost` 下打开（`file://` 方式在部分浏览器会被限制）：
 
 ```bash
