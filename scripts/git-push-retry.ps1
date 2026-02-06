@@ -4,7 +4,10 @@ param(
   [string]$Remote = 'origin',
   [string]$Branch = '',
   [switch]$CheckOnly,
-  [switch]$StopIfNoConnectivity
+  [switch]$StopIfNoConnectivity,
+  [switch]$ForceHttp11,
+  [switch]$ExponentialBackoff,
+  [int]$MaxDelaySeconds = 180
 )
 
 $ErrorActionPreference = 'Stop'
@@ -33,19 +36,29 @@ function Test-GitHub443 {
 }
 
 function Invoke-GitPushOnce {
-  param([string]$Remote, [string]$Branch)
+  param(
+    [string]$Remote,
+    [string]$Branch,
+    [switch]$ForceHttp11
+  )
+
+  $gitArgs = @()
+  if ($ForceHttp11) {
+    # Avoid changing repo/global git config; apply per-command.
+    $gitArgs += @('-c', 'http.version=HTTP/1.1')
+  }
 
   if ([string]::IsNullOrWhiteSpace($Branch)) {
-    git push $Remote
+    & git @gitArgs push $Remote
   } else {
-    git push $Remote $Branch
+    & git @gitArgs push $Remote $Branch
   }
 
   return $LASTEXITCODE
 }
 
 $remoteUrl = Get-GitRemoteUrl -Remote $Remote
-Write-Host "[git-push-retry] Starting (remote=$Remote, url=$remoteUrl, branch=$Branch, maxAttempts=$MaxAttempts, delaySeconds=$DelaySeconds, checkOnly=$($CheckOnly.IsPresent))"
+Write-Host "[git-push-retry] Starting (remote=$Remote, url=$remoteUrl, branch=$Branch, maxAttempts=$MaxAttempts, delaySeconds=$DelaySeconds, checkOnly=$($CheckOnly.IsPresent), forceHttp11=$($ForceHttp11.IsPresent), exponentialBackoff=$($ExponentialBackoff.IsPresent), maxDelaySeconds=$MaxDelaySeconds)"
 
 $ok443 = Test-GitHub443
 if (-not $ok443) {
@@ -68,7 +81,7 @@ for ($i = 1; $i -le $MaxAttempts; $i++) {
   Write-Host "[git-push-retry] Attempt $i / $MaxAttempts ..."
 
   try {
-    $code = Invoke-GitPushOnce -Remote $Remote -Branch $Branch
+    $code = Invoke-GitPushOnce -Remote $Remote -Branch $Branch -ForceHttp11:$ForceHttp11
   } catch {
     Write-Host "WARN: [git-push-retry] git push threw: $($_.Exception.Message)"
     $code = 1
@@ -80,8 +93,17 @@ for ($i = 1; $i -le $MaxAttempts; $i++) {
   }
 
   if ($i -lt $MaxAttempts) {
-    Write-Host "WARN: [git-push-retry] Push failed (exit=$code). Waiting $DelaySeconds seconds before retry..."
-    Start-Sleep -Seconds $DelaySeconds
+    $sleepSeconds = $DelaySeconds
+    if ($ExponentialBackoff) {
+      try {
+        $sleepSeconds = [Math]::Min([int]($DelaySeconds * [Math]::Pow(2, ($i - 1))), $MaxDelaySeconds)
+      } catch {
+        $sleepSeconds = $DelaySeconds
+      }
+    }
+
+    Write-Host "WARN: [git-push-retry] Push failed (exit=$code). Waiting $sleepSeconds seconds before retry..."
+    Start-Sleep -Seconds $sleepSeconds
   }
 }
 
