@@ -34,6 +34,7 @@ Lite 演示截图（支持“加载示例（无文件）”，便于快速理解
 - Fiverr Gig 模板：`docs/monetization/fiverr-gig-template.md`
 - Upwork Proposal 模板（长版）：`docs/monetization/upwork-proposal-template.md`
 - Upwork Proposal 模板（短版/英文 300~600 词）：`docs/monetization/upwork-proposal-template-short_EN.md`
+- Upwork Proposal 模板（迷你版/英文 150~250 词）：`docs/monetization/upwork-proposal-template-mini_EN.md`
 - 平台服务介绍（短版/中英）：`docs/marketplace/service-description-short.md` / `docs/marketplace/service-description-short_EN.md`
 - 一页式介绍（短版/中英）：`docs/marketplace/one-pager-short.md` / `docs/marketplace/one-pager-short_EN.md`
 
