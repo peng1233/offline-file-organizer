@@ -47,6 +47,8 @@ I will help you **batch rename and organize** your files based on your rules, an
 ---
 
 ## Packages（套餐）
+> 参考（可复制改）：`docs/monetization/pricing-packages_EN.md`
+
 ### Basic
 - Up to 200 files
 - One rename rule
