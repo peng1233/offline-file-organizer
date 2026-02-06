@@ -35,6 +35,20 @@ powershell -ExecutionPolicy Bypass -File tools\serve.ps1
 powershell -ExecutionPolicy Bypass -File tools\serve.ps1 -Port 5173 -NoOpen
 ```
 
+## 打包一个可分享的 Lite ZIP（可直接发给客户/同事）
+
+在仓库根目录打开 PowerShell，运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\build-lite-release.ps1
+```
+
+产物位置：
+- `lite\dist\offline-file-organizer-lite.zip`
+- `lite\dist\RELEASE.txt`（包含 SHA256 与文件清单）
+
+> 说明：该脚本会先执行 `lite\selfcheck.js`，确保打包前基本功能自检通过。
+
 ## 常见问题 / Troubleshooting
 
 - 控制台中文乱码/日志看不清：
