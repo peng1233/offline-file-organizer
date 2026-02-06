@@ -21,6 +21,10 @@
     .dropzone{margin-top:12px;border:1px dashed #bbb;border-radius:8px;padding:12px;background:#fafafa;}
     .dropzone.drag{border-color:#4b8bf5;background:#eef5ff;}
     .footer{margin-top:18px;color:#666;font-size:12px;}
+    .tipbox{border:1px solid #e2e2e2;background:#fbfbfb;border-radius:8px;padding:10px 12px;font-size:13px;}
+    .tipbtn{display:inline-block;padding:8px 10px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#111;text-decoration:none;}
+    .tipbtn:hover{border-color:#4b8bf5;}
+    .tipbtn-mid{border-color:#4b8bf5;}
   </style>
 </head>
 <body>
@@ -62,6 +66,17 @@
 
   <div id="msg" class="msg ok" style="display:none"></div>
 
+  <div id="tipbox" class="tipbox" style="margin-top:12px">
+    <div><b>如果这个小工具帮你省了时间</b>（比如一次整理/改名 50+ 个文件），欢迎打赏支持维护：</div>
+    <div class="row" style="margin-top:8px">
+      <a class="tipbtn" href="bitcoin:bc1p26d9hh7fahfxe40pv394mewq7fazzaqwt427t59j2mcszpvhd0wql4682h?amount=0.00001234">打赏 0.00001234 BTC</a>
+      <a class="tipbtn tipbtn-mid" href="bitcoin:bc1p26d9hh7fahfxe40pv394mewq7fazzaqwt427t59j2mcszpvhd0wql4682h?amount=0.00005678">推荐 0.00005678 BTC</a>
+      <a class="tipbtn" href="bitcoin:bc1p26d9hh7fahfxe40pv394mewq7fazzaqwt427t59j2mcszpvhd0wql4682h?amount=0.00003414">打赏 0.00003414 BTC</a>
+      <a class="muted" href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打开打赏页（可复制地址/二维码）</a>
+    </div>
+    <div class="muted" style="margin-top:6px">提示：以上是 BIP21 链接（bitcoin:...）。若你的环境不支持直接打开钱包，请点“打开打赏页”。</div>
+  </div>
+
   <table>
     <thead>
       <tr><th>#</th><th>原文件名</th><th>新文件名</th></tr>
@@ -73,7 +88,7 @@
     <div>提示：默认逐个下载。浏览器可能会弹出“允许多文件下载”的权限提示，请选择允许。</div>
     <div>Windows 一键打开：双击 <code>lite\\open.cmd</code>（需已安装 Node.js）。详见 <a href="https://github.com/peng1233/offline-file-organizer/blob/main/docs/windows-quickstart.md" target="_blank" rel="noopener">Windows Quick Start</a>。</div>
     <div>发布入口：<a href="https://github.com/peng1233/offline-file-organizer" target="_blank" rel="noopener">GitHub</a> ｜ <a href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打赏页（BTC）</a></div>
-    <div>版本：tool-file-organizer-lite-7</div>
+    <div>版本：tool-file-organizer-lite-8</div>
   </div>
 
   <!-- 可选：把 vendor/jszip.min.js 放到同目录，然后取消下一行注释以启用 ZIP -->
