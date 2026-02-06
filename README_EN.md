@@ -35,5 +35,12 @@ Demo screenshot (Lite supports **“Load demo (no files)”** for quick understa
 If you deliver this tool as a small freelance task (Upwork/Fiverr/Toptal) or want a clear acceptance checklist, use this one-page template:
 - `docs/marketplace/project-scope-template.md`
 
+## Marketplace copy/paste templates (Upwork/Fiverr/Toptal)
+- Fiverr Gig template: `docs/monetization/fiverr-gig-template.md`
+- Upwork proposal (long): `docs/monetization/upwork-proposal-template.md`
+- Upwork proposal (short EN, 300-600 words): `docs/monetization/upwork-proposal-template-short_EN.md`
+- Service description (short, CN/EN): `docs/marketplace/service-description-short.md` / `docs/marketplace/service-description-short_EN.md`
+- One-pager (short, CN/EN): `docs/marketplace/one-pager-short.md` / `docs/marketplace/one-pager-short_EN.md`
+
 ## Support (BTC)
 Donation page: https://peng1233.github.io/btc-receive/
