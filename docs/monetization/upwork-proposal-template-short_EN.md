@@ -1,38 +1,40 @@
-# Upwork Proposal Template — Short (300–600 words)
+# Upwork Proposal Template (Short, EN)
 
-> Use this when Upwork’s proposal box is small, or when you want a fast, direct pitch.
-> Keep it honest and platform-compliant: **no off-platform payments**.
-
----
+> Target length: ~300–600 words. Copy/paste and edit the bracketed fields.
 
 Hi [Client name],
 
-I can help you **batch rename / organize files** and deliver a clean, reproducible result. I use an **offline workflow** (your files don’t need to be uploaded to third-party services), and I can provide a clear CSV manifest so you can review the mapping before anything is finalized.
+I can help you **organize and batch-rename files locally (offline)** and deliver a clean, auditable rename plan you can review before anything changes.
 
-## What you’ll get
-- **Renamed / reorganized files** (ZIP or structured folder)
-- **CSV manifest**: `old name -> new name` (for approval + audit)
-- **Rules summary** (the exact rename logic I applied so it can be repeated)
+**What I’ll deliver**
+- A small, offline tool (runs in your browser) to:
+  - import a folder (when supported) or use a safe local workflow
+  - preview old → new names before downloading anything
+  - export a **CSV rename manifest** (and/or **Copy CSV**) for approvals and record-keeping
+  - optionally download renamed files as a ZIP (with a fully-offline Lite fallback if ZIP isn’t available)
+- Clear steps for Windows (including a one-command localhost quickstart when needed)
 
-## How I work (fast + safe)
-1) You share **10–30 sample filenames** (or a small sample folder) plus your desired naming format.
-2) I run a **dry run** and send you the CSV mapping first.
-3) After you confirm, I export the final ZIP/folder + final CSV + rules summary.
+**Why this approach works**
+- **Privacy-first:** your files stay on your machine.
+- **Reversible workflow:** you review the preview/CSV first; no “silent renames”.
+- **Practical for teams:** the CSV manifest is easy to share with stakeholders.
 
-## What I need from you (copy/paste)
-1) Examples of current names (5–30 lines are enough)
-2) Examples of desired names (or a naming rule description)
-3) Constraints:
-   - keep extensions? (usually yes)
-   - numbering rules? (e.g., `001`, `002`, ...)
-   - forbidden characters? (Windows/macOS safe?)
-   - keep folder structure or flatten?
+**A few quick questions**
+1) Roughly how many files and what types (photos, PDFs, mixed)?
+2) What rules do you need (prefix/suffix, numbering, find/replace, date patterns, etc.)?
+3) Any constraints (keep original order, avoid duplicates, reserved characters, max filename length)?
 
-## Optional: fixed-price packages
-If you prefer a fixed scope, I can propose **Basic / Standard / Premium** packages (based on file count and complexity).
+**Acceptance criteria (example)**
+- Given a sample set, I produce a preview and CSV where 100% of filenames match the agreed rules.
+- No duplicates after renaming; invalid characters handled safely.
+- You can run it on Windows without extra installs beyond a browser (and Node only if you want localhost mode).
 
-## A couple of quick questions
-- Do you want **strict formatting** (exact case/underscores/dashes), or “best effort” cleanup?
-- If two files would become the same name, should I **append numbers** (`(1)`, `(2)`) or use another rule?
+If you share 10–20 sample filenames (no file content needed), I’ll propose the exact rename rules and confirm the workflow before we proceed.
 
-If you paste 5–30 current filenames and the target format, I’ll reply with a proposed mapping and the quickest path to completion.
+Best,
+[Your name]
+
+---
+Links you can include (optional):
+- Demo (Lite): https://peng1233.github.io/offline-file-organizer/lite/
+- Repo: https://github.com/peng1233/offline-file-organizer
