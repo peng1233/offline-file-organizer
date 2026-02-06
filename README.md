@@ -38,6 +38,7 @@ Lite 演示截图（支持“加载示例（无文件）”，便于快速理解
 - 平台服务介绍（完整版/中文）：`docs/marketplace/service-description.md`
 - 平台服务介绍（短版/中英）：`docs/marketplace/service-description-short.md` / `docs/marketplace/service-description-short_EN.md`
 - 一页式介绍（短版/中英）：`docs/marketplace/one-pager-short.md` / `docs/marketplace/one-pager-short_EN.md`
+- 一页式介绍（长版/中英）：`docs/marketplace/one-pager.md` / `docs/marketplace/one-pager_EN.md`
 - 服务介绍变体合集（A/B 测试/中文）：`docs/marketplace/service-description-variants.md`
 
 （白名单平台：Upwork/Fiverr/Toptal/GitHub Sponsors）
