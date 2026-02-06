@@ -1,53 +1,53 @@
-# Offline File Organizer — 服务描述草稿（Upwork / Fiverr / Toptal / GitHub Sponsors）
+# Offline File Organizer —— 服务描述草稿（Upwork / Fiverr / Toptal / GitHub Sponsors）
 
-> 目的：快速复制粘贴到平台页面的文案草稿（不含任何账号信息/报价/承诺）。
+> 目标：可直接复制粘贴到平台页面的文案草稿（不包含任何账号信息 / 报价 / 夸大承诺）。
 
-## 中文（可用于 Upwork/Fiverr 说明）
+## 中文（可用于 Upwork / Fiverr 简介）
 
-我可以为你交付一款 **完全离线运行** 的文件整理小工具：在浏览器里批量改文件名、导出清单（CSV），并支持可选的 ZIP 打包下载（若环境不支持 ZIP，会自动提供逐个下载的离线兜底方案）。
+我可以为你交付一个 **完全离线（本地运行）** 的文件整理小工具：在浏览器里批量重命名文件、导出文件清单（CSV），并支持 **可选 ZIP 打包下载**。当 ZIP 在某些环境不可用时，也能通过 **Lite 纯离线兜底** 方案继续使用（逐个下载文件）。
 
-**适合场景**
-- 摄影/视频素材批量改名（按日期/序号/模板）
-- 资料归档、合同/票据整理、下载文件清理
-- 需要“离线/内网/不上传文件”的隐私场景
+**适用场景**
+- 照片/视频素材批量重命名（日期/序号/模板）
+- 文档归档（合同、发票、收据、项目交付文件等）
+- 隐私敏感或内网环境（不上传、不走服务器）
 
 **核心特点**
-- **100% 本地离线**：文件不上传服务器
-- **可选 ZIP**：支持 ZIP 一键下载；若 ZIP 不可用，也能逐个下载（Lite 版兜底）
-- **导出 CSV 清单**：便于对账、交付、归档
-- **零安装**：直接打开网页即可使用
+- **100% 本地离线**：文件不会上传到任何服务器
+- **可选 ZIP**：支持一键打包；不支持时自动提供 Lite 兜底
+- **CSV 清单导出**：方便对账、交付、归档
+- **零安装**：打开 HTML 页面即可用
 
 **交付物**
-- 一个可离线打开的网页工具（含说明文档）
-- （可选）按你的规则定制：命名模板、冲突处理、导出字段、预设按钮等
+- 可直接使用的离线网页工具（HTML + 使用说明）
+- （可选）按你的规则定制：命名模板、冲突处理规则、导出列、预设按钮
 
-**你需要提供**
-- 一份示例文件名/目录结构（可脱敏）
-- 目标命名规则（示例：`项目名_YYYYMMDD_序号`）
+**我需要你提供**
+- 少量示例文件名/目录结构（可脱敏）
+- 目标命名规则示例（例如：`Project_YYYYMMDD_###`）
 
-演示入口（GitHub Pages）：
+在线演示（GitHub Pages）
 - 主版本：https://peng1233.github.io/offline-file-organizer/
 - Lite（完全离线兜底）：https://peng1233.github.io/offline-file-organizer/lite/
 
 仓库：https://github.com/peng1233/offline-file-organizer
 
-（沟通模板）项目范围/验收标准/风险/回滚：
+（模板）项目范围/验收标准/风险/回滚：
 - docs/marketplace/project-scope-template.md
 
 ---
 
-## English (for Upwork/Fiverr description)
+## English (for Upwork / Fiverr description)
 
-I can deliver a **fully offline** file-organizing tool that runs in your browser: batch rename files, export a manifest (CSV), and optionally download as a ZIP. If ZIP isn’t available in your environment, it still works via a **no-dependency Lite fallback** (download files one-by-one).
+I can deliver a **fully offline** file-organizing tool that runs in your browser: batch rename files, export a manifest (CSV), and optionally download everything as a ZIP. If ZIP isn’t available in your environment, it still works via a **no-dependency Lite fallback** (download files one-by-one).
 
 **Great for**
-- Batch renaming photo/video assets (date/sequence/template)
-- Archiving documents, invoices/receipts, downloads cleanup
-- Privacy-sensitive workflows (offline / intranet / no file uploads)
+- Batch renaming photo/video assets (date / sequence / templates)
+- Archiving documents (contracts, invoices/receipts, deliverables)
+- Privacy-sensitive workflows (offline / intranet / no server uploads)
 
 **Key features**
-- **100% local & offline** (no server upload)
-- **Optional ZIP** (with a Lite fallback when ZIP isn’t supported)
+- **100% local & offline** (no uploads)
+- **Optional ZIP** (with Lite fallback when ZIP isn’t supported)
 - **CSV manifest export** for tracking and delivery
 - **Zero install**: open the HTML page and use it
 
