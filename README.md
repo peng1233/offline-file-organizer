@@ -26,6 +26,8 @@ Windows 一键启动（PowerShell 脚本）：`docs/windows-quickstart.md`
 - 主版：`http://127.0.0.1:5173/`
 - Lite：`http://127.0.0.1:5173/lite/`
 
+小技巧：主版在打包 ZIP 之前，也支持先导出一份清单（CSV manifest：`old_name,new_name,size_bytes`），便于给客户/同事预览、确认、回滚。
+
 ## 完全离线版（Lite，推荐作为兜底）
 如果你的环境无法加载第三方库/无法生成 ZIP，使用 Lite 版：
 - 入口：`lite/index.html`
