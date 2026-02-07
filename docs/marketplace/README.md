@@ -14,6 +14,7 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 
 - **one-pager.md** / **one-pager_EN.md** - one-page overview
 - **one-pager-short.md** / **one-pager-short_EN.md** - shorter one-pager
+- **one-pager-short_ZH.md** - Chinese one-pager (copy/paste)
 
 ## Publishing checklists
 
