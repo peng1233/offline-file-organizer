@@ -1,10 +1,12 @@
-# Offline File Organizer (Batch Rename / ZIP)
+﻿# Offline File Organizer (Batch Rename / ZIP)
 
 - Runs **100% locally** (no upload, no network calls)
-- Select many files → rename by rules → download as a ZIP
+- Select many files -> rename by rules -> download as a ZIP
 
 ## Quick start
 Open `index.html` in your browser.
+
+Tip: Before downloading the ZIP, you can export a CSV manifest (old_name/new_name/size_bytes) for preview, QA, and easy rollback.
 
 Windows: you can also double-click `open.cmd` to open the main version (note: some browsers restrict folder picking under `file://`; if you hit that, use the localhost method below).
 
@@ -25,7 +27,7 @@ If your environment cannot load third-party libraries or ZIP generation fails, u
 - Entry: `lite/index.html`
 - Features: zero dependencies; batch rename; download one-by-one; export CSV manifest; **Copy CSV** (clipboard with fallback); ZIP is an optional enhancement.
 
-Demo screenshot (Lite supports **“Load demo (no files)”** for quick understanding):
+Demo screenshot (Lite supports **Load demo (no files)** for quick understanding):
 
 ![Lite demo](docs/assets/lite-demo.png)
 
