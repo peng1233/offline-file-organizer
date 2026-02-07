@@ -1,3 +1,6 @@
 # Local/export artifacts
 bundles/
 *.bundle
+
+# Node tooling (used only for helper scripts)
+node_modules/

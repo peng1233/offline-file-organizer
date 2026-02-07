@@ -1,0 +1,28 @@
+{
+  "name": "offline-file-organizer",
+  "version": "1.0.0",
+  "description": "English README: [README_EN.md](README_EN.md)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peng1233/offline-file-organizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/peng1233/offline-file-organizer/issues"
+  },
+  "homepage": "https://github.com/peng1233/offline-file-organizer#readme",
+  "dependencies": {
+    "gifenc": "^1.0.3",
+    "pngjs": "^7.0.0"
+  }
+}

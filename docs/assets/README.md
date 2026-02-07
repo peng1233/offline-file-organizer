@@ -24,6 +24,8 @@ Current files in this folder:
   - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-after-run.png
 - lite-copy-csv.png
   - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-copy-csv.png
+- lite-demo.gif
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
 - lite-demo.png
   - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
 - lite-home-v10.png
