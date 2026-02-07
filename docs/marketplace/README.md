@@ -25,3 +25,7 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 
 - **platform-profile-template.md** - profile template
 - **project-scope-template.md** - scope template (requirements / deliverables)
+
+## Quick demo open (for recording GIF/screenshots)
+
+- Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\open-online-demo.ps1`
