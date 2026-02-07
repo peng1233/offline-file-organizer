@@ -1,6 +1,8 @@
-# 演示素材清单（Demo assets checklist）
+﻿# 演示素材清单（Demo assets checklist）
 
 目标：补齐 10–20 秒即可看懂的演示素材，用于 Upwork/Fiverr/Toptal/GitHub Sponsors 的服务页/提案/README。
+
+录制工具（Windows）：docs/marketplace/how-to-record-gif-windows.md
 
 ## 1) 最小演示 GIF（10–15 秒）— Lite（完全离线）
 
