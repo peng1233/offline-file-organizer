@@ -84,6 +84,7 @@
             <label class="k" style="min-width:86px">输出 ZIP 名</label>
             <input id="zipName" type="text" value="renamed.zip" />
             <button id="build">生成 ZIP</button>
+            <button id="exportCsv">导出清单（CSV）</button>
           </div>
 
           <div id="msg" style="margin-top:10px"></div>
@@ -286,6 +287,44 @@
         window.open(DONATE_PAGE, '_blank');
         setMsg('ok', `已打开收款页。建议在收款页金额栏输入：${amt} BTC（不要修改尾差，便于对账）。`);
       });
+    });
+
+    function csvEscape(v){
+      const s = String(v ?? '');
+      if(/[\r\n",]/.test(s)) return '"' + s.replace(/"/g,'""') + '"';
+      return s;
+    }
+
+    $('exportCsv').addEventListener('click', ()=>{
+      const files = Array.from(filesEl.files||[]);
+      if(files.length===0){ setMsg('warn','请先选择文件。'); return; }
+
+      const names = new Set();
+      for(let i=0;i<files.length;i++){
+        const nn=calcNewName(files[i],i);
+        if(names.has(nn)) { setMsg('warn','新文件名重复，无法安全导出清单。请先修正规则。'); return; }
+        names.add(nn);
+      }
+
+      const header = ['old_name','new_name','size_bytes'];
+      const lines = [header.join(',')];
+      for(let i=0;i<files.length;i++){
+        const f = files[i];
+        const nn = calcNewName(f,i);
+        lines.push([csvEscape(f.name), csvEscape(nn), String(f.size)].join(','));
+      }
+
+      // 加 BOM 以兼容 Excel
+      const text = '\ufeff' + lines.join('\r\n') + '\r\n';
+      const blob = new Blob([text], { type:'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'rename-manifest.csv';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+
+      setMsg('ok', '已导出清单：rename-manifest.csv');
     });
 
     $('build').addEventListener('click', async ()=>{
