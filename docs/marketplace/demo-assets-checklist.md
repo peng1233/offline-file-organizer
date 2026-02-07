@@ -8,6 +8,7 @@
 
 - GitHub Repo： https://github.com/peng1233/offline-file-organizer
 - 在线 Lite 版（GitHub Pages）： https://peng1233.github.io/offline-file-organizer/lite/
+- Lite 快速演示（自动加载示例文件名）： https://peng1233.github.io/offline-file-organizer/lite/?demo=1
 - BTC 打赏页： https://peng1233.github.io/btc-receive/
 
 ## 2) 30 字一句话卖点（选 1 条）
@@ -22,6 +23,7 @@
 1. `lite-home-v10.png`：Lite 首页（展示主要按钮/版本号）
 2. `lite-after-run.png`：运行后结果（展示目标目录结构/导出提示）
 3. `tc-donation-v1.png`：打赏页（展示 BTC 地址/二维码）
+4. （可选）`lite-copy-csv.png`：点击【复制清单（CSV）】后的提示（展示可交付点：快速复制清单，用于 Excel/对账）
 
 ### 截图注意
 
@@ -49,6 +51,6 @@
 
 ## 6) TODO（素材落地）
 
-- [ ] 补齐 `docs/assets/*.png`（至少 3 张）
+- [ ] 补齐 `docs/assets/*.png`（至少 3 张；可选再补 1 张 `lite-copy-csv.png`）
 - [ ] 在 README / README_EN 增加一行：链接到本清单
 - [ ] 需要时补 1 个 GIF，并在 Releases 或 docs 里给出链接
