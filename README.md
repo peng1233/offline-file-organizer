@@ -5,6 +5,10 @@ English README: [README_EN.md](README_EN.md)
 - 100% 本地运行（不上传、不联网）
 - 批量选择文件 → 按规则改名 → 打包 ZIP 下载
 
+在线演示（GitHub Pages）：
+- 主版：https://peng1233.github.io/offline-file-organizer/
+- Lite：https://peng1233.github.io/offline-file-organizer/lite/
+
 ## 使用
 打开 `index.html` 即可。
 
