@@ -31,6 +31,8 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 - Put screenshots/GIFs referenced by the checklists here: **../assets/**
 - See: **../assets/README.md**
 - Current ready-to-use GIF (no manual recording): **../assets/lite-demo.gif**
+- Raw link (direct download, good for Upwork/Fiverr/Toptal/Sponsors):
+  - https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
 
 ## Quick demo open (for recording GIF/screenshots)
 
