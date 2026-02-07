@@ -34,6 +34,9 @@ Lite 演示截图（支持“加载示例（无文件）”，便于快速理解
 ## 变现（Fiverr / Upwork / Toptal / GitHub Sponsors）
 如果你想把这个工具的能力做成可交付服务（例如：帮客户批量改名/整理文件并交付 ZIP + 清单），这里有一些可直接复用的文案模板（可直接复制粘贴到平台）：
 - Fiverr Gig 模板：`docs/monetization/fiverr-gig-template.md`
+- Fiverr Gig 文案（英文可直接复制）：`docs/marketplace/fiverr-gig-copy_EN.md`
+- Fiverr/Upwork 服务包（定价 + 交付物清单）：`docs/monetization/service-packages_Fiverr_Upwork.md`
+- GitHub Sponsors 开通/填写清单：`docs/monetization/github-sponsors-checklist.md`
 - Upwork Proposal 模板（长版）：`docs/monetization/upwork-proposal-template.md`
 - Upwork Proposal 模板（短版/英文 300~600 词）：`docs/monetization/upwork-proposal-template-short_EN.md`
 - Upwork Proposal 模板（迷你版/英文 150~250 词）：`docs/monetization/upwork-proposal-template-mini_EN.md`

@@ -40,6 +40,9 @@ If you deliver this tool as a small freelance task (Upwork/Fiverr/Toptal) or wan
 ## Marketplace copy/paste templates (Upwork/Fiverr/Toptal)
 - Publishing checklist (EN): `docs/monetization/publish-checklist_EN.md`
 - Fiverr Gig template: `docs/monetization/fiverr-gig-template.md`
+- Fiverr Gig copy (EN): `docs/marketplace/fiverr-gig-copy_EN.md`
+- Service packages (Fiverr + Upwork pricing + deliverables): `docs/monetization/service-packages_Fiverr_Upwork.md`
+- GitHub Sponsors setup checklist: `docs/monetization/github-sponsors-checklist.md`
 - Upwork proposal (long): `docs/monetization/upwork-proposal-template.md`
 - Upwork proposal (short EN, 300-600 words): `docs/monetization/upwork-proposal-template-short_EN.md`
 - Upwork proposal (mini EN, 150-250 words): `docs/monetization/upwork-proposal-template-mini_EN.md`
