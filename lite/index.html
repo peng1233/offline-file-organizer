@@ -59,6 +59,7 @@
     <button id="btnDemo">加载示例（无文件）</button>
     <button id="btnExport">导出清单（CSV）</button>
     <button id="btnCopyCsv">复制清单（CSV）</button>
+    <button id="btnCopyTsv">复制清单（TSV）</button>
     <button id="btnDownload">开始下载（逐个）</button>
     <button id="btnZip" disabled>生成 ZIP（需要本地 JSZip）</button>
     <label class="muted"><input type="checkbox" id="chkConfirm" checked />下载前二次确认</label>
@@ -89,7 +90,7 @@
     <div>提示：默认逐个下载。浏览器可能会弹出“允许多文件下载”的权限提示，请选择允许。</div>
     <div>Windows 一键打开：双击 <code>lite\\open.cmd</code>（需已安装 Node.js）。详见 <a href="https://github.com/peng1233/offline-file-organizer/blob/main/docs/windows-quickstart.md" target="_blank" rel="noopener">Windows Quick Start</a>。</div>
     <div>发布入口：<a href="https://github.com/peng1233/offline-file-organizer" target="_blank" rel="noopener">GitHub</a> ｜ <a href="https://peng1233.github.io/btc-receive/" target="_blank" rel="noopener">打赏页（BTC）</a></div>
-    <div>版本：tool-file-organizer-lite-11</div>
+    <div>版本：tool-file-organizer-lite-12</div>
   </div>
 
   <!-- 可选：把 vendor/jszip.min.js 放到同目录，然后取消下一行注释以启用 ZIP -->
@@ -112,6 +113,7 @@
     const btnDemo = document.getElementById('btnDemo');
     const btnExport = document.getElementById('btnExport');
     const btnCopyCsv = document.getElementById('btnCopyCsv');
+    const btnCopyTsv = document.getElementById('btnCopyTsv');
     const btnDownload = document.getElementById('btnDownload');
     const btnZip = document.getElementById('btnZip');
     const chkConfirm = document.getElementById('chkConfirm');
@@ -312,6 +314,27 @@
       return { csv, rowCount: files.length };
     }
 
+    function buildTsvText(){
+      // TSV（Tab 分隔）更适合直接粘贴到 Excel（避免逗号分隔在不同地区的小数点/分隔符冲突）
+      const files = getFiles();
+      if(!files.length){ setMsg('warn','请先选择文件（或点击“加载示例”）。'); return null; }
+
+      const v = validateSettings();
+      if(!v.ok){ setMsg('err', v.msg); return null; }
+
+      const rows = [];
+      rows.push(['序号','原文件名','新文件名']);
+      for(let i=0;i<files.length;i++){
+        const f = files[i];
+        rows.push([String(i+1), f.name, calcNewName(f,i)]);
+      }
+
+      // 字段清理：把 tab/换行替换为空格，避免粘贴错列
+      const clean = (s)=>String(s).replace(/\t/g,' ').replace(/\r?\n/g,' ');
+      const tsv = rows.map(r=>r.map(clean).join('\t')).join('\n') + '\n';
+      return { tsv, rowCount: files.length };
+    }
+
     function exportCsv(){
       const out = buildCsvText({ includeBom:true });
       if(!out) return;
@@ -358,6 +381,37 @@
       }else{
         // 最后兜底：把 CSV 放到提示里，用户手动复制
         setMsg('warn','复制失败（可能是浏览器限制/权限）。已生成 CSV，请改用“导出清单（CSV）”，或在控制台/开发者工具中复制。');
+      }
+    }
+
+    async function copyTsv(){
+      const out = buildTsvText();
+      if(!out) return;
+
+      try{
+        if(navigator.clipboard && typeof navigator.clipboard.writeText === 'function'){
+          await navigator.clipboard.writeText(out.tsv);
+          setMsg('ok',`已复制清单 TSV 到剪贴板：${out.rowCount} 行。`);
+          return;
+        }
+      }catch(e){ /* ignore and fall back */ }
+
+      const ta = document.createElement('textarea');
+      ta.value = out.tsv;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      ta.style.top = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try{ ok = document.execCommand && document.execCommand('copy'); }catch(e){ ok = false; }
+      ta.remove();
+
+      if(ok){
+        setMsg('ok',`已复制清单 TSV 到剪贴板：${out.rowCount} 行。`);
+      }else{
+        setMsg('warn','复制失败（可能是浏览器限制/权限）。建议改用“复制清单（CSV）”或“导出清单（CSV）”。');
       }
     }
 
@@ -487,6 +541,7 @@
     btnDemo.addEventListener('click', loadDemo);
     btnExport.addEventListener('click', exportCsv);
     btnCopyCsv.addEventListener('click', copyCsv);
+    btnCopyTsv.addEventListener('click', copyTsv);
     btnDownload.addEventListener('click', downloadIndividually);
     btnZip.addEventListener('click', downloadZip);
 
