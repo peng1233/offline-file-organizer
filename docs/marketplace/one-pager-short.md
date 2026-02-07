@@ -21,3 +21,5 @@ Support: https://peng1233.github.io/btc-receive/ (BTC) | https://github.com/spon
 ## 中文（平台字数受限版）
 离线文件整理器：在浏览器本地离线批量改名，生成 旧名 -> 新名清单并导出/复制 CSV，适合隐私敏感与需要审批对账的场景。
 Lite 版零依赖，可直接双击 lite\\open.cmd 打开；Windows 教程见：docs/windows-quickstart.md。
+
+（PowerShell 无乱码复制：`Get-Content -Raw -Encoding UTF8 .\docs\marketplace\one-pager-short.md | Set-Clipboard`）
