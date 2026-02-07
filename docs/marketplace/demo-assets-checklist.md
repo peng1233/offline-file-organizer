@@ -19,7 +19,7 @@
 
 截图文件建议放在 `docs/assets/`：
 
-1. `lite-home.png`：Lite 首页（展示主要按钮/版本号）
+1. `lite-home-v10.png`：Lite 首页（展示主要按钮/版本号）
 2. `lite-after-run.png`：运行后结果（展示目标目录结构/导出提示）
 3. `tc-donation.png`：打赏页（展示 BTC 地址/二维码）
 
