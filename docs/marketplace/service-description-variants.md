@@ -1,68 +1,78 @@
-# Offline File Organizer — 服务描述变体（A/B 文案备选）
+﻿# Service Description Variants (A/B)
 
-> 用途：给 Upwork / Fiverr / Toptal / GitHub Sponsors 主页做 A/B 测试用的两套“短文案”。
-> 原始长文案：`docs/marketplace/service-description.md`
->
-> 注意：不包含任何账号信息/报价/保证性承诺。
+> Purpose: copy/paste-ready text blocks for Upwork / Fiverr / Toptal / GitHub Sponsors.
+> Rules: no account info, no pricing promises, no false claims.
 
 ---
 
-## Variant A（偏“隐私/合规/离线”）
+## Variant A (Short / punchy)
 
-### 中文
-我可以交付一款 **完全离线** 的文件整理工具：在你的浏览器本地完成批量改名、导出清单（CSV），可选 ZIP 打包下载；即使 ZIP 在你的环境不可用，也能用 **Lite 兜底模式**逐个下载。
+### 中文（简版）
+我可以交付一个**完全离线、浏览器直接运行**的文件整理工具：批量重命名、导出清单（CSV），并可选把文件打包成 ZIP 下载。
+如果你的环境不支持 ZIP，也可以使用 **Lite 纯离线兜底版本**（逐个下载文件）。
 
-适合：内网/涉密/隐私场景（文件不能上传）、需要留痕对账（CSV 清单）、资料归档与交付。
-
-交付：离线可打开的网页（HTML + 说明），可按你的命名规则/导出字段/冲突策略做小幅定制。
-
-演示：
-- 主版：https://peng1233.github.io/offline-file-organizer/
-- Lite（完全离线兜底）：https://peng1233.github.io/offline-file-organizer/lite/
-
-仓库： https://github.com/peng1233/offline-file-organizer
-
-### English
-I deliver a **fully offline** file organizer that runs locally in your browser: batch rename, export a CSV manifest, and optionally download as a ZIP. If ZIP isn’t supported in your environment, it still works via a **Lite fallback** (download files one-by-one, no extra dependencies).
-
-Best for privacy-sensitive workflows (offline / intranet / no uploads), auditable delivery (CSV manifest), and clean archiving.
-
-Deliverables: an offline HTML tool + docs, with small customizations (naming rules, export columns, conflict handling).
-
-Demo:
-- Main: https://peng1233.github.io/offline-file-organizer/
-- Lite fallback: https://peng1233.github.io/offline-file-organizer/lite/
-
-Repo: https://github.com/peng1233/offline-file-organizer
-
----
-
-## Variant B（偏“效率/整理/交付”）
-
-### 中文
-我可以为你做一个“开箱即用”的离线文件整理小工具：
-- 批量改名（按模板/序号/日期）
-- 一键导出 CSV 清单（便于对账、归档、交付）
-- 可选 ZIP 打包下载（不支持 ZIP 时仍可逐个下载，保证能交付）
-
-适合：摄影/视频素材、合同票据、下载文件清理、项目交付前的统一命名与打包。
-
-你只需给我：几条示例文件名 + 目标命名规则（可脱敏）。
+- 100% 本地处理：不上传文件
+- 适合素材交付、文档归档、隐私敏感场景
+- 交付物：可直接使用的 HTML 工具 + 使用说明（可按规则定制）
 
 演示：
 - 主版：https://peng1233.github.io/offline-file-organizer/
 - Lite：https://peng1233.github.io/offline-file-organizer/lite/
 
-### English
-I build a ready-to-use **offline** file organizer for fast delivery workflows:
-- Batch rename (template / sequence / date)
-- Export a CSV manifest (for tracking, handoff, archiving)
-- Optional ZIP download (with a reliable Lite fallback when ZIP isn’t available)
+### English (short)
+I can deliver a **fully offline** file-organizing tool that runs in your browser: batch rename files, export a CSV manifest, and optionally download everything as a ZIP.
+If ZIP isn’t supported, a **Lite no-dependency fallback** still works (download files one-by-one).
 
-Great for photo/video assets, documents, downloads cleanup, and pre-delivery packaging.
-
-All I need: a few sample filenames + your naming rules (anonymized is fine).
+- 100% local processing (no uploads)
+- Great for asset delivery & document archiving
+- Deliverables: ready-to-use HTML tool + docs (customizable)
 
 Demo:
 - Main: https://peng1233.github.io/offline-file-organizer/
 - Lite: https://peng1233.github.io/offline-file-organizer/lite/
+
+---
+
+## Variant B (More detailed / trust-building)
+
+### 中文（详细版）
+如果你需要把一批文件（图片/视频/文档等）按规则统一命名，并导出“交付清单/归档清单”，我可以交付一个**完全离线**的小工具：
+
+**功能**
+- 批量重命名（支持模板、序号、冲突提示）
+- 导出 CSV 清单（便于交付对账/归档追踪）
+- 可选 ZIP 打包下载；若 ZIP 不可用，提供 Lite 离线兜底
+
+**你将获得**
+- 一个可直接打开使用的 HTML 页面（无需安装、无需服务器）
+- 简明使用说明（Windows 快速开始）
+- （可选）按你的命名规则定制：模板、列字段、预设按钮
+
+**我需要你提供**
+- 少量示例文件名/目录结构（可匿名化）
+- 目标命名规则（例如：Project_YYYYMMDD_###）
+
+演示：
+- https://peng1233.github.io/offline-file-organizer/
+- https://peng1233.github.io/offline-file-organizer/lite/
+
+### English (detailed)
+If you need to rename a batch of files (photos/videos/docs) consistently and generate a delivery/archive manifest, I can deliver a **fully offline** browser tool.
+
+**Features**
+- Batch rename (templates, numbering, conflict warnings)
+- CSV manifest export (tracking / delivery reconciliation)
+- Optional ZIP download; if ZIP isn’t available, a Lite offline fallback is included
+
+**Deliverables**
+- A ready-to-use HTML page (no install, no server)
+- Simple quickstart docs (Windows)
+- (Optional) customization to match your rules: templates, columns, presets
+
+**What I need**
+- A few sample filenames/folders (can be anonymized)
+- Your target naming convention (e.g., Project_YYYYMMDD_###)
+
+Demo:
+- https://peng1233.github.io/offline-file-organizer/
+- https://peng1233.github.io/offline-file-organizer/lite/
