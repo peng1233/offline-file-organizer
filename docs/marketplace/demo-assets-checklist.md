@@ -1,4 +1,4 @@
-# Demo 资产清单（截图 / GIF / 一句话卖点）
+﻿# Demo 资产清单（截图 / GIF / 一句话卖点）
 
 目标：为 Upwork / Fiverr / Toptal / GitHub Sponsors 页面准备**可复制**的展示素材，让每次上架/投递的准备成本最低。
 
@@ -21,7 +21,7 @@
 
 1. `lite-home-v10.png`：Lite 首页（展示主要按钮/版本号）
 2. `lite-after-run.png`：运行后结果（展示目标目录结构/导出提示）
-3. `tc-donation.png`：打赏页（展示 BTC 地址/二维码）
+3. `tc-donation-v1.png`：打赏页（展示 BTC 地址/二维码）
 
 ### 截图注意
 
