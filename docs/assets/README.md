@@ -13,3 +13,22 @@ Suggested filenames (from the checklist):
 - lite-demo-rename-csv.gif
 - main-demo-rename-download.gif
 - lite-demo-hero.png
+
+## Current assets (copy/paste links)
+
+Tip: when you need a stable public link for Upwork/Fiverr/Toptal, use the raw GitHub URL:
+`https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/<filename>`
+
+Current files in this folder:
+- lite-demo.png
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
+- lite-ui.png
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-ui.png
+- lite-home-v10.png
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-home-v10.png
+- lite-after-run.png
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-after-run.png
+- lite-copy-csv.png
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-copy-csv.png
+- tc-donation-v1.png
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/tc-donation-v1.png
