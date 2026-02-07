@@ -288,7 +288,9 @@
       return false;
     }
 
-    function buildCsvText(){
+    function buildCsvText(opts){
+      const options = Object.assign({ includeBom:true }, opts || {});
+
       const files = getFiles();
       if(!files.length){ setMsg('warn','请先选择文件（或点击“加载示例”）。'); return null; }
 
@@ -302,14 +304,16 @@
         rows.push([String(i+1), f.name, calcNewName(f,i)]);
       }
 
-      // 为 Excel 友好：加 UTF-8 BOM；字段用双引号包裹并转义
+      // 为 Excel 友好：导出文件时加 UTF-8 BOM；复制到剪贴板时默认不加（避免粘贴出现隐藏字符）
+      // 字段用双引号包裹并转义
       const esc = (s)=>('"' + safeReplaceAll(String(s),'"','""') + '"');
-      const csv = '\uFEFF' + rows.map(r=>r.map(esc).join(',')).join('\n') + '\n';
+      const csvBody = rows.map(r=>r.map(esc).join(',')).join('\n') + '\n';
+      const csv = (options.includeBom ? '\uFEFF' : '') + csvBody;
       return { csv, rowCount: files.length };
     }
 
     function exportCsv(){
-      const out = buildCsvText();
+      const out = buildCsvText({ includeBom:true });
       if(!out) return;
 
       const blob = new Blob([out.csv], { type:'text/csv;charset=utf-8' });
@@ -324,7 +328,7 @@
     }
 
     async function copyCsv(){
-      const out = buildCsvText();
+      const out = buildCsvText({ includeBom:false });
       if(!out) return;
 
       // clipboard API 在 file:// 下/部分浏览器可能不可用
