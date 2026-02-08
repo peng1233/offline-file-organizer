@@ -31,6 +31,11 @@ Demo screenshot (Lite supports **Load demo (no files)** for quick understanding)
 
 ![Lite demo](docs/assets/lite-demo.png)
 
+Demo assets (raw links you can paste into Upwork/Fiverr/Toptal/GitHub Sponsors):
+- GIF: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
+- PNG (fallback): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
+- PNG (real screenshot): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo-real.png
+
 ## Tips (rename rules)
 - Replace mode: the "from" field cannot be empty.
 - For older browsers without `String.prototype.replaceAll`, the tool automatically falls back to a compatible implementation.

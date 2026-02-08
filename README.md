@@ -37,6 +37,11 @@ Lite 演示截图（支持“加载示例（无文件）”，便于快速理解
 
 ![Lite demo](docs/assets/lite-demo.png)
 
+演示素材（可直接粘贴到平台，raw 直链）：
+- GIF（动图）：https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
+- PNG（兜底/拼图）：https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
+- PNG（真实页面截图）：https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo-real.png
+
 ## 变现（Fiverr / Upwork / Toptal / GitHub Sponsors）
 如果你想把这个工具的能力做成可交付服务（例如：帮客户批量改名/整理文件并交付 ZIP + 清单），这里有一些可直接复用的文案模板（可直接复制粘贴到平台）：
 - Fiverr Gig 模板：`docs/monetization/fiverr-gig-template.md`
