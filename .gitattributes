@@ -1,0 +1,17 @@
+﻿* text=auto
+
+# Keep docs/code consistent on GitHub (LF)
+*.md   text eol=lf
+*.js   text eol=lf
+*.ts   text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.html text eol=lf
+*.css  text eol=lf
+.editorconfig text eol=lf
+
+# Windows scripts (CRLF)
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
