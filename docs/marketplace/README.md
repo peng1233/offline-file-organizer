@@ -9,6 +9,7 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 - **service-description-short.md** / **service-description-short_EN.md** - shorter versions
 - **fiverr-gig-copy_EN.md** - Fiverr gig copy (EN)
 - **upwork-project-catalog-copy_EN.md** - Upwork Project Catalog copy (EN)
+- **upwork-proposal-copy_EN.md** - Upwork proposal copy (EN)
 
 ## One-pagers
 
