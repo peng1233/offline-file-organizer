@@ -32,7 +32,7 @@ if (-not $SkipNode) {
 }
 
 if (-not $SkipPython) {
-  RunStep -label 'Scan marketplace docs for replacement char (U+FFFD)' -cmd 'python .\scripts\check_no_replacement_char.py --root docs\marketplace'
+  RunStep -label 'Scan key publish assets for replacement char (U+FFFD)' -cmd 'python .\scripts\check_no_replacement_char.py --paths docs\marketplace README.md README_EN.md index.html en.html'
 } else {
   Write-Host '\n(Skipped) Python scan'
 }
