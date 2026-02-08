@@ -27,5 +27,5 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Check no replacement char in marketplace docs
-        run: python scripts/check_no_replacement_char.py --root docs/marketplace
+      - name: Check no replacement char (marketplace + key entry pages)
+        run: python scripts/check_no_replacement_char.py --paths docs/marketplace README.md README_EN.md index.html en.html lite/README.md lite/README_EN.md lite/index.html
