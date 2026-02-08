@@ -45,6 +45,7 @@ If you deliver this tool as a small freelance task (Upwork/Fiverr/Toptal) or wan
 - `docs/marketplace/project-scope-template.md`
 
 ## Marketplace copy/paste templates (Upwork/Fiverr/Toptal)
+- Index: `docs/marketplace/README.md`
 - Publishing checklist (EN): `docs/monetization/publish-checklist_EN.md`
 - Fiverr Gig template: `docs/monetization/fiverr-gig-template.md`
 - Fiverr Gig copy (EN): `docs/marketplace/fiverr-gig-copy_EN.md`
