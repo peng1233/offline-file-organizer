@@ -2,6 +2,12 @@
 
 This folder contains copy/paste-ready text & checklists for publishing/monetizing this project (Upwork / Fiverr / Toptal / GitHub Sponsors).
 
+## 3-line pitch (copy/paste)
+
+- Offline file organizer you can run in the browser (no upload, privacy-first).
+- Batch preview file/folder list, export CSV/TSV, optional ZIP packaging.
+- Includes a fully-offline Lite fallback demo: https://peng1233.github.io/offline-file-organizer/lite/
+
 ## Start here
 
 - **service-description.md** - main, full description (ZH)
