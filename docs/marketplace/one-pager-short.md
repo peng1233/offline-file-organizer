@@ -14,6 +14,7 @@
 
 Live demo (Lite): https://peng1233.github.io/offline-file-organizer/lite/
 Demo GIF (copy/paste): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
+Demo PNG (fallback): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
 Repo: https://github.com/peng1233/offline-file-organizer
 Support: https://peng1233.github.io/btc-receive/ (BTC) | https://github.com/sponsors/peng1233 (GitHub Sponsors)
 

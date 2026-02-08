@@ -9,6 +9,7 @@ Offline File Organizer helps you quickly build a clean inventory of files/folder
 **Links:**
 - Live demo (Lite): https://peng1233.github.io/offline-file-organizer/lite/
 - Demo GIF (copy/paste): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
+Demo PNG (fallback): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
 - Repo: https://github.com/peng1233/offline-file-organizer
 - Tip jar (BTC): https://peng1233.github.io/btc-receive/
 
