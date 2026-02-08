@@ -67,6 +67,12 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 - Print raw URL for one asset:
   - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -Kind assets -Name lite-demo.gif -RawUrl -Print -NoClipboard`
 
+## One-command preflight (before you publish/copy/paste)
+
+Runs minimal checks (no secrets): main + lite self-check, scans marketplace docs for U+FFFD replacement chars, and verifies demo assets exist.
+
+- Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\marketplace-preflight.ps1`
+
 ## Quick demo open (for recording GIF/screenshots)
 
 - Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\open-online-demo.ps1`
