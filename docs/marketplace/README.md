@@ -32,6 +32,8 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 
 - **platform-profile-template.md** - profile template
 - **project-scope-template.md** - scope template (requirements / deliverables)
+- **platform-keywords-tags.md** - keywords/tags cheat sheet (Upwork/Fiverr/Toptal/Sponsors)
+- **pricing-delivery-tiers.md** - pricing tiers + delivery scope template (A/B/C)
 
 ## Demo assets (output folder)
 
