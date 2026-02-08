@@ -23,10 +23,9 @@
 
 ## 1) 必放链接（对外可用）
 
-- GitHub 仓库：<https://github.com/peng1233/offline-file-organizer>
-- 在线演示（主页面）：<https://peng1233.github.io/offline-file-organizer/>
-- 在线演示（Lite，完全离线兜底）：<https://peng1233.github.io/offline-file-organizer/lite/>
-- 打赏页（BTC）：<https://peng1233.github.io/btc-receive/>
+优先直接复制：`docs/marketplace/links.md`
+
+（里面包含：仓库 / Pages 主页面 / Lite / EN / 打赏页，以及 raw 链接的生成方法）
 
 ## 2) 可直接复制粘贴的文案入口（仓库内）
 
