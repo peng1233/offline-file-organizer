@@ -29,7 +29,7 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 
 ## Publishing checklists
 
-- **publish-checklist.md** - steps before publishing
+- **publish-checklist.md** / **publish-checklist_EN.md** - steps before publishing / outreach
 - **demo-assets-checklist.md** / **demo-assets-checklist-en.md** - demo assets checklist (screenshots/GIF/etc.)
 
 ## Templates
