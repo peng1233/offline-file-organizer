@@ -1,4 +1,4 @@
-// 最小自检脚本：验证 index.html 内嵌脚本的语法可被 Node 解析（不执行，只 parse）。
+// 最小自检脚本：验证 HTML 内嵌脚本的语法可被 Node 解析（不执行，只 parse）。
 // 设计目标：给 CI 用，防止无意中提交破坏页面的 JS 语法。
 // 用法：node tools/self_check.js
 
@@ -7,7 +7,7 @@ const path = require('path');
 const vm = require('vm');
 
 const root = path.resolve(__dirname, '..');
-const htmlPath = path.join(root, 'index.html');
+const htmlFiles = ['index.html', 'en.html'];
 
 function extractInlineScripts(html) {
   const scripts = [];
@@ -23,23 +23,24 @@ function extractInlineScripts(html) {
   return scripts;
 }
 
-function main() {
+function checkHtml(fileName) {
+  const htmlPath = path.join(root, fileName);
   if (!fs.existsSync(htmlPath)) {
-    console.error('SELF_CHECK_FAIL: index.html not found:', htmlPath);
-    process.exit(2);
+    // 兼容：有的发行版可能没有 en.html
+    return { fileName, skipped: true, scripts: 0, parsed: 0 };
   }
 
   const html = fs.readFileSync(htmlPath, 'utf8');
   const scripts = extractInlineScripts(html);
   if (scripts.length === 0) {
-    console.error('SELF_CHECK_FAIL: no inline <script> found in index.html');
-    process.exit(3);
+    // 兼容：有的页面可能没有内嵌脚本（全部外链），这里不视为失败。
+    return { fileName, skipped: true, scripts: 0, parsed: 0 };
   }
 
   let ok = 0;
   for (let i = 0; i < scripts.length; i++) {
     const code = scripts[i];
-    const name = `index.html:inline-script#${i + 1}`;
+    const name = `${fileName}:inline-script#${i + 1}`;
     try {
       // 仅做语法解析，不执行
       new vm.Script(code, { filename: name });
@@ -51,7 +52,22 @@ function main() {
     }
   }
 
-  console.log(`SELF_CHECK_OK: parsed ${ok}/${scripts.length} inline script(s)`);
+  return { fileName, skipped: false, scripts: scripts.length, parsed: ok };
+}
+
+function main() {
+  const results = htmlFiles.map(checkHtml);
+  const checked = results.filter((r) => !r.skipped);
+  if (checked.length === 0) {
+    console.error('SELF_CHECK_FAIL: no html files found to check:', htmlFiles.join(', '));
+    process.exit(2);
+  }
+
+  const parsedTotal = checked.reduce((a, r) => a + r.parsed, 0);
+  const scriptTotal = checked.reduce((a, r) => a + r.scripts, 0);
+
+  const checkedNames = checked.map((r) => r.fileName).join(', ');
+  console.log(`SELF_CHECK_OK: parsed ${parsedTotal}/${scriptTotal} inline script(s) in ${checkedNames}`);
 }
 
 main();
