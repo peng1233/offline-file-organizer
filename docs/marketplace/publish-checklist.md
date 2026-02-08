@@ -4,6 +4,15 @@
 >
 > 约束：不包含任何账号信息/收款私钥/敏感信息；最终上架/投递/提交仍需人工确认。
 
+## 快速复制（Windows PowerShell，一键粘贴到平台）
+
+在仓库根目录运行：
+
+- 复制本文件到剪贴板：
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -Name publish-checklist.md`
+- 仅打印到终端（不写剪贴板）：
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -Name publish-checklist.md -Print -NoClipboard`
+
 ## 0) 先选一个“主卖点”
 
 三选一（建议先选 1 个）：
