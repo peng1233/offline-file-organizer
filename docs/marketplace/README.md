@@ -52,9 +52,20 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 
 ## Quick copy/paste to clipboard (Windows PowerShell)
 
-- List: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -List`
+- List marketplace text templates: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -List`
 - Copy (default one-pager-short_EN.md): `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1`
 - Copy specific file: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -Name upwork-proposal-copy_EN.md`
+
+### Copy from a raw URL (no local file needed)
+
+- Print the text (so you can Ctrl+C manually):
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -Url https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/marketplace/one-pager-short_EN.md -Print -NoClipboard`
+
+### Get raw links for demo GIF/PNG (docs/assets)
+
+- List available assets: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -Kind assets -List`
+- Print raw URL for one asset:
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -Kind assets -Name lite-demo.gif -RawUrl -Print -NoClipboard`
 
 ## Quick demo open (for recording GIF/screenshots)
 
