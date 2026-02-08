@@ -123,3 +123,4 @@ if ($Kind -eq 'assets') {
 $text = Get-Content -LiteralPath $path -Raw -Encoding UTF8
 TryCopy -value $text -label $path
 if ($Print) { Write-Output $text }
+exit 0
