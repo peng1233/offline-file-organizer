@@ -45,6 +45,8 @@ Lite 演示截图（支持“加载示例（无文件）”，便于快速理解
 ## 变现（Fiverr / Upwork / Toptal / GitHub Sponsors）
 如果你想把这个工具的能力做成可交付服务（例如：帮客户批量改名/整理文件并交付 ZIP + 清单），这里有一些可直接复用的文案模板（可直接复制粘贴到平台）：
 - 模板目录索引：`docs/marketplace/README.md`
+- 平台关键词/标签速查：`docs/marketplace/platform-keywords-tags.md`
+- 定价档位/交付范围（三档）：`docs/marketplace/pricing-delivery-tiers.md`
 - Fiverr Gig 模板：`docs/monetization/fiverr-gig-template.md`
 - Fiverr Gig 文案（英文可直接复制）：`docs/marketplace/fiverr-gig-copy_EN.md`
 - Fiverr/Upwork 服务包（定价 + 交付物清单）：`docs/monetization/service-packages_Fiverr_Upwork.md`

@@ -46,6 +46,8 @@ If you deliver this tool as a small freelance task (Upwork/Fiverr/Toptal) or wan
 
 ## Marketplace copy/paste templates (Upwork/Fiverr/Toptal)
 - Index: `docs/marketplace/README.md`
+- Platform keywords/tags cheat sheet: `docs/marketplace/platform-keywords-tags.md`
+- Pricing tiers / deliverables template (A/B/C): `docs/marketplace/pricing-delivery-tiers.md`
 - Publishing checklist (EN): `docs/monetization/publish-checklist_EN.md`
 - Fiverr Gig template: `docs/monetization/fiverr-gig-template.md`
 - Fiverr Gig copy (EN): `docs/marketplace/fiverr-gig-copy_EN.md`
