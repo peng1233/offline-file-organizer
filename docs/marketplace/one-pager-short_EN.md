@@ -1,26 +1,16 @@
-﻿# Offline File Organizer (Lite) - one-pager (short)
+# Offline File Organizer — 30‑second pitch (copy/paste)
 
-**Headline (copy/paste):**
-Privacy-first *offline* file organizer that generates a previewable catalog + CSV/TSV manifest in your browser.
+Offline File Organizer is a privacy‑first tool that helps people clean up messy folders and rename/sort files **fully offline** (no uploads, no cloud dependency). It’s designed for real‑world workflows: you can preview changes, apply rules consistently, and keep everything on your own machine.
 
-**What it does (80-120 words):**
-Offline File Organizer helps you quickly build a clean inventory of files/folders without uploading anything to a server. You open a local web page, select a folder (or drag & drop), and it generates a human-friendly preview list plus a spreadsheet-ready manifest (CSV and TSV). It is designed for Windows users who want to organize, archive, migrate, or hand off project folders to teammates/clients. A built-in Demo Mode lets you try it instantly, even if your browser blocks folder access. Optional ZIP support is available (when supported by the browser), with a fully-offline Lite fallback.
+Best for:
+- freelancers/teams handling client documents
+- creators managing lots of media files
+- anyone who wants repeatable organization without sharing data
 
-**Links:**
-- Live demo (Lite): https://peng1233.github.io/offline-file-organizer/lite/
-- Demo GIF (copy/paste): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
-- Demo PNG (fallback): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
-- Real screenshot PNG (fallback): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo-real.png
-- Repo: https://github.com/peng1233/offline-file-organizer
+Links:
+- GitHub (main): https://github.com/peng1233/offline-file-organizer
+- Demo assets (raw): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
+- One‑pager (GitHub Pages): https://peng1233.github.io/offline-file-organizer/
 - Tip jar (BTC): https://peng1233.github.io/btc-receive/
 
-**Key selling points (bullets):**
-- Works offline (no upload)
-- Fast preview + export manifest (CSV/TSV)
-- Demo Mode for instant testing
-- Simple: single HTML page (Lite)
-
-**Suggested deliverables (for gigs):**
-- Custom columns/fields in the manifest
-- Export format tweaks (CSV/TSV/JSON)
-- Small UI adjustments + documentation
+If you want a custom workflow (rules, naming scheme, or a tailored “one‑click” organizer for your folder structure), I can deliver it as a small project with clear scope and acceptance checks.
