@@ -1,5 +1,8 @@
 param(
   [string]$Name = 'one-pager-short_EN.md',
+  # Optional: copy content from an arbitrary raw URL (useful when you want to paste
+  # templates without depending on local file encoding).
+  [string]$Url = '',
   [switch]$List,
   [switch]$RawUrl,
   [switch]$Print,
@@ -43,6 +46,23 @@ if($List){
   exit 0
 }
 
+if($Url){
+  if($RawUrl){
+    Write-Host 'Invalid args: -Url cannot be used with -RawUrl.'
+    exit 2
+  }
+  try {
+    $resp = Invoke-WebRequest -UseBasicParsing -Uri $Url
+    $textFromUrl = $resp.Content
+  } catch {
+    Write-Host ('Failed to download URL: ' + $Url)
+    throw
+  }
+  TryCopy -value $textFromUrl -label $Url
+  if($Print){ Write-Output $textFromUrl }
+  exit 0
+}
+
 $path = Join-Path $dir $Name
 if(-not (Test-Path -LiteralPath $path -PathType Leaf)){
   Write-Host ('Not found: ' + $path)
@@ -57,6 +77,6 @@ if($RawUrl){
   exit 0
 }
 
-$text = Get-Content -LiteralPath $path -Raw
+$text = Get-Content -LiteralPath $path -Raw -Encoding UTF8
 TryCopy -value $text -label $path
 if($Print){ Write-Output $text }
