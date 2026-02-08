@@ -17,6 +17,7 @@
 - Lite（零依赖兜底）：https://peng1233.github.io/offline-file-organizer/lite/
 - Lite 演示动图（可直接粘贴到平台）：https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
 - Lite 演示截图（不支持 GIF 的兜底）：https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
+- Lite 真实页面截图（另一种兜底）：https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo-real.png
 
 仓库：https://github.com/peng1233/offline-file-organizer
 支持/打赏：https://peng1233.github.io/btc-receive/ （BTC） | https://github.com/sponsors/peng1233 （GitHub Sponsors）
