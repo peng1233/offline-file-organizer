@@ -35,6 +35,7 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 - Raw links (direct download, good for Upwork/Fiverr/Toptal/Sponsors):
   - GIF: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
   - PNG: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
+  - PNG (real screenshot): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo-real.png
 
 ## Quick demo open (for recording GIF/screenshots)
 
