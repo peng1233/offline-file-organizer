@@ -25,6 +25,7 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 - **toptal-profile-copy_EN.md** - Toptal profile copy (EN)
 - **github-sponsors-profile-copy_EN.md** - GitHub Sponsors profile + tiers (EN)
 - **github-repo-about-copy_EN.md** - GitHub repo About/Website/Topics copy (EN)
+- **one-pager-short_EN.md** - fastest all-in-one copy/paste one-pager (EN) (recommended default)
 
 ## One-pagers
 
