@@ -6,7 +6,7 @@
 
 ---
 
-## Version A — short (recommended)
+## Version A - short (recommended)
 
 Hi [Name],
 
@@ -19,14 +19,14 @@ One example is **Offline File Organizer**:
 Demo (Lite): https://peng1233.github.io/offline-file-organizer/lite/
 Repo: https://github.com/peng1233/offline-file-organizer
 
-If you share your workflow (what files you process, desired output format, volume), I can propose a 1–2 day implementation plan and deliver a working version quickly.
+If you share your workflow (what files you process, desired output format, volume), I can propose a 1-2 day implementation plan and deliver a working version quickly.
 
 Best,
 [Your name]
 
 ---
 
-## Version B — problem/solution framing
+## Version B - problem/solution framing
 
 Hi [Name],
 
