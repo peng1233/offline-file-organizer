@@ -4,3 +4,6 @@ bundles/
 
 # Node tooling (used only for helper scripts)
 node_modules/
+
+# Build / packaging artifacts
+/dist/
