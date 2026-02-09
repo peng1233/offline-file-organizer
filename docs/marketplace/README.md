@@ -57,11 +57,19 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
   - PNG: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
   - PNG (real screenshot): https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo-real.png
 
-## Quick copy/paste to clipboard (Windows PowerShell)
+## Quick copy/paste to clipboard (Windows)
+
+### Option A (PowerShell)
 
 - List marketplace text templates: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -List`
 - Copy (default one-pager-short_EN.md): `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1`
 - Copy specific file: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-marketplace-asset.ps1 -Name upwork-proposal-copy_EN.md`
+
+### Option B (CMD one-liners)
+
+- List: `cmd /c scripts\copy-marketplace-asset.cmd -List`
+- Copy default: `cmd /c scripts\copy-marketplace-asset.cmd`
+- Copy specific: `cmd /c scripts\copy-marketplace-asset.cmd -Name upwork-proposal-copy_EN.md`
 
 ### Copy from a raw URL (no local file needed)
 
