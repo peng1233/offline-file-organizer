@@ -10,6 +10,12 @@
 - 打开 **Lite 版本**：直接双击 `lite\\open.cmd`
 
 > 说明：`open.ps1`/`lite\\open.ps1` 是对应的 PowerShell 版本（便于高级用户改参数/排错），但一般双击 `.cmd` 就够了。
+>
+> 高级用法：如果你想打开特定的 Lite 文件（例如你改了 `lite\index.html` 的路径），可以用：
+>
+> ```powershell
+> powershell -NoProfile -ExecutionPolicy Bypass -File .\lite\open.ps1 -Path .\lite\index.html
+> ```
 
 注意：`file://` 打开时，部分浏览器能力可能受限（尤其是“选择文件夹/目录”相关）。需要完整能力请按本文启动本地服务器。
 
