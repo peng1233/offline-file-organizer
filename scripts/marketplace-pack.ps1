@@ -73,7 +73,10 @@ try {
 
   Write-Host "PACK_OK" -ForegroundColor Green
   Write-Host "OutPath: $OutPath"
-  Write-Host "Size: $([Math]::Round((Get-Item -LiteralPath $OutPath).Length / 1KB, 1)) KB"
+  $sizeKb = [Math]::Round((Get-Item -LiteralPath $OutPath).Length / 1KB, 1)
+  Write-Host "Size: ${sizeKb} KB"
+  $sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $OutPath).Hash.ToLowerInvariant()
+  Write-Host "SHA256: $sha256"
 } finally {
   if (-not $KeepTemp) {
     if (Test-Path -LiteralPath $stage) {
