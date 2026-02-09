@@ -14,6 +14,7 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 - **service-description-variants.md** - A/B variants (ZH + EN blocks)
 - **service-description-short.md** / **service-description-short_EN.md** - shorter versions
 - **fiverr-gig-copy_EN.md** - Fiverr gig copy (EN)
+- **fiverr-packages-copy_EN.md** - Fiverr package tiers (Basic/Standard/Premium) copy (EN)
 - **fiverr-gig.md** - Fiverr gig copy (EN, shorter)
 - **fiverr-gig-template.md** - Fiverr gig full-page template (ZH + EN)
 - **upwork-project-catalog-copy_EN.md** - Upwork Project Catalog copy (EN)
