@@ -13,7 +13,12 @@ param(
 $ErrorActionPreference = 'Stop'
 
 # Resolve to absolute path
-$full = Resolve-Path -LiteralPath $Path
+$resolved = Resolve-Path -LiteralPath $Path
+$fullPath = $resolved.Path
 
-Write-Host "Opening: $full" -ForegroundColor Cyan
-Start-Process $full
+if (-not (Test-Path -LiteralPath $fullPath)) {
+  throw "Not found: $fullPath"
+}
+
+Write-Host "Opening: $fullPath" -ForegroundColor Cyan
+Start-Process -FilePath $fullPath
