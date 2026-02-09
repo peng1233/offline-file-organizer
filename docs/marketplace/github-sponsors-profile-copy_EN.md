@@ -1,45 +1,65 @@
-# GitHub Sponsors profile copy (EN)
+# GitHub Sponsors - profile + tiers copy (EN)
 
-> Goal: a copy/paste-ready profile + tiers for GitHub Sponsors.
-> Project: Offline File Organizer (privacy-first, runs locally in the browser).
+Ready-to-paste English copy for setting up GitHub Sponsors for this project.
 
-## Short profile (copy/paste)
+Where to use:
+- Repository -> Sponsor button -> Set up GitHub Sponsors
+- Your GitHub Sponsors profile -> About/Description
+- Sponsor tiers -> tier name + description + thank-you note
 
-Hi, I'm maintaining **Offline File Organizer** - a privacy-first, offline-first file utility you can run directly in your browser.
+---
 
-- No upload: your files stay on your machine.
-- Batch preview file/folder lists, export CSV/TSV.
-- Optional ZIP packaging.
-- Includes a fully-offline Lite demo: https://peng1233.github.io/offline-file-organizer/lite/
+## Short tagline (1 line)
+Open-source tools that make file cleanup and naming fast, offline, and safe.
 
-If this project saves you time, please consider sponsoring.
+## About (long)
+I maintain **offline-file-organizer**: a practical, offline-first toolkit to clean up and rename files, export results, and keep workflows reproducible.
 
-Project repo: https://github.com/peng1233/offline-file-organizer
+If the project saves you time (or makes your work less annoying), consider sponsoring to support:
+- Maintenance and bug fixes
+- Better docs, templates, and demos
+- Small automation scripts that reduce friction for real users
 
-## What sponsors enable
+Links:
+- Project: https://github.com/peng1233/offline-file-organizer
+- Demo/landing: https://peng1233.github.io/offline-file-organizer/
+- Lite demo: https://peng1233.github.io/offline-file-organizer/lite/
+- Optional tip (BTC): https://peng1233.github.io/btc-receive/
 
-- More stable releases (bug fixes + better error messages)
-- Documentation, demos, and templates for real-world workflows
-- Faster turnaround on small feature requests
+## What sponsors get
+- Priority on bug reports that include steps to reproduce
+- Early access to new templates and copy/paste assets (Fiverr/Upwork/Docs)
+- A public thank-you (optional)
 
-## Suggested sponsor tiers (copy/paste)
+## Suggested tiers (edit prices to fit)
 
-### $5/mo - Supporter
+### Supporter
+Description:
+Help keep the lights on. Your sponsorship funds small fixes and documentation improvements.
 
-- Keep the project maintained
-- Your vote on the next small improvement
+Thank-you message:
+Thank you for sponsoring! If you have a workflow problem, open an issue with an example input and what output you want.
 
-### $20/mo - Priority fixes
+### Pro
+Description:
+You are funding faster iteration: preflight checks, marketplace assets, and more automation scripts.
 
-- Priority bug triage
-- Help adapting the tool to your specific workflow (within reasonable scope)
+Thank-you message:
+Thank you! Reply with your top 1 pain point (rename rules / CSV export / Windows usage / docs). I will prioritize it.
 
-### $100 one-time - Sponsor a feature
+### Team
+Description:
+For teams using the tooling in a shared workflow. Includes priority triage and small feature requests.
 
-- Fund one small, clearly-scoped improvement
-- I'll share the plan + acceptance checklist before implementation
+Thank-you message:
+Thanks for supporting as a team. Send your use case and sample folder structure (anonymized) and I will propose an improvement plan.
 
-## Alternative: tip jar
+## FAQ
+Q: Can you implement a custom feature for my company?
+A: Yes, if it fits the project direction and can be done safely. Open an issue first; if it needs private details, we can move to a private channel.
 
-If GitHub Sponsors isn't convenient, you can tip here:
-https://peng1233.github.io/btc-receive/
+Q: Do you accept tips outside GitHub Sponsors?
+A: Yes - optional BTC tip page is linked above.
+
+Q: Can I sponsor anonymously?
+A: Yes (GitHub supports private sponsorship settings).
