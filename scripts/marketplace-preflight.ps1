@@ -37,6 +37,34 @@ if (-not $SkipPython) {
   Write-Host '\n(Skipped) Python scan'
 }
 
+Write-Host '\n=== Docs naming consistency check (docs/marketplace) ==='
+$marketplaceRoot = Join-Path $repoRoot 'docs\marketplace'
+if (Test-Path -LiteralPath $marketplaceRoot -PathType Container) {
+  $files = Get-ChildItem -LiteralPath $marketplaceRoot -File -Filter '*.md' | Select-Object -ExpandProperty Name
+  $lowerSet = @{}
+  foreach ($f in $files) { $lowerSet[$f.ToLowerInvariant()] = $true }
+
+  $warns = 0
+  foreach ($f in $files) {
+    $lower = $f.ToLowerInvariant()
+    if ($lower.EndsWith('-en.md')) {
+      $canon = $f.Substring(0, $f.Length - 6) + '_EN.md'
+      if ($lowerSet.ContainsKey($canon.ToLowerInvariant())) {
+        Write-Host ("WARN: Found both EN naming variants: '" + $f + "' and '" + $canon + "'. Consider keeping only one to reduce confusion.")
+        $warns++
+      }
+    }
+  }
+
+  if ($warns -eq 0) {
+    Write-Host 'OK: no obvious duplicate EN naming variants found'
+  } else {
+    Write-Host ('WARN: total warnings=' + $warns + ' (non-fatal)')
+  }
+} else {
+  Write-Host ('WARN: missing folder: ' + $marketplaceRoot)
+}
+
 Write-Host '\n=== Asset presence check ==='
 $assetRoot = Join-Path $repoRoot 'docs\assets'
 $assets = @('lite-demo.gif','lite-demo.png','lite-demo-real.png')
