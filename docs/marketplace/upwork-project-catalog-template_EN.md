@@ -16,10 +16,10 @@
 
 ## Project summary (short)
 
-[2–3 sentences. Who is it for + what you deliver + why it is safe/private.]
+[2-3 sentences. Who is it for + what you deliver + why it is safe/private.]
 
 Example:
-This is a privacy-first offline tool that helps you batch preview file/folder lists, export to CSV/TSV, and optionally package outputs as a ZIP. Runs in your browser — no upload required.
+This is a privacy-first offline tool that helps you batch preview file/folder lists, export to CSV/TSV, and optionally package outputs as a ZIP. Runs in your browser - no upload required.
 
 ## What the client provides
 
@@ -50,7 +50,7 @@ This is a privacy-first offline tool that helps you batch preview file/folder li
 
 ## Timeline
 
-- Typical delivery: [24–72 hours]
+- Typical delivery: [24-72 hours]
 
 ## Revisions
 
@@ -59,7 +59,7 @@ This is a privacy-first offline tool that helps you batch preview file/folder li
 ## Pricing tiers (example)
 
 Basic
-- Use-case: [simple file list → CSV]
+- Use-case: [simple file list -> CSV]
 - Output: [CSV/TSV]
 - ETA: [1 day]
 
@@ -79,7 +79,7 @@ Premium
 A: No. The workflow can run offline / locally. If you prefer, you can share only a small sample or just the required structure.
 
 **Q: Can you match my existing spreadsheet format?**
-A: Yes — share your template CSV/Excel and I’ll match the columns/order.
+A: Yes - share your template CSV/Excel and I'll match the columns/order.
 
 ## Demo link (optional)
 
@@ -88,4 +88,4 @@ Lite demo (fully offline): https://peng1233.github.io/offline-file-organizer/lit
 ---
 
 Notes:
-- Keep wording plain ASCII when possible (avoid “smart quotes”) to reduce copy/paste glitches.
+- Keep wording plain ASCII when possible (avoid "smart quotes") to reduce copy/paste glitches.
