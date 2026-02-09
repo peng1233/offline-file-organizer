@@ -1,6 +1,6 @@
-# Offline File Organizer (Lite) — One-pager (EN)
+# Offline File Organizer (Lite) - One-pager (EN)
 
-Short version (EN, 100–200 words): `docs/marketplace/one-pager-short_EN.md`
+Short version (EN, 100-200 words): `docs/marketplace/one-pager-short_EN.md`
 
 **What it is**
 - A tiny, fully-offline web tool to help people quickly organize local files into a clean structure.
@@ -14,7 +14,7 @@ Short version (EN, 100–200 words): `docs/marketplace/one-pager-short_EN.md`
 **Key features (Lite)**
 - Fully offline (single HTML file)
 - Generate a file list CSV (for review / client approval)
-- Optional “apply plan” mode with confirmation
+- Optional "apply plan" mode with confirmation
 - One-click open on Windows: `lite\\open.cmd`
 
 **Quick start (Windows)**
@@ -36,4 +36,4 @@ Short version (EN, 100–200 words): `docs/marketplace/one-pager-short_EN.md`
 
 **Notes (for clients/platforms)**
 - The Lite version is designed to be usable in restricted environments.
-- If the full version can’t load external libraries (e.g., JSZip), Lite still works.
+- If the full version can't load external libraries (e.g., JSZip), Lite still works.
