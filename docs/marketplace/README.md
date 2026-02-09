@@ -14,7 +14,7 @@ It is intentionally **docs-only** (no secrets, no tokens).
 If you want the fastest path to publish:
 
 1) Read: `publish-checklist_EN.md`
-2) Use the “one page” summary:
+2) Use the "one page" summary:
    - English: `one-pager-short_EN.md`
    - Chinese: `one-pager-short_ZH.md`
 3) Pick one platform template:
