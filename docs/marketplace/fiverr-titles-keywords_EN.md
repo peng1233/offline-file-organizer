@@ -32,6 +32,6 @@ Goal: make it easy to publish a Fiverr gig fast (copy/paste), while keeping clai
 
 ## Notes (to avoid Fiverr rejections)
 
-- Avoid absolute promises like “100% works in all browsers”. Use: “Works in modern browsers; Lite fallback included”.
-- Don’t mention bypassing platform rules or scraping.
+- Avoid absolute promises like "100% works in all browsers". Use: "Works in modern browsers; Lite fallback included".
+- Don't mention bypassing platform rules or scraping.
 - Keep delivery scope clear: what you deliver + what you need from the buyer (example files/rules).
