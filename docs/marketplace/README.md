@@ -17,6 +17,8 @@ This folder contains copy/paste-ready text & checklists for publishing/monetizin
 - **fiverr-packages-copy_EN.md** - Fiverr package tiers (Basic/Standard/Premium) copy (EN)
 - **fiverr-gig.md** - Fiverr gig copy (EN, shorter)
 - **fiverr-gig-template.md** - Fiverr gig full-page template (ZH + EN)
+- **fiverr-packages-copy_EN.md** - Fiverr Packages (Basic/Standard/Premium) copy/paste (EN)
+- **fiverr-titles-keywords_EN.md** - Fiverr title + keyword ideas (EN)
 - **upwork-project-catalog-copy_EN.md** - Upwork Project Catalog copy (EN)
 - **upwork-proposal-copy_EN.md** - Upwork proposal copy (EN)
 - **toptal-profile-copy_EN.md** - Toptal profile copy (EN)
