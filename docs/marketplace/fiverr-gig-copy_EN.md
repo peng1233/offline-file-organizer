@@ -1,6 +1,6 @@
-# Fiverr Gig Copy (EN) — Offline File Organizer
+# Fiverr Gig Copy (EN) - Offline File Organizer
 
-> Copy/paste ready. Adjust brackets.
+> Copy/paste ready. Adjust [brackets].
 
 ## Gig Title (pick one)
 
@@ -36,25 +36,25 @@ Perfect for:
 
 ## Packages
 
-### Starter — Lite ZIP
-Price suggestion: $15–30
+### Starter - Lite ZIP
+Price suggestion: $15-$20
 Delivery: 1 day
 Includes:
 - Lite ZIP you can run offline (double-click)
 - Simple usage guide
 - One small UI text/logo tweak (optional)
 
-### Standard — Lite + rules
-Price suggestion: $49–99
-Delivery: 2–3 days
+### Standard - Lite + rules
+Price suggestion: $49-$79
+Delivery: 2-3 days
 Includes:
 - Lite ZIP + self-check log
 - Naming/sorting rules based on your examples
 - Basic preset(s) for repeatable use
 
-### Pro — Custom workflow
-Price suggestion: $149–399
-Delivery: 3–7 days
+### Pro - Custom workflow
+Price suggestion: $149-$299
+Delivery: 3-5 days
 Includes (as needed):
 - Multiple presets, custom UI wording, export report (CSV summary)
 - Windows quick start instructions (open.cmd/open.ps1)
@@ -65,7 +65,7 @@ Includes (as needed):
 ## What I need from you (Requirements)
 
 - Your goal (what you want to organize)
-- 5–10 sample filenames (or screenshots)
+- 5-10 sample filenames (or screenshots)
 - Your desired naming format (example: YYYY-MM-DD_project_client_###)
 
 ---
