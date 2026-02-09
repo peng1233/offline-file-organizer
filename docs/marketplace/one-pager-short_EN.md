@@ -1,6 +1,6 @@
 # Offline File Organizer - 30-second pitch (copy/paste)
 
-Offline File Organizer is a privacy-first tool that helps people clean up messy folders and rename/sort files **fully offline** (no uploads, no cloud dependency). It’s designed for real-world workflows: you can preview changes, apply rules consistently, and keep everything on your own machine.
+Offline File Organizer is a privacy-first tool that helps people clean up messy folders and rename/sort files **fully offline** (no uploads, no cloud dependency). It's designed for real-world workflows: you can preview changes, apply rules consistently, and keep everything on your own machine.
 
 Best for:
 - freelancers/teams handling client documents
