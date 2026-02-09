@@ -33,6 +33,7 @@ if (-not $SkipNode) {
 
 if (-not $SkipPython) {
   RunStep -label 'Scan key publish assets for replacement char (U+FFFD)' -cmd 'python .\scripts\check_no_replacement_char.py --paths docs\marketplace README.md README_EN.md index.html en.html'
+  RunStep -label 'Scan English copy templates for paste-breaking chars (warn on smart quotes, fail on U+FFFD/NBSP/ZWSP)' -cmd 'python .\scripts\check_ascii_only.py --glob "docs/marketplace/*_EN*.md" "docs/marketplace/*copy_EN.md" "docs/marketplace/*template_EN.md" --paths README_EN.md en.html'
 } else {
   Write-Host '\n(Skipped) Python scan'
 }
