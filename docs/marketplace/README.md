@@ -101,6 +101,10 @@ Creates a single ZIP containing:
 
 The ZIP is saved to `dist/marketplace-pack_YYYYMMDD_HHMMSS.zip` by default.
 
+After the script finishes, it prints:
+- `OutPath: ...` (the exact ZIP path)
+- `SHA256: ...` (file hash) — you can paste this into your platform message / delivery notes so the client can verify integrity
+
 ## Quick demo open (for recording GIF/screenshots)
 
 - Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\open-online-demo.ps1`
