@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://peng1233.github.io/offline-file-organizer/sitemap.xml

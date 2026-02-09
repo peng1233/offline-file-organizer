@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://peng1233.github.io/offline-file-organizer/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://peng1233.github.io/offline-file-organizer/en.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://peng1233.github.io/offline-file-organizer/lite/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://peng1233.github.io/offline-file-organizer/landing/windows-batch-rename-export-csv_EN.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
