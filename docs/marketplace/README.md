@@ -87,6 +87,17 @@ Runs minimal checks (no secrets): main + lite self-check, scans marketplace docs
 
 - Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\marketplace-preflight.ps1`
 
+## Pack everything into a ZIP (for uploading to platforms)
+
+Creates a single ZIP containing:
+- `docs/marketplace/` text templates (copy/paste)
+- a few commonly-used demo assets from `docs/assets/` (GIF/PNG + donation QR if present)
+
+- PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\marketplace-pack.ps1`
+- CMD wrapper: `cmd /c .\scripts\marketplace-pack.cmd`
+
+The ZIP is saved to `dist/marketplace-pack_YYYYMMDD_HHMMSS.zip` by default.
+
 ## Quick demo open (for recording GIF/screenshots)
 
 - Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\open-online-demo.ps1`
