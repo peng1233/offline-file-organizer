@@ -19,6 +19,7 @@ If you want the fastest path to publish:
    - Chinese: `one-pager-short_ZH.md`
 3) Pick one platform template:
    - Fiverr gig: `fiverr-gig-template.md` (or ready copy: `fiverr-gig-copy_EN.md`)
+   - Fiverr packages (Basic/Standard/Premium): `fiverr-packages.md`
    - Upwork proposal: `upwork-proposal-template_EN.md` (or ready copy: `upwork-proposal-copy_EN.md`)
    - Toptal application: `toptal-application-template_EN.md`
    - GitHub Sponsors profile: `github-sponsors-profile-copy_EN.md`
