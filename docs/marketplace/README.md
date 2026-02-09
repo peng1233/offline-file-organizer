@@ -91,9 +91,11 @@ Runs minimal checks (no secrets): main + lite self-check, scans marketplace docs
 
 Creates a single ZIP containing:
 - `docs/marketplace/` text templates (copy/paste)
-- a few commonly-used demo assets from `docs/assets/` (GIF/PNG + donation QR if present)
+- a few commonly-used demo assets from `docs/assets/` (GIF/PNG)
+- (optional) donation QR image **only if you explicitly pass** `-IncludeDonationQr`
 
 - PowerShell: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\marketplace-pack.ps1`
+- Include donation QR (only when allowed by the platform): `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\marketplace-pack.ps1 -IncludeDonationQr`
 - CMD wrapper: `cmd /c .\scripts\marketplace-pack.cmd`
 
 The ZIP is saved to `dist/marketplace-pack_YYYYMMDD_HHMMSS.zip` by default.

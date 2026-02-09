@@ -1,6 +1,9 @@
 param(
   [string]$OutPath = "",
-  [switch]$KeepTemp
+  [switch]$KeepTemp,
+  # Some platforms may not allow crypto/donation QR images in the listing.
+  # Default: do NOT include donation QR. Use -IncludeDonationQr to include it.
+  [switch]$IncludeDonationQr
 )
 
 $ErrorActionPreference = 'Stop'
@@ -43,9 +46,12 @@ try {
   $assetNames = @(
     'lite-demo.gif',
     'lite-demo.png',
-    'lite-demo-real.png',
-    'tc-donation-v1.png'
+    'lite-demo-real.png'
   )
+
+  if ($IncludeDonationQr) {
+    $assetNames += 'tc-donation-v1.png'
+  }
 
   foreach ($n in $assetNames) {
     $src = Join-Path $assetsDir $n
@@ -61,7 +67,7 @@ try {
   $readme += ""
   $readme += "Contains:"
   $readme += "- marketplace/  (copy/paste-ready text templates + checklists)"
-  $readme += "- assets/       (demo GIF/PNG and donation QR if present)"
+  $readme += "- assets/       (demo GIF/PNG; donation QR only if -IncludeDonationQr is used)"
   $readme += ""
   $readme += "Tip: Run repo preflight before publishing: scripts/marketplace-preflight.ps1"
   $readmePath = Join-Path $stage 'README.txt'
