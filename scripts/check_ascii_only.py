@@ -98,7 +98,8 @@ def main() -> int:
                 continue
 
             code = f"U+{o:04X}"
-            snippet = ch
+            # avoid Windows console encoding issues (e.g. GBK): print escaped snippet
+            snippet = ch.encode("unicode_escape").decode("ascii")
 
             if ch in fatal_set:
                 print(f"FATAL_CHAR: {path}:{line}:{col} {code} '{snippet}'")
@@ -109,7 +110,7 @@ def main() -> int:
 
             # don't spam
             if bad + warn >= 200:
-                print("FAIL: too many findings (capped at 200)")
+                print("NOTE: too many findings (output capped at 200)")
                 return 1 if bad else 0
 
     if bad == 0:
