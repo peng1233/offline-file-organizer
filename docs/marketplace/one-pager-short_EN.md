@@ -13,4 +13,4 @@ Links:
 - One-pager (GitHub Pages): https://peng1233.github.io/offline-file-organizer/
 - Tip jar (BTC): https://peng1233.github.io/btc-receive/
 
-If you want a custom workflow (rules, naming scheme, or a tailored “one-click” organizer for your folder structure), I can deliver it as a small project with clear scope and acceptance checks.
+If you want a custom workflow (rules, naming scheme, or a tailored one-click organizer for your folder structure), I can deliver it as a small project with clear scope and acceptance checks.
