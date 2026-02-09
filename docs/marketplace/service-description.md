@@ -32,6 +32,11 @@
 
 仓库：https://github.com/peng1233/offline-file-organizer
 
+演示素材（可直接粘贴到平台描述里）
+- GIF（动图，快速说明流程）：https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
+- PNG（截图）：https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
+- Lite 演示页（完全离线兜底）：https://peng1233.github.io/offline-file-organizer/lite/
+
 使用说明（Windows 快速开始）
 - 中文：docs/windows-quickstart.md
 - English：docs/windows-quickstart-en.md
@@ -73,6 +78,11 @@ Live demo (GitHub Pages)
 - Lite fallback: https://peng1233.github.io/offline-file-organizer/lite/
 
 Repo: https://github.com/peng1233/offline-file-organizer
+
+Demo assets (copy/paste-ready)
+- GIF: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
+- PNG: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
+- Lite demo (fully offline fallback): https://peng1233.github.io/offline-file-organizer/lite/
 
 Quickstart docs
 - Windows (ZH): docs/windows-quickstart.md
