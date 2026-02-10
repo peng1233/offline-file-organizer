@@ -12,7 +12,7 @@ if not exist "%PS1%" (
   exit /b 1
 )
 
-powershell -NoProfile -ExecutionPolicy Bypass -File "%PS1%"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%PS1%" %*
 set EXITCODE=%ERRORLEVEL%
 
 if not "%EXITCODE%"=="0" (
