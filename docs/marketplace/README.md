@@ -28,7 +28,7 @@ If you want the fastest path to publish:
    - GitHub Sponsors profile: `github-sponsors-profile-copy_EN.md`
 4) Follow a platform-specific publish steps checklist (create a draft first):
    - Fiverr: `fiverr-publish-steps_EN.md`
-   - Upwork Project Catalog: `upwork-publish-steps_EN.md`
+   - Upwork Project Catalog: `upwork-publish-steps_EN.md` (Chinese: `upwork-publish-steps_ZH.md`)
    - Toptal: `toptal-publish-steps_EN.md`
 
 ## Demo assets
