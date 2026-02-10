@@ -23,6 +23,9 @@ If you want the fastest path to publish:
    - Upwork proposal: `upwork-proposal-template_EN.md` (or ready copy: `upwork-proposal-copy_EN.md`)
    - Toptal application: `toptal-application-template_EN.md`
    - GitHub Sponsors profile: `github-sponsors-profile-copy_EN.md`
+4) Follow a platform-specific publish steps checklist (create a draft first):
+   - Fiverr: `fiverr-publish-steps_EN.md`
+   - Upwork Project Catalog: `upwork-publish-steps_EN.md`
 
 ## Demo assets
 
