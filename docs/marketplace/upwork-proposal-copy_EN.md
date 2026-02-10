@@ -57,3 +57,15 @@ Delivered:
 
 Next step:
 If you approve, I can apply the plan in a safe, reversible way and provide a short handover note so you can repeat it later.
+
+---
+
+## FAQ (quick)
+Q: Is it offline? Does it upload my files?
+A: It runs locally in your browser and does NOT upload your files to any server.
+
+Q: What do I receive / what is the deliverable?
+A: A ready-to-run offline ZIP (HTML + JS) + a simple usage guide. Optional: a customized version based on your folder rules.
+
+Q: Do you need remote access or my private files?
+A: No. If needed, you can share a small anonymized sample (or just the folder structure) for debugging.
