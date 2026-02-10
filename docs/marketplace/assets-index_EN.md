@@ -1,41 +1,48 @@
-# Marketplace assets index (images / GIF)
+# Marketplace asset index (EN)
 
-Purpose: quick "what to upload / where to find it" list for Fiverr / Upwork / Toptal / GitHub Sponsors.
+Purpose: when you publish on Fiverr / Upwork / Toptal / GitHub Sponsors, you often need the same small set of images/GIFs/links. This page is a quick index so you can find + upload the right files fast.
 
-All paths below are repo-relative.
+All paths below are relative to the repo root.
 
 ## 1) Recommended default assets
 
-- Fiverr cover image (PNG)
-  - File: `docs/assets/fiverr-cover.png`
-  - How to regenerate (Windows PowerShell):
-    - `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-fiverr-cover.ps1`
+- Cover / title image (PNG)
+  - docs/assets/fiverr-cover.png
+  - Regenerate (Windows PowerShell 5.1):
+    - powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-fiverr-cover.ps1
   - Notes:
-    - If Fiverr rejects the size, re-export and try again (platform rules change).
+    - If a platform rejects the size/aspect ratio, re-export with different -Width/-Height.
 
 - Main demo GIF (Lite demo mode)
-  - File: `docs/assets/lite-demo.gif`
-  - Use cases:
-    - Fiverr gallery / Upwork project page gallery (if GIF accepted)
-    - A "proof it works" animation in listings
+  - docs/assets/lite-demo.gif
+  - Best for gallery preview (if GIF accepted).
 
 - Main demo screenshot (PNG)
-  - File: `docs/assets/lite-demo.png`
-  - Use cases:
-    - When GIF is not accepted / you need a lightweight thumbnail
+  - docs/assets/lite-demo.png
+  - Good fallback if GIF is not accepted.
 
 ## 2) Extra screenshots (optional)
 
-- `docs/assets/lite-copy-csv.png` - shows the Copy CSV feature
-- `docs/assets/lite-ui.png` - UI overview
-- `docs/assets/lite-after-run.png` - "after generating the plan" state
-- `docs/assets/lite-demo-real.png` - a more realistic example view
-- `docs/assets/lite-home-v10.png` - homepage / landing screenshot
-- `docs/assets/tc-donation-v1.png` - donation / tip related (use carefully; some platforms dislike payment links)
+- docs/assets/lite-demo-real.png (more "real" screenshot)
+- docs/assets/lite-ui.png (UI overview)
+- docs/assets/lite-home-v10.png (home / landing)
+- docs/assets/lite-after-run.png (after running a task)
+- docs/assets/lite-copy-csv.png (copy/export style output)
 
-## 3) Where this is referenced
+## 3) Monetization / donation assets
 
-- Publish checklists: `docs/marketplace/publish-checklist_EN.md`
-- Fiverr steps: `docs/marketplace/fiverr-publish-steps_EN.md`
-- Upwork steps: `docs/marketplace/upwork-publish-steps_EN.md`
-- Links (copy/paste): `docs/marketplace/links_EN.md`
+- docs/assets/tc-donation-v1.png
+  - Donation / tips related. Use carefully (some platforms dislike payment links).
+
+## 4) Where this is referenced
+
+- Publish checklists: docs/marketplace/publish-checklist_EN.md
+- Fiverr steps: docs/marketplace/fiverr-publish-steps_EN.md
+- Upwork steps: docs/marketplace/upwork-publish-steps_EN.md
+- Links (copy/paste): docs/marketplace/links_EN.md
+- Cover generation: docs/marketplace/fiverr-cover-asset_EN.md
+
+## Notes
+
+- Keep English copy templates paste-safe (ASCII only). Run:
+  - powershell -NoProfile -ExecutionPolicy Bypass -File scripts/marketplace-preflight.ps1

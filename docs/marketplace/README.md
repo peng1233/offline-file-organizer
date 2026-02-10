@@ -38,7 +38,7 @@ Recommended demo entry points:
 How to create GIF/screenshots on Windows:
 - `how-to-record-gif-windows.md`
 
-Asset index (what to upload + where the files are):
+Asset index (what to upload where):
 - `assets-index_EN.md`
 
 ## Naming notes
@@ -49,7 +49,7 @@ Asset index (what to upload + where the files are):
 ## Safety
 
 - Do not store any API keys/tokens here.
-- Avoid including personal identity data that platforms don’t require.
+- Avoid including personal identity data that platforms dont require.
 
 ## Quick copy/paste to clipboard (Windows)
 
@@ -103,7 +103,7 @@ The ZIP is saved to `dist/marketplace-pack_YYYYMMDD_HHMMSS.zip` by default.
 
 After the script finishes, it prints:
 - `OutPath: ...` (the exact ZIP path)
-- `SHA256: ...` (file hash) — you can paste this into your platform message / delivery notes so the client can verify integrity
+- `SHA256: ...` (file hash) - you can paste this into your platform message / delivery notes so the client can verify integrity
 
 ## Quick demo open (for recording GIF/screenshots)
 
