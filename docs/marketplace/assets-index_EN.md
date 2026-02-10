@@ -1,48 +1,122 @@
-# Marketplace asset index (EN)
+# Asset index & platform limits (EN)
 
-Purpose: when you publish on Fiverr / Upwork / Toptal / GitHub Sponsors, you often need the same small set of images/GIFs/links. This page is a quick index so you can find + upload the right files fast.
+Purpose: keep a **single place** to record what each allowed platform accepts (images/GIF/video/attachments/links/text limits), so publishing is repeatable and you don't rediscover the same constraints every time.
 
-All paths below are relative to the repo root.
+This file is intentionally:
+- **docs-only** (no secrets)
+- **copy/paste friendly**
+- **safe defaults** + **fill-in placeholders** (because platform limits change)
 
-## 1) Recommended default assets
+---
 
-- Cover / title image (PNG)
-  - docs/assets/fiverr-cover.png
-  - Regenerate (Windows PowerShell 5.1):
-    - powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-fiverr-cover.ps1
-  - Notes:
-    - If a platform rejects the size/aspect ratio, re-export with different -Width/-Height.
+## Common demo assets (from this repo)
 
-- Main demo GIF (Lite demo mode)
-  - docs/assets/lite-demo.gif
-  - Best for gallery preview (if GIF accepted).
+Use these as your default "show, don't tell" assets:
 
-- Main demo screenshot (PNG)
-  - docs/assets/lite-demo.png
-  - Good fallback if GIF is not accepted.
+- Lite demo screenshot (PNG): `docs/assets/lite-demo.png`
+- Lite demo GIF (if present): `docs/assets/lite-demo.gif`
 
-## 2) Extra screenshots (optional)
+Live demo entry points:
+- Main: https://peng1233.github.io/offline-file-organizer/
+- Lite (fully offline-capable): https://peng1233.github.io/offline-file-organizer/lite/
 
-- docs/assets/lite-demo-real.png (more "real" screenshot)
-- docs/assets/lite-ui.png (UI overview)
-- docs/assets/lite-home-v10.png (home / landing)
-- docs/assets/lite-after-run.png (after running a task)
-- docs/assets/lite-copy-csv.png (copy/export style output)
+Donation/support:
+- BTC tip page: https://peng1233.github.io/btc-receive/
+- GitHub Sponsors: https://github.com/sponsors/peng1233
 
-## 3) Monetization / donation assets
+Raw links (useful for platforms that accept URLs but not uploads):
+- GitHub raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/
 
-- docs/assets/tc-donation-v1.png
-  - Donation / tips related. Use carefully (some platforms dislike payment links).
+Notes:
+- Prefer **PNG** for UI screenshots.
+- Prefer **GIF** for short "click-by-click" demos.
+- Keep assets small (a safe target is **< 5 MB** per file) to avoid upload failures.
 
-## 4) Where this is referenced
+---
 
-- Publish checklists: docs/marketplace/publish-checklist_EN.md
-- Fiverr steps: docs/marketplace/fiverr-publish-steps_EN.md
-- Upwork steps: docs/marketplace/upwork-publish-steps_EN.md
-- Links (copy/paste): docs/marketplace/links_EN.md
-- Cover generation: docs/marketplace/fiverr-cover-asset_EN.md
+## Fiverr (Gig)
 
-## Notes
+Fill these after checking the Fiverr gig creation UI (limits can change).
 
-- Keep English copy templates paste-safe (ASCII only). Run:
-  - powershell -NoProfile -ExecutionPolicy Bypass -File scripts/marketplace-preflight.ps1
+### Media uploads
+- Gig gallery image:
+  - Allowed formats: [FILL]
+  - Recommended resolution: [FILL]
+  - Max file size: [FILL]
+  - Count limit: [FILL]
+- GIF/video:
+  - Allowed: [FILL]
+  - Max duration: [FILL]
+  - Max file size: [FILL]
+
+### Text limits
+- Title max chars: [FILL]
+- Description max chars: [FILL]
+- FAQ: max items [FILL]; max chars per item [FILL]
+- Requirements/questions: max items [FILL]
+
+### Link policy (practical)
+- Allowed to include GitHub repo link in description? [FILL]
+- Allowed to include live demo link (GitHub Pages)? [FILL]
+- Allowed to include donation link (BTC tip page)? [FILL]
+  - If unclear, **do not include** donation link on the platform page; keep it only in GitHub README.
+
+---
+
+## Upwork (Project Catalog / Proposals)
+
+### Attachments
+- Allowed attachment types: [FILL]
+- Max size per attachment: [FILL]
+- Max number of attachments: [FILL]
+
+### Text limits
+- Project title max chars: [FILL]
+- Project description max chars: [FILL]
+- Proposal cover letter max chars (if relevant): [FILL]
+
+### Link policy
+- Allowed to include GitHub repo link? [FILL]
+- Allowed to include live demo link? [FILL]
+
+---
+
+## Toptal
+
+Toptal is less "asset upload" oriented and more application/interview driven.
+
+- Application text limits: [FILL]
+- Portfolio links allowed: [FILL]
+- Best link to share:
+  - GitHub repo: https://github.com/peng1233/offline-file-organizer
+  - Demo: https://peng1233.github.io/offline-file-organizer/
+
+---
+
+## GitHub Sponsors
+
+- Profile/intro length limits: [FILL]
+- Allowed links: (repo/demo/tip page) usually OK, but record any constraints: [FILL]
+- Recommended call-to-action text to reuse: see `github-sponsors-profile-copy_EN.md`
+
+---
+
+## "Safe defaults" checklist (when unsure)
+
+If you don't want to research limits right now, these defaults usually work across many platforms:
+
+- Screenshots: PNG, 1280x720 or 1440x900, < 1-2 MB
+- GIF: 10-20 seconds, < 5 MB
+- Keep text blocks < 1,200 characters (platforms often have tighter limits in some fields)
+- Prefer linking to:
+  - GitHub repo
+  - GitHub Pages demo
+- Avoid including:
+  - donation links on platform pages (unless clearly allowed)
+  - any contact info outside the platform
+
+---
+
+## Changelog
+
+- 2026-02-10: created (template + common asset pointers)
