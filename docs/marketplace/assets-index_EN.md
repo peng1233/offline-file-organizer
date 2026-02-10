@@ -67,19 +67,26 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
 
 ## Upwork (Project Catalog / Proposals)
 
-### Attachments
-- Allowed attachment types: [FILL]
-- Max size per attachment: [FILL]
-- Max number of attachments: [FILL]
+### Attachments (Upwork Messages / proposals / projects)
+Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360049608113-How-to-share-documents-files-and-more-on-Upwork
+
+- Max size per file: **< 1 GB**
+- Supported types (examples from Upwork): `.doc`, `.docx`, `.pdf`, `.txt`, `.ppt`, `.gif`, `.png`
+- Unsupported types include many executables (examples from Upwork): `.cmd`, `.exe`, `.bat`, `.jar`, `.lnk`, ...
+- Note: `.zip` is not currently supported for iOS devices (per Upwork article)
+- Max number of attachments: **[FILL]** (UI-dependent; verify in proposal composer)
 
 ### Text limits
 - Project title max chars: [FILL]
 - Project description max chars: [FILL]
 - Proposal cover letter max chars (if relevant): [FILL]
 
-### Link policy
-- Allowed to include GitHub repo link? [FILL]
-- Allowed to include live demo link? [FILL]
+### Link policy (practical + safety)
+- Keep communication on Upwork until a contract is in place.
+- Do **not** share personal contact info (email/phone/IM) before contract.
+- GitHub repo link: usually OK; still verify in your target flow/UI.
+- Live demo link (GitHub Pages): usually OK; still verify.
+- Donation link (BTC tip page): **avoid on Upwork pages unless explicitly allowed** (keep it on GitHub README instead).
 
 ---
 
