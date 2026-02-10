@@ -38,6 +38,9 @@ Recommended demo entry points:
 How to create GIF/screenshots on Windows:
 - `how-to-record-gif-windows.md`
 
+Asset index (what to upload + where the files are):
+- `assets-index_EN.md`
+
 ## Naming notes
 
 - Files ending with `_EN` are English-first.
