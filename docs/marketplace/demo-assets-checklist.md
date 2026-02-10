@@ -1,56 +1,60 @@
-﻿# 演示素材清单（Demo assets checklist）
+# 平台演示素材清单（可复制/可勾选）
 
-目标：补齐 10–20 秒即可看懂的演示素材，用于 Upwork/Fiverr/Toptal/GitHub Sponsors 的服务页/提案/README。
+> 目的：把“上架需要的素材”变成一个可执行清单，避免临场到 Upwork/Fiverr/Toptal 时反复找图/找链接。
+> 
+> 使用方法：
+> - 先在本文件勾选已准备项；
+> - 平台填写时，直接复制对应的 raw 直链（图片）或仓库链接（文案/步骤）。
 
-录制工具（Windows）：docs/marketplace/how-to-record-gif-windows.md
+## 1) 关键入口（复制粘贴用）
 
-## 1) 最小演示 GIF（10–15 秒）— Lite（完全离线）
+- GitHub 仓库：https://github.com/peng1233/offline-file-organizer
+- 在线演示（主页）：https://peng1233.github.io/offline-file-organizer/
+- 在线演示（Lite）：https://peng1233.github.io/offline-file-organizer/lite/
+- 打赏页（BTC）：https://peng1233.github.io/btc-receive/
 
-**用途**：让用户 1 眼理解“批量改名→导出 CSV/复制 CSV→逐个下载（无第三方依赖）”。
+## 2) Fiverr/Upwork 通用素材（最少一套就能上架）
 
-**推荐录制窗口**：浏览器打开 `https://peng1233.github.io/offline-file-organizer/lite/`
+- [ ] 封面图（Cover）
+  - 建议标题："Offline File Organizer" / "Batch rename + CSV + ZIP"
+  - raw 直链：
+    - https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/fiverr-cover.png
 
-**脚本（镜头顺序）**：
-1. 点击 **Load demo**（无文件示例）
-2. 点击 **Generate preview**（或同等按钮，生成改名预览）
-3. 点击 **Copy CSV**（展示可复制清单；若降级为文本框也可以）
-4. 可选：点击 **Export CSV**（下载）
+- [ ] 功能截图（Lite 演示）
+  - 建议标题："Lite demo (no files needed)"
+  - raw 直链：
+    - https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
 
-**画面文字（可选叠字，1 行即可）**：
-- “Offline • Privacy • Batch rename preview • Export/Copy CSV”
+- [ ]（可选）真实流程截图（如果已有）
+  - 用途：展示“导出清单/复制 CSV/逐个下载”的真实操作
+  - raw 直链（若文件存在）：
+    - https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo-real.png
 
-**输出文件名建议**：
-- `docs/assets/lite-demo-rename-csv.gif`
+## 3) 文案/步骤（上架时直接照抄）
 
-**无需手动的兜底版本（已自动生成，可先用于投递/上架素材位）**：
-- `docs/assets/lite-demo.gif`（由现有截图拼成动图，非真实录屏，但能快速说明功能流程）
+- [ ] Fiverr / Upwork 服务描述（多版本 A/B/C）
+  - 目录：docs/marketplace/
+  - 推荐入口：
+    - docs/marketplace/service-description.md
+    - docs/marketplace/service-description-variants.md
 
-## 2) 最小演示 GIF（10–15 秒）— 主版本（ZIP 可选增强）
+- [ ] Upwork Project Catalog 发布步骤（中文）
+  - docs/marketplace/upwork-publish-steps_ZH.md
 
-**用途**：展示“同样离线使用 + 可选 ZIP 打包下载（若浏览器支持/依赖可用）”。
+- [ ] Fiverr 上架流程（中文）
+  - docs/marketplace/fiverr-publish-steps_ZH.md
 
-**推荐录制窗口**：`https://peng1233.github.io/offline-file-organizer/`
+- [ ] 平台限制索引（媒体尺寸/格式/大小/数量）
+  - docs/marketplace/assets-index_EN.md
 
-**脚本**：
-1. 打开主页（显示入口：Main + Lite）
-2. 简单展示：选择文件夹/文件 → 生成预览 → 下载
+## 4) 最小可交付包（给客户/平台附件用）
 
-**输出文件名建议**：
-- `docs/assets/main-demo-rename-download.gif`
+- [ ] 一键打包（preflight + build + pack）
+  - 说明：docs/marketplace/README.md
+  - 命令：scripts/marketplace-build-and-pack.ps1
 
-## 3) 1 张静态截图（用于平台首屏）
+---
 
-**建议内容**：Lite 页面 + 预览表格 + “Copy CSV / Export CSV”按钮区域。
-
-**输出文件名建议**：
-- `docs/assets/lite-demo-hero.png`
-
-## 4) 平台文案引用位置（把素材挂上去）
-
-- `docs/marketplace/service-description*.md`：在开头加 1 行“Demo GIF/Screenshot”链接（指向仓库文件或 GitHub Pages）
-- `docs/marketplace/README.md`：增加一节“Demo assets”（列出上述文件）
-
-## 5) 录制建议（不强制）
-
-- 尽量不要露出本地路径/隐私文件名；用 Lite 的 **Load demo** 最安全。
-- 尺寸建议：宽 900–1200px；GIF 控制在 2–6MB（平台更友好）。
+备注：
+- 如果平台不允许外链图片，可把图片下载后再上传；raw 直链主要用于“快速预览/复用”。
+- 若某个 raw 链接 404，说明该文件未在仓库或路径变更：请先去 docs/assets/README.md 查索引再更新本清单。
