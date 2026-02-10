@@ -94,9 +94,16 @@ Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360049
 - Max number of attachments: **[FILL]** (UI-dependent; verify in proposal composer)
 
 ### Text limits
-- Project title max chars: [FILL]
-- Project description max chars: [FILL]
-- Proposal cover letter max chars (if relevant): [FILL]
+- Project title max chars: [FILL] (UI-dependent; verify in Project Catalog editor)
+- Project description max chars: [FILL] (UI-dependent; verify in Project Catalog editor)
+- Proposal cover letter max chars (if relevant): [FILL] (UI-dependent; verify in proposal composer)
+
+### Other known Project Catalog constraints
+Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360057397533-How-to-create-a-project-in-Project-Catalog
+
+- Search tags: add up to **5** tags
+- Package tiers: up to **3** tiers (Starter / Standard / Advanced)
+- Pricing range: **$5 USD** to **$500,000 USD**
 
 ### Project count limits
 Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360057397533-How-to-create-a-project-in-Project-Catalog
