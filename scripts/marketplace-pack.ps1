@@ -1,9 +1,14 @@
 param(
   [string]$OutPath = "",
   [switch]$KeepTemp,
+
   # Some platforms may not allow crypto/donation QR images in the listing.
   # Default: do NOT include donation QR. Use -IncludeDonationQr to include it.
-  [switch]$IncludeDonationQr
+  [switch]$IncludeDonationQr,
+
+  # Include ready-to-upload demo ZIPs if they already exist in dist/.
+  # This does NOT build them; run scripts/build-*-release.ps1 first.
+  [switch]$IncludeDemoZips
 )
 
 $ErrorActionPreference = 'Stop'
@@ -60,6 +65,27 @@ try {
     }
   }
 
+  # 2b) Optional: include ready-to-upload demo ZIPs (if present)
+  if ($IncludeDemoZips) {
+    $stageReleases = Join-Path $stage 'releases'
+    Ensure-Dir $stageReleases
+
+    $items = @(
+      @{ src = (Join-Path $repoRoot 'dist\offline-file-organizer-main.zip'); dest = 'offline-file-organizer-main.zip' },
+      @{ src = (Join-Path $repoRoot 'dist\RELEASE_MAIN.txt'); dest = 'RELEASE_MAIN.txt' },
+
+      # Lite release script currently outputs into lite\dist\.
+      @{ src = (Join-Path $repoRoot 'lite\dist\offline-file-organizer-lite.zip'); dest = 'offline-file-organizer-lite.zip' },
+      @{ src = (Join-Path $repoRoot 'lite\dist\RELEASE.txt'); dest = 'RELEASE_LITE.txt' }
+    )
+
+    foreach ($it in $items) {
+      if (Test-Path -LiteralPath $it.src) {
+        Copy-Item -LiteralPath $it.src -Destination (Join-Path $stageReleases $it.dest) -Force
+      }
+    }
+  }
+
   # 3) How to use
   $readme = @()
   $readme += "Offline File Organizer - Marketplace Pack"
@@ -68,6 +94,9 @@ try {
   $readme += "Contains:"
   $readme += "- marketplace/  (copy/paste-ready text templates + checklists)"
   $readme += "- assets/       (demo GIF/PNG; donation QR only if -IncludeDonationQr is used)"
+  if ($IncludeDemoZips) {
+    $readme += "- releases/     (optional demo ZIPs from dist/ and lite/dist/: offline-file-organizer-*.zip + RELEASE_*.txt)"
+  }
   $readme += ""
   $readme += "Tip: Run repo preflight before publishing: scripts/marketplace-preflight.ps1"
   $readmePath = Join-Path $stage 'README.txt'
