@@ -19,22 +19,20 @@ $index = Join-Path $root 'index.html'
 $liteIndex = Join-Path $root 'lite\index.html'
 
 if ($Server) {
-  $node = Get-Command node -ErrorAction SilentlyContinue
-  if (-not $node) {
-    Fail 'Node.js not found. Install Node.js (LTS) then run again, or use open.cmd without -Server.'
-  }
-
-  $serve = Join-Path $root 'tools\serve.js'
-  if (-not (Test-Path -LiteralPath $serve)) {
-    Fail "tools/serve.js not found: $serve"
-  }
-
   if (-not ($Port -ge 1 -and $Port -le 65535)) {
     Fail 'Invalid -Port. Use 1-65535.'
   }
 
+  $servePs1 = Join-Path $root 'tools\serve.ps1'
+  if (-not (Test-Path -LiteralPath $servePs1)) {
+    Fail "tools/serve.ps1 not found: $servePs1"
+  }
+
   $pathSuffix = if ($Lite) { '/lite/' } else { '/' }
   $urlToOpen = "http://127.0.0.1:$Port$pathSuffix"
+
+  # If Lite is requested, prevent serve.ps1 from opening the root URL by default.
+  $serveNoOpen = $NoOpen -or $Lite
 
   if (-not $NoOpen) {
     Start-Process -FilePath $urlToOpen
@@ -43,8 +41,13 @@ if ($Server) {
   Write-Host "OK: serving on http://127.0.0.1:$Port (Ctrl+C to stop)"
   Write-Host "     open: $urlToOpen"
 
-  # Keep it deterministic: do not auto-open inside serve.js (we already handled it)
-  & node $serve --port $Port --no-open
+  # Delegate to serve.ps1 so it can use Node.js when available, otherwise fall back to Python.
+  if ($serveNoOpen) {
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $servePs1 -Port $Port -NoOpen
+  } else {
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $servePs1 -Port $Port
+  }
+
   exit $LASTEXITCODE
 }
 
