@@ -24,6 +24,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\open.ps1 -Server
 
 如果你需要使用浏览器的“选择文件夹/目录”能力（File System Access API），建议用本仓库自带的本地服务器在 `http://localhost` 下打开（`file://` 方式在部分浏览器会被限制）：
 
+```powershell
+# Windows / PowerShell (auto-selects node if available; falls back to python)
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\serve.ps1
+```
+
 ```bash
 node tools/serve.js
 ```
