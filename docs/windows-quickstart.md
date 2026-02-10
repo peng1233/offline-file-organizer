@@ -25,7 +25,8 @@
 
 ## 前置条件
 
-- 已安装 Node.js（建议 LTS 版本）
+- **推荐**：已安装 Node.js（建议 LTS 版本），启动更稳、兼容更多功能。
+- **不装也能用**：`tools\serve.ps1` 会优先用 Node.js；如果系统没有 Node.js，会自动回退到 Python 的 `http.server`（前提是已安装 Python）。
 
 ## 一键启动（PowerShell）
 
