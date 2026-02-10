@@ -98,6 +98,12 @@ Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360049
 - Project description max chars: [FILL]
 - Proposal cover letter max chars (if relevant): [FILL]
 
+### Project count limits
+Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360057397533-How-to-create-a-project-in-Project-Catalog
+
+- You can post **up to 20 unique projects** in Project Catalog at any one time.
+- You can also have **up to 20 more projects in review**.
+
 ### Link policy (practical + safety)
 - Keep communication on Upwork until a contract is in place.
 - Do **not** share personal contact info (email/phone/IM) before contract.
