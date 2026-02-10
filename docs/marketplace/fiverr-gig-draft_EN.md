@@ -63,8 +63,8 @@ Deliverables:
 - Optional: a small automation script (PowerShell) to run repeatably
 
 Demo:
-- Main demo: LINK_MAIN_DEMO
-- Lite demo (fully offline): LINK_LITE_DEMO
+- Main demo: https://peng1233.github.io/offline-file-organizer/
+- Lite demo (fully offline): https://peng1233.github.io/offline-file-organizer/lite/
 
 Important:
 - I do NOT need your private files. You can test locally.
