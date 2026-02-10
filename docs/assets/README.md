@@ -20,6 +20,8 @@ Tip: when you need a stable public link for Upwork/Fiverr/Toptal, use the raw Gi
 `https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/<filename>`
 
 Current files in this folder:
+- fiverr-cover.png
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/fiverr-cover.png
 - lite-after-run.png
   - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-after-run.png
 - lite-copy-csv.png
@@ -28,6 +30,8 @@ Current files in this folder:
   - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.gif
 - lite-demo.png
   - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo.png
+- lite-demo-real.png
+  - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-demo-real.png
 - lite-home-v10.png
   - raw: https://raw.githubusercontent.com/peng1233/offline-file-organizer/main/docs/assets/lite-home-v10.png
 - lite-ui.png
