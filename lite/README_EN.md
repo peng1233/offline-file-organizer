@@ -29,7 +29,7 @@ Or, from the `lite/` folder, run:
 - Filename sanitization for Windows/common filesystems (invalid chars, trailing dots/spaces, etc.)
 - Collision detection: warns duplicated names; asks confirmation before download/ZIP
 - Export a CSV manifest: `rename-manifest.csv` (helps review / audit)
-- Copy manifest (CSV): one-click copy to clipboard (if blocked under `file://`, it will fall back to “Export CSV”)
+- Copy manifest (CSV): one-click copy to clipboard (if blocked under `file://`, it will fall back to `Export CSV`)
 - Copy manifest (TSV): easier to paste into Excel/Sheets (tab-separated)
 - **Demo mode**: loads built-in sample files so you can try without preparing files
 
