@@ -92,6 +92,15 @@ Runs minimal checks (no secrets): main + lite self-check, scans marketplace docs
 
 - Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\marketplace-preflight.ps1`
 
+## One-command build + pack (recommended before uploading)
+
+Runs, in order: preflight -> build main ZIP -> build lite ZIP -> marketplace pack -> asset size report.
+
+- Run (includes demo zips inside the final pack):
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\marketplace-build-and-pack.ps1 -IncludeDemoZips`
+- Run (docs + demo assets only, no demo zips):
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\marketplace-build-and-pack.ps1`
+
 ## Pack everything into a ZIP (for uploading to platforms)
 
 Creates a single ZIP containing:
