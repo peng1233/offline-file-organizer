@@ -22,6 +22,7 @@ If you want the fastest path to publish:
 4) Pick one platform template:
    - Fiverr gig: `fiverr-gig-template.md` (or ready copy: `fiverr-gig-copy_EN.md`)
    - Fiverr packages (Basic/Standard/Premium): `fiverr-packages.md`
+   - Fiverr FAQ (ready copy): `fiverr-faq-copy_EN.md`
    - Upwork proposal: `upwork-proposal-template_EN.md` (or ready copy: `upwork-proposal-copy_EN.md`)
    - Toptal application: `toptal-application-template_EN.md`
    - GitHub Sponsors profile: `github-sponsors-profile-copy_EN.md`
@@ -52,7 +53,7 @@ Asset index (what to upload where):
 ## Safety
 
 - Do not store any API keys/tokens here.
-- Avoid including personal identity data that platforms dont require.
+- Avoid including personal identity data that platforms don't require.
 
 ## Quick copy/paste to clipboard (Windows)
 

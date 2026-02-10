@@ -1,36 +1,38 @@
-# Fiverr FAQ copy (EN)
+# Fiverr FAQ (copy/paste)
 
-Copy/paste-ready FAQ entries for your Fiverr gig.
+These are short FAQ items you can paste into Fiverr's FAQ section.
+Keep answers short and clear. All text is ASCII.
 
-## FAQ
+## 1) Does this tool upload my files?
+No. It runs locally in your browser. Your files stay on your machine.
 
-### Q: Is this really offline? Will my files be uploaded?
-A: Yes, it runs locally in your browser. Your files stay on your computer. I do not receive your files unless you explicitly send them.
+## 2) Do I need to install anything?
+No installation required. You can open the HTML file directly, or run a local localhost server for best browser compatibility.
 
-### Q: What exactly will you deliver?
-A: You will get an offline-capable web tool (HTML + JS) that helps you preview a folder/file list and export it as CSV/TSV. Optional add-ons: ZIP packaging, custom columns, and small UI improvements.
+## 3) What do I receive after delivery?
+Typically: a ZIP containing the offline tool (HTML/CSS/JS) plus a short README, and any agreed demo assets (PNG/GIF).
 
-### Q: What do you need from me to start?
-A: One of the following:
-- A short description of your folder structure + what you want to export, or
-- A sample file/folder list (text) or a screenshot (no private file contents needed)
+## 4) Can you customize the rename rules?
+Yes. Tell me your naming rules (examples are best), and I can add or adjust templates/logic.
 
-### Q: Can you add custom columns or rename fields?
-A: Yes. Tell me the columns you want (for example: name, path, size, type, modified time, tags, owner) and the output format (CSV or TSV).
+## 5) Will it rename my original files?
+No. It generates new names and downloads copies (or a ZIP) with the new names. Your originals are not modified.
 
-### Q: Can you support Windows / Mac / Linux?
-A: Yes. The tool runs in a modern browser (Chrome/Edge/Firefox). For fully offline usage, I can also provide a Lite fallback version.
+## 6) Does it support CSV output?
+Yes. It can export a CSV rename list, and Lite supports Copy CSV (with fallback if clipboard permissions are blocked).
 
-### Q: Can you integrate with my existing workflow (Excel / Google Sheets / Notion)?
-A: Yes. CSV/TSV export is designed to import cleanly into spreadsheets and many tools. If you tell me your target app, I can tune headers/delimiters.
+## 7) What browsers are supported?
+Modern Chromium browsers work best. If a browser blocks folder access on file://, use localhost mode.
 
-### Q: Do you offer support after delivery?
-A: Yes. I can fix issues and do small adjustments after you test it. The exact number of revisions depends on the package you choose.
+## 8) Do you need remote access or my private files?
+No. I can work from example filenames or a sample CSV. Remote access is optional and only if you explicitly request it.
 
-### Q: What if I have sensitive data?
-A: You can test everything locally without sharing the files. If debugging requires examples, you can provide a sanitized sample list.
+## 9) Is it fully offline?
+Yes. The Lite version is fully offline-capable (no third-party dependencies).
 
-## Notes
+## 10) How many revisions are included?
+Depends on the package. A common setup is 1-2 revision rounds for naming rule tweaks.
 
-- Keep answers short on Fiverr. You can trim each answer to 1-2 sentences.
-- If you want stronger privacy wording, use: "Runs locally in your browser. No upload. No server.".
+## Notes (do not paste into Fiverr)
+- Avoid any off-platform payment language.
+- If Fiverr limits the FAQ length, trim answers to one sentence.
