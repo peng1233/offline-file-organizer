@@ -26,6 +26,7 @@ If you want the fastest path to publish:
 4) Follow a platform-specific publish steps checklist (create a draft first):
    - Fiverr: `fiverr-publish-steps_EN.md`
    - Upwork Project Catalog: `upwork-publish-steps_EN.md`
+   - Toptal: `toptal-publish-steps_EN.md`
 
 ## Demo assets
 
