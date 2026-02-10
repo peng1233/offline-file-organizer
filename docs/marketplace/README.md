@@ -59,6 +59,12 @@ How to create GIF/screenshots on Windows:
 - Copy default: `cmd /c scripts\copy-marketplace-asset.cmd`
 - Copy specific: `cmd /c scripts\copy-marketplace-asset.cmd -Name upwork-proposal-copy_EN.md`
 
+### Option C (copy any local file)
+
+If you just want to copy a local file to clipboard (no naming rules):
+
+- `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\copy-to-clipboard.ps1 -Path .\docs\marketplace\fiverr-gig-copy_EN.md`
+
 ### Copy from a raw URL (no local file needed)
 
 - Print the text (so you can Ctrl+C manually):
