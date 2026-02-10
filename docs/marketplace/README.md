@@ -109,6 +109,16 @@ After the script finishes, it prints:
 
 - Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\open-online-demo.ps1`
 
+## Build offline ZIP (for delivery)
+
+- Main (full demo):
+  - Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-main-release.ps1`
+  - Output: `dist/offline-file-organizer-main.zip` + `dist/RELEASE_MAIN.txt`
+
+- Lite (small fallback):
+  - Run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-lite-release.ps1`
+  - Output: `lite/dist/offline-file-organizer-lite.zip` + `lite/dist/RELEASE.txt`
+
 ## Support / Tips
 
 - BTC tips: https://peng1233.github.io/btc-receive/
