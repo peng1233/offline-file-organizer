@@ -67,6 +67,23 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
 
 ## Upwork (Project Catalog / Proposals)
 
+### Project Catalog media (images / video)
+Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/1500011309082-How-to-add-images-and-video-to-your-Project-Catalog-project
+
+Images:
+- Formats: JPEG / PNG
+- Max file size: < 10 MB per image
+- Aspect ratio: 4:3
+- Max dimension: no larger than 4000 px (width or height)
+- Display size hint: should look sharp at 1000 x 750 px (that’s how it appears in Project Catalog)
+- Max count: up to 20 images per project
+
+Video:
+- Max count: 1 video per project
+- Format: mp4 only
+- Max duration: up to 60 seconds
+- Max file size: up to 100 MB
+
 ### Attachments (Upwork Messages / proposals / projects)
 Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360049608113-How-to-share-documents-files-and-more-on-Upwork
 
