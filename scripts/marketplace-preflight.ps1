@@ -52,8 +52,12 @@ if (Test-Path -LiteralPath $assetsIndex -PathType Leaf) {
     if ($hits) {
       $any = $true
       Write-Host ('WARN: Found ' + $p.Name + ' placeholders in: ' + $assetsIndex)
-      foreach ($h in $hits) {
-        Write-Host ('  line ' + $h.LineNumber + ': ' + $h.Line.Trim())
+      $total = $hits.Count
+      $hits | Select-Object -First 20 | ForEach-Object {
+        Write-Host ('  line ' + $_.LineNumber + ': ' + $_.Line.Trim())
+      }
+      if ($total -gt 20) {
+        Write-Host ('  ... (' + ($total - 20) + ' more)')
       }
     }
   }
