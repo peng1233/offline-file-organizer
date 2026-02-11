@@ -2,7 +2,7 @@
 
 Purpose: keep a **single place** to record what each allowed platform accepts (images/GIF/video/attachments/links/text limits), so publishing is repeatable and you don't rediscover the same constraints every time.
 
-Quick helper: if you're filling `TBD_UI` fields from the platform UI, use: `docs/marketplace/platform-limits-capture-checklist_EN.md`
+Quick helper: if you're filling `TBD-UI` placeholders from the platform UI, use: `docs/marketplace/platform-limits-capture-checklist_EN.md`
 
 This file is intentionally:
 - **docs-only** (no secrets)
