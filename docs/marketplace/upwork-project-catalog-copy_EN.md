@@ -54,4 +54,7 @@ Yes, but performance depends on disk speed and folder size. I'll suggest safe ba
 - Repo: https://github.com/peng1233/offline-file-organizer
 - Live Lite entry: https://peng1233.github.io/offline-file-organizer/ (click **Lite**)
 - Windows quick start: https://github.com/peng1233/offline-file-organizer/blob/main/docs/windows-quickstart.md
-- Tip jar (BTC): https://peng1233.github.io/btc-receive/
+
+> Upwork compliance note: do NOT paste any off-platform payment / tip links into your Upwork listing.
+> The tip jar link below is for GitHub README or other non-Upwork pages only.
+- Tip jar (BTC, non-Upwork): https://peng1233.github.io/btc-receive/
