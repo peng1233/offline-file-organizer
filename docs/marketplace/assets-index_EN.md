@@ -71,6 +71,7 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
 - Description max chars: **1,200** (Fiverr Help Center search snippet: "Description field... up to 1,200 characters"; see search results: https://help.fiverr.com/hc/en-us/search?query=Creating%20a%20Gig%201%2C200%20characters )
 - FAQ: max items **10**; max chars per answer **300** (source: Fiverr Blog "How to Optimize Your Gigs to Maximize Your Sales": https://blog.fiverr.com/post/how-to-optimize-your-gigs-to-maximize-your-sales )
 - Requirements/questions: max items TBD_UI (not found in an official public source yet; verify in Fiverr Gig editor UI)
+  - Ready-to-paste text: `docs/marketplace/fiverr-requirements-questions_EN.md`
 
 ### Link policy (practical + safety)
 - Allowed to include GitHub repo link in description? TBD_UI (verify in Fiverr policy/UI)
