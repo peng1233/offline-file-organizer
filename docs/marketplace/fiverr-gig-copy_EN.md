@@ -1,90 +1,68 @@
-# Fiverr Gig Copy (EN) - Offline File Organizer
+# Fiverr Gig copy (EN) - Offline File Organizer
 
-> Copy/paste ready. Adjust [brackets].
-
-## Gig Title (pick one)
-
-Option A:
-- I will build a privacy-first offline file organizer web app (no uploads)
-
-Option B:
-- I will deliver a local offline file organizer + Lite ZIP you can share
-
-Option C:
-- I will customize an offline file sorting and renaming tool for your workflow
+Purpose: copy/paste-ready text blocks for creating a Fiverr gig, without any contact info, payment info, or policy-risk links.
 
 ---
 
-## Search tags / keywords
+## Gig title (<= 80 chars)
+Option A (safe + clear)
+- Offline file organizer: bulk rename + CSV manifest (privacy-first)
 
-offline, file organizer, file renamer, privacy, local web app, workflow
-
----
-
-## Gig Description (short)
-
-Need to sort and rename files quickly without uploading anything to the cloud?
-
-I will deliver a privacy-first **offline file organizer** (web app) that runs locally, plus a lightweight **Lite** version (ZIP) for quick preview and sharing.
-
-Perfect for:
-- Photos / documents / design assets
-- Video editing project folders
-- Receipts / invoices / study materials
+Option B (more sales-y, still honest)
+- Bulk rename files offline + export CSV manifest (no uploads)
 
 ---
 
-## Packages
-
-### Starter - Lite ZIP
-Price suggestion: $15-$20
-Delivery: 1 day
-Includes:
-- Lite ZIP you can run offline (double-click)
-- Simple usage guide
-- One small UI text/logo tweak (optional)
-
-### Standard - Lite + rules
-Price suggestion: $49-$79
-Delivery: 2-3 days
-Includes:
-- Lite ZIP + self-check log
-- Naming/sorting rules based on your examples
-- Basic preset(s) for repeatable use
-
-### Pro - Custom workflow
-Price suggestion: $149-$299
-Delivery: 3-5 days
-Includes (as needed):
-- Multiple presets, custom UI wording, export report (CSV summary)
-- Windows quick start instructions (open.cmd/open.ps1)
-- Acceptance checklist
+## Search tags (up to 5)
+- file organization
+- batch rename
+- offline tool
+- csv export
+- privacy
 
 ---
 
-## What I need from you (Requirements)
-
-- Your goal (what you want to organize)
-- 5-10 sample filenames (or screenshots)
-- Your desired naming format (example: YYYY-MM-DD_project_client_###)
+## Short description (1-2 sentences)
+A fully offline, zero-install file organizer that runs in your browser: bulk rename files using templates and export a CSV manifest for tracking/delivery.
 
 ---
 
-## FAQ
+## Description (aim <= 1,200 chars)
+Need to rename and deliver lots of files fast - without uploading anything?
 
-**Q: Is my data uploaded anywhere?**
-A: No. The tool is designed to work locally/offline.
+I will deliver a **100% offline** file organizing tool (HTML) that runs in your browser:
+- Batch rename files using a naming template
+- Preview changes before download
+- Export or copy a **CSV manifest** for delivery / tracking
+- Optional: download everything as a ZIP (with a Lite fallback if ZIP isn't available)
 
-**Q: Can I use it without installing anything?**
-A: The Lite ZIP can be opened directly. For advanced browser capabilities (like folder access), running via http://localhost is recommended.
+Great for:
+- Photo/video assets
+- Document archiving (contracts, invoices, receipts)
+- Privacy-sensitive workflows (intranet / no server uploads)
 
-**Q: Do you integrate with Google Drive/Dropbox/OneDrive?**
-A: Not in the Starter/Standard scope. It can be quoted separately.
+What I need from you:
+- Sample filenames/folders (can be anonymized)
+- Your naming rules (e.g., Project_YYYYMMDD_###)
+
+Delivery includes:
+- Ready-to-use offline HTML tool + quickstart
+- (Optional) customization: templates, conflict rules, export columns, presets
 
 ---
 
-## Delivery / acceptance
+## FAQ (copy/paste)
+Q: Do my files get uploaded?
+A: No. The tool runs locally in your browser. Your files stay on your device.
 
-- Works on Windows 10/11 Chrome or Edge
-- Produces expected results for your sample filenames
-- Lite ZIP runs after unzip (no installer)
+Q: What if ZIP download doesn't work in my environment?
+A: There is a Lite fallback mode that still supports rename planning + CSV export, and downloads files one-by-one.
+
+Q: Can you match my exact naming convention?
+A: Yes. Share your naming rule and a few examples and I'll implement it.
+
+---
+
+## Requirements / questions
+Use the ready-to-paste template:
+- docs/marketplace/fiverr-requirements-questions_EN.md
