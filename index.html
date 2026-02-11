@@ -85,6 +85,7 @@
             <input id="zipName" type="text" value="renamed.zip" />
             <button id="build">生成 ZIP</button>
             <button id="exportCsv">导出清单（CSV）</button>
+            <button id="copyCsv">复制清单（CSV）</button>
           </div>
 
           <div id="msg" style="margin-top:10px"></div>
@@ -305,14 +306,11 @@
       return s;
     }
 
-    $('exportCsv').addEventListener('click', () => {
-      const files = Array.from(filesEl.files || []);
-      if (files.length === 0) { setMsg('warn', '请先选择文件。'); return; }
-
+    function buildCsv(files) {
       const names = new Set();
       for (let i = 0; i < files.length; i++) {
         const nn = calcNewName(files[i], i);
-        if (names.has(nn)) { setMsg('warn', '新文件名重复，无法安全导出清单。请先修正规则。'); return; }
+        if (names.has(nn)) return { ok: false, reason: '新文件名重复，无法安全导出清单。请先修正规则。' };
         names.add(nn);
       }
 
@@ -323,9 +321,75 @@
         const nn = calcNewName(f, i);
         lines.push([csvEscape(f.name), csvEscape(nn), String(f.size)].join(','));
       }
+      return { ok: true, lines };
+    }
+
+    function showCopyBox(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', 'readonly');
+      ta.style.width = '100%';
+      ta.style.minHeight = '140px';
+      ta.style.marginTop = '10px';
+      msgEl.appendChild(ta);
+      ta.focus();
+      ta.select();
+      return ta;
+    }
+
+    $('copyCsv').addEventListener('click', async () => {
+      const files = Array.from(filesEl.files || []);
+      if (files.length === 0) { setMsg('warn', '请先选择文件。'); return; }
+
+      const r = buildCsv(files);
+      if (!r.ok) { setMsg('warn', r.reason); return; }
+
+      // 复制到剪贴板：不加 BOM（避免粘贴到聊天/编辑器出现 \ufeff）
+      const text = r.lines.join('\r\n') + '\r\n';
+
+      // 优先 clipboard API
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          setMsg('ok', '已复制清单（CSV）到剪贴板。');
+          return;
+        }
+      } catch (e) {
+        // ignore, fallback below
+      }
+
+      // 兼容 file:// / 非安全上下文：textarea + execCommand(copy)
+      try {
+        msgEl.innerHTML = '';
+        const tip = document.createElement('div');
+        tip.className = 'warn';
+        tip.textContent = '浏览器限制导致无法直接写入剪贴板：已生成文本框，你可以手动 Ctrl+C 复制；或改用“导出清单（CSV）”。';
+        msgEl.appendChild(tip);
+
+        const ta = showCopyBox(text);
+        const ok = document.execCommand && document.execCommand('copy');
+
+        const r2 = document.createElement('div');
+        r2.className = ok ? 'ok' : 'warn';
+        r2.textContent = ok ? '已复制清单（CSV）到剪贴板。' : '自动复制失败：请在下方文本框手动 Ctrl+C 复制，或改用“导出清单（CSV）”。';
+        msgEl.insertBefore(r2, ta);
+
+        ta.focus();
+        ta.select();
+      } catch (e) {
+        setMsg('warn', '复制失败：请改用“导出清单（CSV）”。');
+      }
+    });
+
+    $('exportCsv').addEventListener('click', () => {
+      const files = Array.from(filesEl.files || []);
+      if (files.length === 0) { setMsg('warn', '请先选择文件。'); return; }
+
+      const r = buildCsv(files);
+      if (!r.ok) { setMsg('warn', r.reason); return; }
 
       // 加 BOM 以兼容 Excel
-      const text = '\ufeff' + lines.join('\r\n') + '\r\n';
+      const text = '\ufeff' + r.lines.join('\r\n') + '\r\n';
       const blob = new Blob([text], { type: 'text/csv;charset=utf-8' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
