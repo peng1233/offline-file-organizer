@@ -87,5 +87,7 @@ If you deliver this tool as a small freelance task (Upwork/Fiverr/Toptal) or wan
 If this tool saves you time (or helps you deliver freelance work faster), you can support ongoing maintenance here:
 - https://github.com/sponsors/peng1233
 
-## Support (BTC)
-Donation page: https://peng1233.github.io/btc-receive/
+## Donation (BTC)
+If this tool saved you time, you can support it here:
+- https://peng1233.github.io/btc-receive/
+
