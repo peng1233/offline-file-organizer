@@ -62,9 +62,13 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
   - Max file size: 5 MB
   - Count limit: **at least 1 image** and **up to 3 images** (source above)
 - GIF/video:
-  - Allowed: TBD_UI (verify in Fiverr Gig editor UI)
-  - Max duration: TBD_UI (verify in Fiverr Gig editor UI)
-  - Max file size: TBD_UI (verify in Fiverr Gig editor UI)
+  - Video (official source: Fiverr Help Center "Adding a video to your Gig": https://help.fiverr.com/hc/en-us/articles/360010451657-Adding-a-video-to-your-Gig )
+    - Accepted file formats: **mp4**, **AVI**
+    - Max duration: **up to 75 seconds** (1:15)
+    - Max file size: **< 50 MB**
+    - Orientation: **landscape**
+    - Count limit: TBD_UI (verify in Fiverr Gig editor UI)
+  - GIF: TBD_UI (verify in Fiverr Gig editor UI)
 
 ### Text limits
 - Title max chars: **80** (community references; e.g. https://homeearningtip.tistory.com/110)
