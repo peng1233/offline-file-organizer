@@ -14,6 +14,18 @@ English README: [README_EN.md](README_EN.md)
 
 Windows：也可以直接双击 `open.cmd` 打开主版（注意：部分浏览器在 `file://` 下会限制“选择文件夹/目录”能力，遇到限制请改用下面的 localhost 方式）。
 
+`open.cmd` 也支持命令行参数（查看帮助）：
+
+```bat
+open.cmd -help
+```
+
+常用例子：
+- 打开 Lite：`open.cmd -Lite`
+- 用 localhost 打开（权限更完整）：`open.cmd -Server`
+- 自定义端口：`open.cmd -Server -Port 5174`
+- 仅启动不自动打开浏览器：`open.cmd -Server -NoOpen`
+
 如果你已安装 Node.js，也可以用 PowerShell 一键启动本地服务器并打开（推荐，权限更完整）：
 
 ```powershell
