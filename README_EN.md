@@ -8,7 +8,9 @@ Open `index.html` in your browser.
 
 Tip: Before downloading the ZIP, you can export a CSV manifest (old_name/new_name/size_bytes) for preview, QA, and easy rollback.
 
-Windows: you can also double-click `open.cmd` to open the main version (note: some browsers restrict folder picking under `file://`; if you hit that, use the localhost method below).
+Windows:
+- Double-click `open.cmd` for the **quick file://** open (fastest, but some browsers restrict folder picking under `file://`).
+- Use `tools/serve.ps1` (recommended) / `node tools/serve.js` for the **localhost http://** mode (best compatibility with folder/directory picking).
 
 `open.cmd` also supports command line options (help):
 
