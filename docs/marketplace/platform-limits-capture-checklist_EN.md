@@ -1,6 +1,6 @@
 # Platform limits capture checklist (EN)
 
-Goal: help you quickly fill the remaining **[FILL]** fields in `docs/marketplace/assets-index_EN.md` by checking the **actual platform UI**.
+Goal: help you quickly fill the remaining **TBD_UI** fields in `docs/marketplace/assets-index_EN.md` by checking the **actual platform UI**.
 
 Why: platform limits change. The UI you see today is the most reliable source.
 
@@ -14,11 +14,11 @@ Rules:
 ## What to do (10 minutes)
 
 1) Open `docs/marketplace/assets-index_EN.md`.
-2) Search for `[FILL]`.
+2) Search for `TBD_UI`.
 3) Use the checklists below to locate each limit in the platform editor UI.
-4) Replace `[FILL]` with the value you saw (and optionally add a short source note like "UI 2026-02-11").
+4) Replace `TBD_UI` with the value you saw (and optionally add a short source note like "UI 2026-02-11").
 
-Tip: if you can't find a limit in the UI, keep it as `[FILL]` and add a note like `not visible in UI; needs verification`.
+Tip: if you can't find a limit in the UI, keep it as `TBD_UI` and add a note like `not visible in UI; needs verification`.
 
 ---
 
@@ -89,7 +89,7 @@ Write back to:
 These are mostly link-based rather than strict asset-upload forms.
 
 - If you see any text limit in the application/profile UI, record it.
-- Otherwise keep `[FILL]` and don't guess.
+- Otherwise keep `TBD_UI` and don't guess.
 
 ---
 

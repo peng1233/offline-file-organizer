@@ -2,7 +2,7 @@
 
 Purpose: keep a **single place** to record what each allowed platform accepts (images/GIF/video/attachments/links/text limits), so publishing is repeatable and you don't rediscover the same constraints every time.
 
-Quick helper: if you’re filling `[FILL]` fields from the platform UI, use: `docs/marketplace/platform-limits-capture-checklist_EN.md`
+Quick helper: if you're filling `TBD_UI` fields from the platform UI, use: `docs/marketplace/platform-limits-capture-checklist_EN.md`
 
 This file is intentionally:
 - **docs-only** (no secrets)
@@ -60,22 +60,22 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
   - Minimum resolution: 712 x 430 px
   - Maximum resolution: 4000 x 2416 px
   - Max file size: 5 MB
-  - Count limit: [FILL]
+  - Count limit: TBD_UI (verify in Fiverr Gig editor UI)
 - GIF/video:
-  - Allowed: [FILL]
-  - Max duration: [FILL]
-  - Max file size: [FILL]
+  - Allowed: TBD_UI (verify in Fiverr Gig editor UI)
+  - Max duration: TBD_UI (verify in Fiverr Gig editor UI)
+  - Max file size: TBD_UI (verify in Fiverr Gig editor UI)
 
 ### Text limits
 - Title max chars: **80** (community references; e.g. https://homeearningtip.tistory.com/110)
-- Description max chars: **1,200** (Fiverr Help Center search snippet: “Description field… up to 1,200 characters”; see search results: https://help.fiverr.com/hc/en-us/search?query=Creating%20a%20Gig%201%2C200%20characters )
-- FAQ: max items **10**; max chars per answer **300** (source: Fiverr Blog “How to Optimize Your Gigs to Maximize Your Sales”: https://blog.fiverr.com/post/how-to-optimize-your-gigs-to-maximize-your-sales )
-- Requirements/questions: max items [FILL] (not found in an official public source yet; verify in Fiverr Gig editor UI)
+- Description max chars: **1,200** (Fiverr Help Center search snippet: "Description field... up to 1,200 characters"; see search results: https://help.fiverr.com/hc/en-us/search?query=Creating%20a%20Gig%201%2C200%20characters )
+- FAQ: max items **10**; max chars per answer **300** (source: Fiverr Blog "How to Optimize Your Gigs to Maximize Your Sales": https://blog.fiverr.com/post/how-to-optimize-your-gigs-to-maximize-your-sales )
+- Requirements/questions: max items TBD_UI (not found in an official public source yet; verify in Fiverr Gig editor UI)
 
 ### Link policy (practical + safety)
-- Allowed to include GitHub repo link in description? [FILL]
-- Allowed to include live demo link (GitHub Pages)? [FILL]
-- Allowed to include donation link (BTC tip page)? [FILL]
+- Allowed to include GitHub repo link in description? TBD_UI (verify in Fiverr policy/UI)
+- Allowed to include live demo link (GitHub Pages)? TBD_UI (verify in Fiverr policy/UI)
+- Allowed to include donation link (BTC tip page)? TBD_UI (verify in Fiverr policy/UI; default is avoid)
   - Safe default: **do not include** donation/tip links on Fiverr pages unless the policy is clearly OK; keep it only in GitHub README.
 
 ---
@@ -106,12 +106,12 @@ Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360049
 - Supported types (examples from Upwork): `.doc`, `.docx`, `.pdf`, `.txt`, `.ppt`, `.gif`, `.png`
 - Unsupported types include many executables (examples from Upwork): `.cmd`, `.exe`, `.bat`, `.jar`, `.lnk`, ...
 - Note: `.zip` is not currently supported for iOS devices (per Upwork article)
-- Max number of attachments: **[FILL]** (UI-dependent; verify in proposal composer)
+- Max number of attachments: **TBD_UI** (UI-dependent; verify in proposal composer)
 
 ### Text limits
-- Project title max chars: [FILL] (UI-dependent; verify in Project Catalog editor)
-- Project description max chars: [FILL] (UI-dependent; verify in Project Catalog editor)
-- Proposal cover letter max chars (if relevant): [FILL] (UI-dependent; verify in proposal composer)
+- Project title max chars: TBD_UI (UI-dependent; verify in Project Catalog editor)
+- Project description max chars: TBD_UI (UI-dependent; verify in Project Catalog editor)
+- Proposal cover letter max chars (if relevant): TBD_UI (UI-dependent; verify in proposal composer)
 
 ### Other known Project Catalog constraints
 Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360057397533-How-to-create-a-project-in-Project-Catalog
@@ -139,8 +139,8 @@ Source (Upwork Help Center): https://support.upwork.com/hc/en-us/articles/360057
 
 Toptal is less "asset upload" oriented and more application/interview driven.
 
-- Application text limits: [FILL]
-- Portfolio links allowed: [FILL]
+- Application text limits: TBD_UI (verify in Toptal application UI)
+- Portfolio links allowed: TBD_UI (verify in Toptal application UI)
 - Best link to share:
   - GitHub repo: https://github.com/peng1233/offline-file-organizer
   - Demo: https://peng1233.github.io/offline-file-organizer/
@@ -149,8 +149,8 @@ Toptal is less "asset upload" oriented and more application/interview driven.
 
 ## GitHub Sponsors
 
-- Profile/intro length limits: [FILL]
-- Allowed links: (repo/demo/tip page) usually OK, but record any constraints: [FILL]
+- Profile/intro length limits: TBD_UI (verify in GitHub Sponsors profile editor UI)
+- Allowed links: (repo/demo/tip page) usually OK, but record any constraints: TBD_UI (verify in GitHub Sponsors profile editor UI)
 - Recommended call-to-action text to reuse: see `github-sponsors-profile-copy_EN.md`
 
 ---
