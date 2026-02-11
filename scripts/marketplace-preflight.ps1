@@ -67,6 +67,7 @@ if (Test-Path -LiteralPath $assetsIndex -PathType Leaf) {
   Write-Host ('WARN: missing file (skip check): ' + $assetsIndex)
 }
 
+
 Write-Host '\n=== Docs naming consistency check (docs/marketplace) ==='
 $marketplaceRoot = Join-Path $repoRoot 'docs\marketplace'
 if (Test-Path -LiteralPath $marketplaceRoot -PathType Container) {
