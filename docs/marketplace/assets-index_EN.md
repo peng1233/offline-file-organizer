@@ -11,10 +11,23 @@ This file is intentionally:
 
 ## Common demo assets (from this repo)
 
-Use these as your default "show, don't tell" assets:
+Use these as your default "show, don't tell" assets.
 
-- Lite demo screenshot (PNG): `docs/assets/lite-demo.png`
+### Recommended (top 3)
+
+1) **Cover image (Fiverr / listings):** `docs/assets/fiverr-cover.png`
+   - Suggested title/caption: "Offline File Organizer (Privacy-first)" / "Rename files in bulk - works offline"
+
+2) **Real UI screenshot (most convincing):** `docs/assets/lite-demo-real.png`
+   - Suggested title/caption: "Demo - preview renamed files" / "Export or copy CSV rename plan"
+
+3) **Lite demo screenshot (simple + clean):** `docs/assets/lite-demo.png`
+   - Suggested title/caption: "Fully offline-capable (Lite mode)" / "No uploads, files stay on your device"
+
+### Optional
+
 - Lite demo GIF (if present): `docs/assets/lite-demo.gif`
+  - Suggested title/caption: "30-second walkthrough" / "Pick folder -> preview -> export/copy CSV"
 
 Live demo entry points:
 - Main: https://peng1233.github.io/offline-file-organizer/
@@ -75,7 +88,7 @@ Images:
 - Max file size: < 10 MB per image
 - Aspect ratio: 4:3
 - Max dimension: no larger than 4000 px (width or height)
-- Display size hint: should look sharp at 1000 x 750 px (that’s how it appears in Project Catalog)
+- Display size hint: should look sharp at 1000 x 750 px (that's how it appears in Project Catalog)
 - Max count: up to 20 images per project
 
 Video:
