@@ -74,8 +74,38 @@ if (Test-Path -LiteralPath $assetsIndex -PathType Leaf) {
 }
 
 
-Write-Host '\n=== Docs naming consistency check (docs/marketplace) ==='
+Write-Host '\n=== Marketplace docs placeholder scan (docs/marketplace/*.md) ==='
 $marketplaceRoot = Join-Path $repoRoot 'docs\marketplace'
+if (Test-Path -LiteralPath $marketplaceRoot -PathType Container) {
+  $mdFiles = Get-ChildItem -LiteralPath $marketplaceRoot -File -Filter '*.md' | Select-Object -ExpandProperty FullName
+  $patterns2 = @(
+    @{ Name = '[FILL]'; Pattern = '\[FILL\]' },
+    @{ Name = 'TBD_UI'; Pattern = '\bTBD_UI\b' }
+  )
+
+  foreach ($p in $patterns2) {
+    $hits = Select-String -LiteralPath $mdFiles -Pattern $p.Pattern
+    $count = if ($hits) { $hits.Count } else { 0 }
+    if ($count -gt 0) {
+      Write-Host ('WARN: Found ' + $count + ' occurrence(s) of ' + $p.Name + ' across docs/marketplace/*.md')
+      $hits | Select-Object -First 12 | ForEach-Object {
+        $rel = $_.Path
+        try { $rel = Resolve-Path -LiteralPath $_.Path -Relative } catch {}
+        Write-Host ('  ' + $rel + ':' + $_.LineNumber + ' ' + $_.Line.Trim())
+      }
+      if ($count -gt 12) {
+        Write-Host ('  ... (' + ($count - 12) + ' more)')
+      }
+    } else {
+      Write-Host ('OK: no ' + $p.Name + ' placeholders found in docs/marketplace/*.md')
+    }
+  }
+} else {
+  Write-Host ('WARN: missing folder: ' + $marketplaceRoot)
+}
+
+
+Write-Host '\n=== Docs naming consistency check (docs/marketplace) ==='
 if (Test-Path -LiteralPath $marketplaceRoot -PathType Container) {
   $files = Get-ChildItem -LiteralPath $marketplaceRoot -File -Filter '*.md' | Select-Object -ExpandProperty Name
   $lowerSet = @{}
