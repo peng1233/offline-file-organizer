@@ -351,7 +351,7 @@
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           await navigator.clipboard.writeText(text);
-          setMsg('ok', '已复制清单（CSV）到剪贴板。');
+          setMsg('ok', `已复制清单（CSV）到剪贴板。（${files.length} 条）`);
           return;
         }
       } catch (e) {
@@ -371,7 +371,7 @@
 
         const r2 = document.createElement('div');
         r2.className = ok ? 'ok' : 'warn';
-        r2.textContent = ok ? '已复制清单（CSV）到剪贴板。' : '自动复制失败：请在下方文本框手动 Ctrl+C 复制，或改用“导出清单（CSV）”。';
+        r2.textContent = ok ? `已复制清单（CSV）到剪贴板。（${files.length} 条）` : '自动复制失败：请在下方文本框手动 Ctrl+C 复制，或改用“导出清单（CSV）”。';
         msgEl.insertBefore(r2, ta);
 
         ta.focus();
@@ -398,7 +398,7 @@
       a.click();
       setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
 
-      setMsg('ok', '已导出清单：rename-manifest.csv');
+      setMsg('ok', `已导出清单：rename-manifest.csv（${files.length} 条）`);
     });
 
     $('build').addEventListener('click', async () => {
