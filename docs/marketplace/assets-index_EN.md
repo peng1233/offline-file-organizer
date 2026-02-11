@@ -70,11 +70,11 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
 - FAQ: max items [FILL]; max chars per item [FILL]
 - Requirements/questions: max items [FILL]
 
-### Link policy (practical)
+### Link policy (practical + safety)
 - Allowed to include GitHub repo link in description? [FILL]
 - Allowed to include live demo link (GitHub Pages)? [FILL]
 - Allowed to include donation link (BTC tip page)? [FILL]
-  - If unclear, **do not include** donation link on the platform page; keep it only in GitHub README.
+  - Safe default: **do not include** donation/tip links on Fiverr pages unless the policy is clearly OK; keep it only in GitHub README.
 
 ---
 
