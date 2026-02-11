@@ -13,3 +13,7 @@ If you share 2–3 sample filenames + your rule (pattern/replace), I’ll send a
 Hi! I can help you batch-rename/organize files fast. Deliverable: a simple offline tool + a reproducible rename plan (CSV) so you can audit results before applying. Works on Windows/macOS in the browser.
 
 Reply with: your target naming format + 5 example files, and I’ll propose the exact rules + timeline.
+
+## Variant C (300-400 chars, maximum concise)
+
+Hi! I can build an offline (no-upload) browser tool to batch-rename your files with preview + conflict checks, and export/copy the rename plan as CSV. Optional ZIP download, with per-file fallback. Share 5 sample names + your rule, and I’ll send a working demo + checklist within 24h.
