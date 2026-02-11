@@ -54,13 +54,13 @@ Notes:
 Fill these after checking the Fiverr gig creation UI (limits can change).
 
 ### Media uploads
-- Gig gallery image (source: Fiverr Help Center snippets / Google SERP check):
+- Gig gallery image (source: Fiverr Help Center "Creating a Gig" > Step 5: Gallery > Images: https://help.fiverr.com/hc/en-us/articles/360010451397-Creating-a-Gig ):
   - Allowed formats: JPG / PNG
   - Recommended resolution: 1280 x 769 px (72 DPI)
   - Minimum resolution: 712 x 430 px
   - Maximum resolution: 4000 x 2416 px
   - Max file size: 5 MB
-  - Count limit: TBD_UI (verify in Fiverr Gig editor UI)
+  - Count limit: **at least 1 image** and **up to 3 images** (source above)
 - GIF/video:
   - Allowed: TBD_UI (verify in Fiverr Gig editor UI)
   - Max duration: TBD_UI (verify in Fiverr Gig editor UI)
