@@ -65,7 +65,7 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
   - Max file size: [FILL]
 
 ### Text limits
-- Title max chars: [FILL]
+- Title max chars: 80 (ref: https://homeearningtip.tistory.com/110)
 - Description max chars: [FILL]
 - FAQ: max items [FILL]; max chars per item [FILL]
 - Requirements/questions: max items [FILL]
