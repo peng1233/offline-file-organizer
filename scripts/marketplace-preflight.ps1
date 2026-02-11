@@ -64,6 +64,8 @@ if (Test-Path -LiteralPath $assetsIndex -PathType Leaf) {
 
   if ($any) {
     Write-Host 'WARN: preflight continues; resolve placeholders before final platform copy/paste.'
+    Write-Host 'TIP: Generate a focused checklist report with:'
+    Write-Host '  powershell -NoProfile -File scripts/marketplace-tbd-ui-report.ps1'
   } else {
     Write-Host 'OK: assets-index_EN.md contains no placeholder markers'
   }
