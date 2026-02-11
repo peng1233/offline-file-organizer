@@ -45,6 +45,12 @@ How to create GIF/screenshots on Windows:
 Asset index (what to upload where):
 - `assets-index_EN.md`
 
+Demo asset checklist (one page, copy/paste friendly):
+- `demo-assets-checklist.md`
+
+Raw links index for images/GIF (easy to paste into platform galleries):
+- `..\assets\README.md`
+
 ## Naming notes
 
 - Files ending with `_EN` are English-first.
