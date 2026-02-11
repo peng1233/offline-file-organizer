@@ -6,7 +6,7 @@
 ## Quick start
 Open `index.html` in your browser.
 
-Tip: Before downloading the ZIP, you can export a CSV manifest (old_name/new_name/size_bytes) for preview, QA, and easy rollback.
+Tip: Before downloading the ZIP, you can export a CSV manifest (old_name/new_name/size_bytes) for preview, QA, and easy rollback. You can also click **Copy CSV**. If clipboard permission is blocked (common under file://), the page will show a textarea fallback so you can Ctrl+C manually.
 
 Windows:
 - Double-click `open.cmd` for the **quick file://** open (fastest, but some browsers restrict folder picking under `file://`).
