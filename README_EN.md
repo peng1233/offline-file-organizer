@@ -10,6 +10,26 @@ Tip: Before downloading the ZIP, you can export a CSV manifest (old_name/new_nam
 
 Windows: you can also double-click `open.cmd` to open the main version (note: some browsers restrict folder picking under `file://`; if you hit that, use the localhost method below).
 
+`open.cmd` also supports command line options (help):
+
+```bat
+open.cmd -help
+```
+
+Common examples:
+- Open Lite: `open.cmd -Lite`
+- Open via localhost (more permissions/features): `open.cmd -Server`
+- Custom port: `open.cmd -Server -Port 5174`
+- Start server without auto-opening browser: `open.cmd -Server -NoOpen`
+
+If you already have Node.js installed, you can also start via PowerShell (recommended on Windows):
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\open.ps1 -Server
+# Lite:
+# powershell -NoProfile -ExecutionPolicy Bypass -File .\open.ps1 -Server -Lite
+```
+
 If you need **folder/directory picking** (File System Access API), some browsers restrict this under `file://`. Use the built-in local server and open via `http://localhost`:
 
 ```bash
