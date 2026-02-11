@@ -47,6 +47,9 @@
 演示素材清单（截图/录屏/GIF 规划）
 - docs/marketplace/demo-assets-checklist.md
 
+（模板）Upwork Project Catalog 三档套餐（可复制粘贴）
+- docs/marketplace/upwork-project-catalog.md
+
 （模板）项目范围 / 验收标准 / 风险 / 回滚
 - docs/marketplace/project-scope-template.md
 
