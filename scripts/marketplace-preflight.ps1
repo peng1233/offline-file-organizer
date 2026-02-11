@@ -38,6 +38,23 @@ if (-not $SkipPython) {
   Write-Host '\n(Skipped) Python scan'
 }
 
+Write-Host '\n=== Marketplace assets-index [FILL] placeholder check ==='
+$assetsIndex = Join-Path $repoRoot 'docs\marketplace\assets-index_EN.md'
+if (Test-Path -LiteralPath $assetsIndex -PathType Leaf) {
+  $hits = Select-String -LiteralPath $assetsIndex -Pattern '\[FILL\]' -AllMatches
+  if ($hits) {
+    Write-Host ('WARN: Found [FILL] placeholders in: ' + $assetsIndex)
+    foreach ($h in $hits) {
+      Write-Host ('  line ' + $h.LineNumber + ': ' + $h.Line.Trim())
+    }
+    Write-Host 'WARN: preflight continues; fill these before final platform copy/paste.'
+  } else {
+    Write-Host 'OK: assets-index_EN.md contains no [FILL] placeholders'
+  }
+} else {
+  Write-Host ('WARN: missing file (skip check): ' + $assetsIndex)
+}
+
 Write-Host '\n=== Docs naming consistency check (docs/marketplace) ==='
 $marketplaceRoot = Join-Path $repoRoot 'docs\marketplace'
 if (Test-Path -LiteralPath $marketplaceRoot -PathType Container) {
