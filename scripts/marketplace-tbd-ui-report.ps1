@@ -93,7 +93,7 @@ if ($hits.Count -eq 0) {
 } else {
   $linesOut.Add('## Hits')
   $linesOut.Add('')
-  $linesOut.Add('- Format: kind | line | context | text')
+  $linesOut.Add('- Format: kind | location | context | text')
   $linesOut.Add('')
 
   $hitsSorted = $hits | Sort-Object -Property @(
@@ -105,7 +105,9 @@ if ($hits.Count -eq 0) {
     $ctx = GetHeadingContext $h
     $text = ($h.Line.Trim())
     if ($text.Length -gt 220) { $text = $text.Substring(0, 220) + ' ...' }
-    $linesOut.Add(('- ' + $h.Kind + ' | line ' + $h.LineNumber + ' | ' + $ctx + ' | ' + $text))
+
+    $loc = ($In.Replace('\\','/') + ':' + $h.LineNumber)
+    $linesOut.Add(('- ' + $h.Kind + ' | ' + $loc + ' | ' + $ctx + ' | ' + $text))
 
     if ($ContextLines -gt 0) {
       $start = [Math]::Max(0, ($h.LineNumber - 1) - $ContextLines)
