@@ -65,8 +65,8 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
   - Max file size: [FILL]
 
 ### Text limits
-- Title max chars: 80 (ref: https://homeearningtip.tistory.com/110)
-- Description max chars: [FILL]
+- Title max chars: **80** (community references; e.g. https://homeearningtip.tistory.com/110)
+- Description max chars: **1,200** (Fiverr Help Center search snippet: “Description field… up to 1,200 characters”; see search results: https://help.fiverr.com/hc/en-us/search?query=Creating%20a%20Gig%201%2C200%20characters )
 - FAQ: max items [FILL]; max chars per item [FILL]
 - Requirements/questions: max items [FILL]
 
@@ -171,4 +171,5 @@ If you don't want to research limits right now, these defaults usually work acro
 
 ## Changelog
 
+- 2026-02-11: filled Fiverr title/description limits (80 / 1,200) with Help Center search snippet references
 - 2026-02-10: created (template + common asset pointers)
