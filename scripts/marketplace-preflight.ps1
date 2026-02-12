@@ -68,6 +68,8 @@ if (Test-Path -LiteralPath $assetsIndex -PathType Leaf) {
     Write-Host '  powershell -NoProfile -File scripts/marketplace-tbd-ui-report.ps1'
     Write-Host 'TIP: Or print only the next placeholder (one-item workflow):'
     Write-Host '  powershell -NoProfile -File scripts/marketplace-tbd-ui-report.ps1 -PrintNext'
+    Write-Host 'TIP: If the next item requires platform UI verification, you can skip it and print the next one:'
+    Write-Host "  powershell -NoProfile -File scripts/marketplace-tbd-ui-report.ps1 -PrintNext -SkipRegex 'verify in .* UI'"
   } else {
     Write-Host 'OK: assets-index_EN.md contains no placeholder markers'
   }

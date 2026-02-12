@@ -3,7 +3,10 @@ param(
   [string]$Out = 'docs/marketplace/tbd-ui-report_EN.md',
   [int]$ContextLines = 0,
   # Print only the next placeholder item (single line), useful for “one tiny improvement per round” loops.
-  [switch]$PrintNext
+  [switch]$PrintNext,
+  # Optional regex: when -PrintNext is set, skip placeholders whose text matches this regex.
+  # Example: -SkipRegex 'verify in .* UI'
+  [string]$SkipRegex = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -93,10 +96,28 @@ if ($PrintNext) {
     exit 0
   }
 
-  $next = ($hits | Sort-Object -Property @(
+  $hitsSorted = ($hits | Sort-Object -Property @(
     @{ Expression = 'Kind'; Ascending = $true },
     @{ Expression = 'LineNumber'; Ascending = $true }
-  ) | Select-Object -First 1)
+  ))
+
+  $next = $null
+  foreach ($h in $hitsSorted) {
+    if ($SkipRegex) {
+      try {
+        if ($h.Line -match $SkipRegex) { continue }
+      } catch {
+        throw ('Invalid -SkipRegex: ' + $SkipRegex)
+      }
+    }
+    $next = $h
+    break
+  }
+
+  if (-not $next) {
+    Write-Host 'NEXT_OK: No placeholders left after applying -SkipRegex.'
+    exit 0
+  }
 
   $loc = ($In.Replace('\\','/') + ':' + $next.LineNumber)
   $ctx = GetHeadingContext $next
