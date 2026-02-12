@@ -68,8 +68,8 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
     - Max file size: **< 50 MB**
     - Orientation: **landscape** mode
     - Count limit: **1 video** (best-effort from official wording: Help Center uses singular phrasing like "the video you upload" in the Gallery tab steps; still verify in the Gig editor UI if Fiverr changes this)
-  - GIF: TBD_UI (verify in Fiverr Gig editor UI)
-  - Note: The Help Center article above specifies the video technical requirements, but does not explicitly mention GIF; verify GIF specifically in the Fiverr Gig editor UI if you plan to upload a GIF.
+  - GIF: **supported** (Fiverr Help Center search quick answer: https://help.fiverr.com/hc/en-us/search?query=gig%20gallery%20gif )
+    - Note: Fiverr’s quick answer describes how to include GIFs via the Gig editor (Gallery tab + tagging). **Limits/size** are not stated there; verify the exact GIF file specs in the Fiverr Gig editor UI.
   - Image/thumbnail guidelines (official source): "Guidelines for selecting Gig images" https://help.fiverr.com/hc/en-us/articles/15863342952977-Guidelines-for-selecting-Gig-images
     - Note from Fiverr: guidelines are also applied to **videos** and **audio thumbnails**.
 
