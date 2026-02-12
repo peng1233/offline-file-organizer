@@ -102,6 +102,19 @@ if ($PrintNext) {
   $ctx = GetHeadingContext $next
   $text = $next.Line.Trim()
   Write-Host ('NEXT: ' + $next.Kind + ' | ' + $loc + ' | ' + $ctx + ' | ' + $text)
+
+  if ($ContextLines -gt 0) {
+    $start = [Math]::Max(0, ($next.LineNumber - 1) - $ContextLines)
+    $end = [Math]::Min($linesIn.Length - 1, ($next.LineNumber - 1) + $ContextLines)
+    for ($j = $start; $j -le $end; $j++) {
+      if ($j -eq ($next.LineNumber - 1)) { continue }
+      $ctxLine = $linesIn[$j].Trim()
+      if ($ctxLine -eq '') { continue }
+      if ($ctxLine.Length -gt 220) { $ctxLine = $ctxLine.Substring(0, 220) + ' ...' }
+      Write-Host ('CTX: ' + ($In.Replace('\\','/') + ':' + ($j + 1)) + ' | ' + $ctxLine)
+    }
+  }
+
   exit 0
 }
 
