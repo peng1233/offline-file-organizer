@@ -91,6 +91,21 @@ if ($hits.Count -eq 0) {
   $linesOut.Add('REPORT_OK')
   $linesOut.Add('')
 } else {
+  $linesOut.Add('## Summary')
+  $linesOut.Add('')
+  $linesOut.Add('- By kind:')
+  foreach ($g in ($hits | Group-Object Kind | Sort-Object Name)) {
+    $linesOut.Add(('  - ' + $g.Name + ': ' + $g.Count))
+  }
+  $linesOut.Add('')
+  $linesOut.Add('- By platform (H2):')
+  foreach ($g in ($hits | Group-Object H2 | Sort-Object Name)) {
+    $name = $g.Name
+    if (-not $name) { $name = '(no H2)' }
+    $linesOut.Add(('  - ' + $name + ': ' + $g.Count))
+  }
+  $linesOut.Add('')
+
   $linesOut.Add('## Hits')
   $linesOut.Add('')
   $linesOut.Add('- Format: kind | location | context | text')
