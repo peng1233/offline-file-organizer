@@ -67,7 +67,7 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
     - Max duration: **up to 75 seconds** (1:15)
     - Max file size: **< 50 MB**
     - Orientation: **landscape** mode
-    - Count limit: TBD_UI (verify in Fiverr Gig editor UI)
+    - Count limit: **1 video** (best-effort from official wording: Help Center uses singular phrasing like "the video you upload" in the Gallery tab steps; still verify in the Gig editor UI if Fiverr changes this)
   - GIF: TBD_UI (verify in Fiverr Gig editor UI)
   - Note: The Help Center article above specifies the video technical requirements, but does not explicitly mention GIF; verify GIF specifically in the Fiverr Gig editor UI if you plan to upload a GIF.
 
