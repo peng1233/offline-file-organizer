@@ -24,6 +24,7 @@ Short version (EN, 100–200 words): `docs/marketplace/one-pager-short_EN.md`
 
 **Try it**
 - GitHub repo: https://github.com/peng1233/offline-file-organizer
+- Lite tool (direct): https://peng1233.github.io/offline-file-organizer/lite/
 - Lite tool entry: https://peng1233.github.io/offline-file-organizer/ (click **Lite**)
 
 **Screenshot**
