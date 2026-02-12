@@ -70,6 +70,8 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
     - Count limit: **1 video** (best-effort from official wording: Help Center uses singular phrasing like "the video you upload" in the Gallery tab steps; still verify in the Gig editor UI if Fiverr changes this)
   - GIF: TBD_UI (verify in Fiverr Gig editor UI)
   - Note: The Help Center article above specifies the video technical requirements, but does not explicitly mention GIF; verify GIF specifically in the Fiverr Gig editor UI if you plan to upload a GIF.
+  - Image/thumbnail guidelines (official source): "Guidelines for selecting Gig images" https://help.fiverr.com/hc/en-us/articles/15863342952977-Guidelines-for-selecting-Gig-images
+    - Note from Fiverr: guidelines are also applied to **videos** and **audio thumbnails**.
 
 ### Text limits
 - Title max chars: **80** (community references; e.g. https://homeearningtip.tistory.com/110)
