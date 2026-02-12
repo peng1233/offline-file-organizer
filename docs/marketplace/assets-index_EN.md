@@ -79,6 +79,12 @@ Fill these after checking the Fiverr gig creation UI (limits can change).
   - Ready-to-paste text: `docs/marketplace/fiverr-requirements-questions_EN.md`
 - Ready-to-paste gig copy (title/tags/description/FAQ): `docs/marketplace/fiverr-gig-copy_EN.md`
 
+### Other known Fiverr constraints
+- Max number of Gigs allowed (source: Fiverr Help Center "Creating a Gig" > "Number of Gigs allowed": https://help.fiverr.com/hc/en-us/articles/360010451397-Creating-a-Gig )
+  - New: **4**
+  - Level 1 & 2: **10**
+  - Top Rated: **30**
+
 ### Link policy (practical + safety)
 - Allowed to include GitHub repo link in description? TBD_UI (verify in Fiverr policy/UI)
 - Allowed to include live demo link (GitHub Pages)? TBD_UI (verify in Fiverr policy/UI)
