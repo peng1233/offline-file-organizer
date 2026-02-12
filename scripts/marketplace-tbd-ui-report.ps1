@@ -1,7 +1,9 @@
 param(
   [string]$In = 'docs/marketplace/assets-index_EN.md',
   [string]$Out = 'docs/marketplace/tbd-ui-report_EN.md',
-  [int]$ContextLines = 0
+  [int]$ContextLines = 0,
+  # Print only the next placeholder item (single line), useful for “one tiny improvement per round” loops.
+  [switch]$PrintNext
 )
 
 $ErrorActionPreference = 'Stop'
@@ -84,6 +86,24 @@ $linesOut.Add('')
 $linesOut.Add(('Input: ' + $In.Replace('\\','/')))
 $linesOut.Add(('Total hits: ' + $hits.Count))
 $linesOut.Add('')
+
+if ($PrintNext) {
+  if ($hits.Count -eq 0) {
+    Write-Host 'NEXT_OK: No placeholders found.'
+    exit 0
+  }
+
+  $next = ($hits | Sort-Object -Property @(
+    @{ Expression = 'Kind'; Ascending = $true },
+    @{ Expression = 'LineNumber'; Ascending = $true }
+  ) | Select-Object -First 1)
+
+  $loc = ($In.Replace('\\','/') + ':' + $next.LineNumber)
+  $ctx = GetHeadingContext $next
+  $text = $next.Line.Trim()
+  Write-Host ('NEXT: ' + $next.Kind + ' | ' + $loc + ' | ' + $ctx + ' | ' + $text)
+  exit 0
+}
 
 if ($hits.Count -eq 0) {
   $linesOut.Add('OK: No placeholders found.')
